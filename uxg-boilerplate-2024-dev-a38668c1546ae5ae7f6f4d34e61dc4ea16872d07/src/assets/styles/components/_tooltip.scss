@@ -1,0 +1,135 @@
+@use "../abstracts" as *;
+
+.component-tooltip {
+  position: relative;
+  display: inline-flex;
+  @include rem(width, 200);
+  + .component-tooltip {
+    @include rem(margin-top, 100);
+  }
+
+  &[data-props-position="bottom"] {
+    .tooltip-container {
+      @include rem(top, calc(100% + 20px));
+      @include rem(right, auto);
+      @include rem(bottom, auto);
+      @include rem(left, 50%);
+      @include rem(transform, translateX(-50%));
+      &::before {
+        @include rem(top, -10);
+        @include rem(right, auto);
+        @include rem(bottom, auto);
+        @include rem(left, 50%);
+        @include rem(width, 24);
+        @include rem(height, 14);
+        clip-path: polygon(50% 0, 100% 100%, 0 100%);
+        @include rem(transform, translateX(-50%));
+      }
+    }
+  }
+  &[data-props-position="right"] {
+    .tooltip-container {
+      @include rem(top, 50%);
+      @include rem(right, auto);
+      @include rem(bottom, auto);
+      @include rem(left, calc(100% + 30px));
+      @include rem(transform, translateY(-50%));
+      &::before {
+        @include rem(top, 50%);
+        @include rem(right, auto);
+        @include rem(bottom, auto);
+        @include rem(left, -10);
+        @include rem(transform, translateY(-50%));
+        @include rem(width, 14);
+        @include rem(height, 24);
+        clip-path: polygon(100% 0, 100% 100%, 0 50%);
+      }
+    }
+  }
+  &[data-props-position="left"] {
+    .tooltip-container {
+      @include rem(top, 50%);
+      @include rem(right, calc(100% + 30px));
+      @include rem(bottom, auto);
+      @include rem(left, auto);
+      @include rem(transform, translateY(-50%));
+      &::before {
+        @include rem(top, 50%);
+        @include rem(right, -10);
+        @include rem(bottom, auto);
+        @include rem(left, auto);
+        @include rem(transform, translateY(-50%));
+        @include rem(width, 14);
+        @include rem(height, 24);
+        clip-path: polygon(0 100%, 100% 50%, 0 0);
+      }
+    }
+  }
+
+  &[data-props-position="top"] {
+    .tooltip-container {
+      @include rem(top, auto);
+      @include rem(right, auto);
+      @include rem(bottom, calc(100% + 20px));
+      @include rem(left, 50%);
+      @include rem(transform, translateX(-50%));
+      &::before {
+        @include rem(top, auto);
+        @include rem(right, auto);
+        @include rem(bottom, -10);
+        @include rem(left, 50%);
+        @include rem(width, 24);
+        @include rem(height, 14);
+        @include rem(transform, translateX(-50%));
+        clip-path: polygon(100% 0, 0 0, 50% 100%);
+      }
+    }
+  }
+}
+.tooltip-btn {
+  @include rem(width, 200);
+  @include rem(height, 40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include rem(border, 1px solid #cccccc);
+  @include rem(border-radius, 3);
+  @include f18;
+}
+
+.tooltip-container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  @include rem(padding, 16);
+  @include rem(width, 400);
+  @include rem(height, 100);
+  background-color: $bg-000000;
+  opacity: 0.8;
+  @include f16;
+  @include rem(border-radius, 5);
+  z-index: 1;
+  &.show {
+    display: flex;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    background-color: $bg-000000;
+  }
+  p {
+    color: $font-ffffff;
+    @include rem(padding, 0 16);
+  }
+  .btn-close {
+    position: absolute;
+    @include rem(top, 8);
+    @include rem(right, 8);
+    @include rem(width, 16);
+    @include rem(height, 16);
+    cursor: pointer;
+    background: url("data:image/svg+xml,%3Csvg%20width%3D%2724%27%20height%3D%2724%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20fill-rule%3D%27evenodd%27%20clip-rule%3D%27evenodd%27%20d%3D%27M13.5647%2011.9997L20.9991%204.56517L19.434%203L11.9996%2010.4345L4.56572%203.00055L3.00058%204.56572L10.4344%2011.9997L3%2019.4343L4.56514%2020.9995L11.9996%2013.5649L19.4346%2021L20.9997%2019.4348L13.5647%2011.9997Z%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E")
+      no-repeat 0 0 / 100% auto;
+  }
+}

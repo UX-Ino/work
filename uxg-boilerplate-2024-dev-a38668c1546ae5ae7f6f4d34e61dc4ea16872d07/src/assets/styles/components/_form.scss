@@ -1,0 +1,166 @@
+@use "../abstracts" as *;
+
+/* component form */
+.component-form {
+  // form 공통 - label 영역
+  .form-label {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .label-txt {
+      flex: 1 0 auto;
+      @include f18();
+    }
+    .label-util {
+    }
+  }
+  .form-sub-txt {
+    width: 100%;
+  }
+
+  // form 공통 - row 영역
+  .form-row {
+    display: flex;
+
+    .component-input {
+      width: 100%;
+    }
+
+    .form-auto {
+      width: auto;
+    }
+
+    // form 공통 - col 영역
+    [class^="form-col"] {
+      display: flex;
+      .input-label {
+        @include rem(height, 30);
+        .label-txt {
+          @include f16();
+        }
+      }
+      .input-field {
+        @include rem(margin-top, 38);
+      }
+      .input-label + .input-field {
+        @include rem(margin-top, 8);
+      }
+    }
+
+    // form row - col 2
+    &.two-col {
+      @include flex-grid((1, 1), 1rem);
+    }
+
+    // form row - col 3
+    &.three-col {
+      @include flex-grid((1, 1, 1), 1rem);
+    }
+
+    // form row - col 4
+    &.four-col {
+      @include flex-grid((1, 1, 1, 1), 1rem);
+    }
+
+    // form row - col 5
+    &.five-col {
+      @include flex-grid((1, 1, 1, 1, 1), 1rem);
+    }
+
+    // form row - col 비율 2:1
+    &.ratio-2-1 {
+      @include flex-grid((2, 1), 1rem);
+    }
+
+    // form row - col 비율 3:3:1
+    &.ratio-3-3-1 {
+      @include flex-grid((3, 3, 1), 1rem);
+    }
+
+    // form row - col 비율 4:3:2:1
+    &.ratio-4-3-2-1 {
+      @include flex-grid((4, 3, 2, 1), 1rem);
+    }
+  }
+
+  // form 공통 - 가운데 정렬
+  .align-center {
+    justify-content: center;
+  }
+
+  // form 공통 - 오른쪽 정렬
+  .align-right {
+    justify-content: flex-end;
+  }
+
+  // form 공통 - 정보 영역
+  .form-info {
+    @include f12();
+  }
+
+  // form 컨텐츠 간격
+  & + .component-form {
+    @include rem(margin-top, 40);
+  }
+  .form-label {
+    & + .form-row {
+      @include rem(margin-top, 40);
+    }
+  }
+  .form-row {
+    & + .form-row {
+      @include rem(margin-top, 30);
+    }
+    & + .form-info {
+      @include rem(margin-top, 40);
+    }
+  }
+
+  // form 상태 - 비활성화
+  &.form-disabled {
+    .input-field {
+      background: gray;
+      input {
+        background: lightgray;
+      }
+    }
+  }
+
+  // form 상태 - 읽기 전용
+  &.form-readonly {
+    .input-field {
+      background: gray;
+      input {
+        background: lightgray;
+      }
+    }
+  }
+
+  // form 유효성 검사 - 성공
+  &.form-valid {
+    .input-field {
+      border: 1px solid green;
+    }
+    .form-info {
+      color: green;
+    }
+  }
+
+  // form 유효성 검사 - 에러
+  &.form-invalid {
+    .input-field {
+      border: 1px solid red;
+    }
+    .form-info {
+      color: red;
+    }
+  }
+
+  // form 유효성 검사 - 필수 입력
+  &.form-required {
+    .ico-required-mark {
+      color: red;
+    }
+  }
+}

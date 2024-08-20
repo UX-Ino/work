@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Tab</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="pathStyles/style.css" type="text/css" rel="stylesheet" />
+    <script src="pathScripts/common.ui.plugin.js"></script>
+    <script src="pathScripts/common.ui.js" data-init></script>
+    <script src="pathScripts/common.js"></script>
+    @@include('pathGuideInclude/_element_head.html')
+  </head>
+
+  <body>
+    <div id="wrap" style="max-width: 1440px; margin: 0 auto">
+      <!-- @@include('_header.html', { "title": "test_title01", "title02": "test_title02" }) -->
+      @@include('pathGuideInclude/_element_menu.html')
+
+      <div class="pageClassMain uxg-page-container-main" id="container">
+        <div id="content" role="main" style="font-size: 1.2rem">
+          <div class="prototype-group">
+            <div class="prototype-tit"> Tab </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Tab : <span>Basic</span> </h3>
+              <!-- Tab -->
+              <div class="component-tab" data-component="tab" data-active-value="tab1">
+                <div class="tab-head">
+                  <button type="button" class="tab-label" data-tab-value="tab1"> <span>1234</span> TAb1 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab3"> TAb3 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab2"> TAb2 </button>
+                </div>
+                <div class="tab-body">
+                  <div class="tab-content" data-tab-value="tab1">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 1 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab2">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 2 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab3">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 3 </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Tab -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">type-double : <span>탭인탭</span></h3>
+
+              <!-- Tab -->
+              <div class="component-tab" data-component="tab" data-active="tab3">
+                <div class="tab-head">
+                  <button type="button" class="tab-label" data-tab-value="tab1">Tab1</button>
+                  <button type="button" class="tab-label" data-tab-value="tab2">Tab2</button>
+                  <button type="button" class="tab-label" data-tab-value="tab3">Tab3</button>
+                </div>
+                <div class="tab-body">
+                  <div class="component-tab tab-content" data-component="tab" data-tab-value="tab1" data-active="tab1-2">
+                    <div class="tab-head">
+                      <button type="button" class="tab-label" data-tab-value="tab1-1">Tab1-1</button>
+                      <button type="button" class="tab-label" data-tab-value="tab1-2">Tab1-2</button>
+                      <button type="button" class="tab-label" data-tab-value="tab1-3">Tab1-3</button>
+                    </div>
+                    <div class="tab-body">
+                      <div class="tab-content" data-tab-value="tab1-1">
+                        <p> Tab1-1 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab1-2">
+                        <p> Tab1-2 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab1-3">
+                        <p> Tab1-3 내용 </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-tab tab-content" data-component="tab" data-tab-value="tab2">
+                    <div class="tab-head">
+                      <button type="button" class="tab-label" data-tab-value="tab2-1">Tab2-1</button>
+                      <button type="button" class="tab-label" data-tab-value="tab2-2">Tab2-2</button>
+                      <button type="button" class="tab-label" data-tab-value="tab2-3">Tab2-3</button>
+                    </div>
+                    <div class="tab-body">
+                      <div class="tab-content" data-tab-value="tab2-1">
+                        <p> Tab2-1 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab2-2">
+                        <p> Tab2-2 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab2-3">
+                        <p> Tab2-3 내용 </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-tab tab-content" data-component="tab" data-tab-value="tab3" data-active="tab3-2">
+                    <div class="tab-head">
+                      <button type="button" class="tab-label" data-tab-value="tab3-1">Tab3-1</button>
+                      <button type="button" class="tab-label" data-tab-value="tab3-2">Tab3-2</button>
+                      <button type="button" class="tab-label" data-tab-value="tab3-3">Tab3-3</button>
+                    </div>
+                    <div class="tab-body">
+                      <div class="tab-content" data-tab-value="tab3-1">
+                        <p> Tab3-1 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab3-2">
+                        <p> Tab3-2 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab3-3">
+                        <p> Tab3-3 내용 </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Tab -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Tab : <span>sticky : 0</span> </h3>
+              <!-- Tab -->
+              <!-- data-props-sticky = "dom Element" || "true" -->
+              <div class="component-tab" data-component="tab" data-active-value="tab1" data-props-sticky="true">
+                <div class="tab-head">
+                  <button type="button" class="tab-label" data-tab-value="tab1"> <span>1234</span> TAb1 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab3"> TAb3 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab2"> TAb2 </button>
+                </div>
+                <div class="tab-body">
+                  <div class="tab-content" data-tab-value="tab1">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 1 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab2">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 2 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab3">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 3 </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Tab -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Tab : <span>sticky : ".prototype-tit" .prototype-tit가 fixed 요소 일 때</span> </h3>
+              <!-- Tab -->
+              <!-- data-props-sticky = "dom Element" || "true" -->
+              <div class="component-tab" data-component="tab" data-active-value="tab1" data-props-sticky=".prototype-tit">
+                <div class="tab-head">
+                  <button type="button" class="tab-label" data-tab-value="tab1"> <span>1234</span> TAb1 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab3"> TAb3 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab2"> TAb2 </button>
+                </div>
+                <div class="tab-body">
+                  <div class="tab-content" data-tab-value="tab1">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 1 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab2">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 2 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab3">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 3 </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Tab -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Tab : <span>draggable tab</span> </h3>
+              <!-- Tab -->
+              <div class="component-tab" data-component="tab" data-active-value="tab1">
+                <div class="tab-head hide-scrollbar" style="overflow-x: scroll">
+                  <button type="button" class="tab-label" data-tab-value="tab1" style="flex: 0 0 auto; width: 40rem"> <span>1234</span> TAb1 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab3" style="flex: 0 0 auto; width: 40rem"> TAb3 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab2" style="flex: 0 0 auto; width: 40rem"> TAb2 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab4" style="flex: 0 0 auto; width: 40rem"> TAb4 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab5" style="flex: 0 0 auto; width: 40rem"> TAb5 </button>
+                </div>
+                <div class="tab-body">
+                  <div class="tab-content" data-tab-value="tab1">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 1 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab2">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 2 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab3">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 3 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab4">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 4 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab5">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 5 </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Tab -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Tab : <span>sticky + draggable tab</span> </h3>
+              <!-- Tab -->
+              <div class="component-tab" data-component="tab" data-active-value="tab1" data-props-sticky="true">
+                <div class="tab-head hide-scrollbar" style="overflow-x: scroll">
+                  <button type="button" class="tab-label" data-tab-value="tab1" style="flex: 0 0 auto; width: 40rem"> <span>1234</span> TAb1 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab3" style="flex: 0 0 auto; width: 40rem"> TAb3 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab2" style="flex: 0 0 auto; width: 40rem"> TAb2 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab4" style="flex: 0 0 auto; width: 40rem"> TAb4 </button>
+                  <button type="button" class="tab-label" data-tab-value="tab5" style="flex: 0 0 auto; width: 40rem"> TAb5 </button>
+                </div>
+                <div class="tab-body">
+                  <div class="tab-content" data-tab-value="tab1">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 1 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab2">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 2 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab3">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 3 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab4">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 4 </div>
+                  </div>
+                  <div class="tab-content" data-tab-value="tab5">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 200px"> Tab cnt 5 </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Tab -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">type-double : <span>탭인탭 + sticky sub-tab </span></h3>
+
+              <!-- Tab -->
+              <div class="component-tab" data-component="tab" data-active="tab3">
+                <div class="tab-head">
+                  <button type="button" class="tab-label" data-tab-value="tab1">Tab1</button>
+                  <button type="button" class="tab-label" data-tab-value="tab2">Tab2</button>
+                  <button type="button" class="tab-label" data-tab-value="tab3">Tab3</button>
+                </div>
+                <div class="tab-body">
+                  <div class="component-tab tab-content" data-component="tab" data-tab-value="tab1" data-active="tab1-2" data-props-sticky="true">
+                    <div class="tab-head">
+                      <button type="button" class="tab-label" data-tab-value="tab1-1">Tab1-1</button>
+                      <button type="button" class="tab-label" data-tab-value="tab1-2">Tab1-2</button>
+                      <button type="button" class="tab-label" data-tab-value="tab1-3">Tab1-3</button>
+                    </div>
+                    <div class="tab-body">
+                      <div class="tab-content" data-tab-value="tab1-1" style="height: 200px">
+                        <p> Tab1-1 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab1-2" style="height: 200px">
+                        <p> Tab1-2 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab1-3" style="height: 200px">
+                        <p> Tab1-3 내용 </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-tab tab-content" data-component="tab" data-tab-value="tab2" data-props-sticky="true">
+                    <div class="tab-head">
+                      <button type="button" class="tab-label" data-tab-value="tab2-1">Tab2-1</button>
+                      <button type="button" class="tab-label" data-tab-value="tab2-2">Tab2-2</button>
+                      <button type="button" class="tab-label" data-tab-value="tab2-3">Tab2-3</button>
+                    </div>
+                    <div class="tab-body">
+                      <div class="tab-content" data-tab-value="tab2-1" style="height: 200px">
+                        <p> Tab2-1 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab2-2" style="height: 200px">
+                        <p> Tab2-2 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab2-3" style="height: 200px">
+                        <p> Tab2-3 내용 </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-tab tab-content" data-component="tab" data-tab-value="tab3" data-active="tab3-2" data-props-sticky="true">
+                    <div class="tab-head">
+                      <button type="button" class="tab-label" data-tab-value="tab3-1">Tab3-1</button>
+                      <button type="button" class="tab-label" data-tab-value="tab3-2">Tab3-2</button>
+                      <button type="button" class="tab-label" data-tab-value="tab3-3">Tab3-3</button>
+                    </div>
+                    <div class="tab-body">
+                      <div class="tab-content" data-tab-value="tab3-1" style="height: 200px">
+                        <p> Tab3-1 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab3-2" style="height: 200px">
+                        <p> Tab3-2 내용 </p>
+                      </div>
+                      <div class="tab-content" data-tab-value="tab3-3" style="height: 200px">
+                        <p> Tab3-3 내용 </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Tab -->
+            </div>
+
+            <div style="height: 700px"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- @@include('_footer.html') -->
+    </div>
+  </body>
+</html>

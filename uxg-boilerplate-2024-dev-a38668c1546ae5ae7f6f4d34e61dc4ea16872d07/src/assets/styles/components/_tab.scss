@@ -1,0 +1,59 @@
+@use "../abstracts" as *;
+
+/* component tab */
+.component-tab {
+  // tab 공통 -  head 영역
+  .tab-head {
+    display: flex;
+    align-items: center;
+  }
+
+  // tab 공통 -  label 영역
+  .tab-label {
+    width: 100%;
+    @include rem(padding, 20 0);
+    @include f14;
+    color: black;
+    text-align: center;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    &[aria-selected="true"] {
+      color: blue;
+      @include rem(border-bottom, 2px solid blue);
+    }
+  }
+
+  // tab 공통 -  body 영역
+  .tab-body {
+    position: relative;
+  }
+
+  // tab 공통 -  content 영역
+  .tab-content {
+    display: none;
+    @include f14;
+    color: black;
+    &.show {
+      display: block;
+    }
+    .content-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include rem(padding, 40);
+    }
+  }
+
+  // tab scroll
+  &.tab-scroll {
+    .tab-head {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .tab-label {
+        @include rem(min-width, 400);
+      }
+    }
+  }
+}

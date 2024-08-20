@@ -1,0 +1,86 @@
+@use "../abstracts" as *;
+
+/* component pagination */
+.component-pagination {
+  display: flex;
+  justify-content: center;
+
+  // pagination 공통 - item 영역
+  .pagination-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    @include rem(min-width, 40);
+    @include rem(min-height, 40);
+    @include rem(padding, 0 2);
+    @include f14;
+    color: black;
+    background-color: lightgray;
+    @include rem(border-radius, 4);
+
+    & + .pagination-item {
+      @include rem(margin-left, 8);
+    }
+  }
+
+  // pagination 공통 - 페이지 이동 영역
+  .first,
+  .prev,
+  .next,
+  .last {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    @include rem(background-size, 18 18);
+  }
+  .first {
+    @include ico-nav-first(black);
+  }
+  .prev {
+    @include ico-nav-prev(black);
+  }
+  .next {
+    @include ico-nav-next(black);
+  }
+  .last {
+    @include ico-nav-last(black);
+  }
+}
+
+/* component pagination mini */
+.component-pagination-mini {
+  display: flex;
+  justify-content: center;
+
+  // pagination 공통 - item 영역
+  .pagination-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    @include rem(min-height, 40);
+    @include rem(padding, 0 2);
+    @include f14;
+    color: black;
+  }
+
+  // pagination 공통 - 페이지 이동 영역
+  .prev,
+  .next {
+    @include rem(min-width, 40);
+    @include rem(border-radius, 4);
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    @include rem(background-size, 18 18);
+  }
+  .prev {
+    @include ico-nav-prev(black);
+  }
+  .next {
+    @include ico-nav-next(black);
+  }
+
+  // pagination 공통 - 페이지 노출 영역
+  .pagination-item-group {
+    @include rem(margin, 0 10);
+  }
+}

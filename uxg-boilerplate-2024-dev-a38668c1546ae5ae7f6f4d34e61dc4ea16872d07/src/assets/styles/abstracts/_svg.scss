@@ -1,0 +1,115 @@
+@use "mixins" as *;
+// ******************** code comments ********************
+// svg background-image 변수
+// svg의 사용은 운영을 고려해서 결정해야 함.
+//
+// 믹스인 사용 예제
+// @include ico-x -> default 색상 적용
+// @include ico-x("%23ffffff"); -> 흰색으로 적용
+// #기호를 인코딩한 %23을 넣어줘야 함.
+// ******************** code comments ********************
+
+// icon 기본 변수
+$default-icon-width: 24 !default;
+$default-icon-height: 24 !default;
+$default-icon-color: "%23000000" !default;
+
+// icon 공통 속성 믹스인
+@mixin icon-size($width: $default-icon-width, $height: $default-icon-height, $background-size-width: 100%, $background-size-height: 100%) {
+  @include rem(width, $width);
+  @include rem(height, $height);
+  background-size: $background-size-width $background-size-height;
+}
+
+// SVG 아이콘 믹스인
+@mixin ico-x($color: $default-icon-color) {
+  $ico-x: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3e%3cpath stroke='#{$color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 18 12-12m0 12-12-12'/%3e%3c/svg%3e";
+  background-image: url($ico-x);
+}
+@mixin ico-back($color: $default-icon-color) {
+  $ico-back: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3e%3cpath stroke='#{$color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m15 5-7 7 7 7'/%3e%3c/svg%3e";
+  background-image: url($ico-back);
+}
+@mixin ico-arrow-up($color: $default-icon-color) {
+  $ico-arrow-up: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 15l6-6 6 6'></path></svg>";
+  background-image: url($ico-arrow-up);
+}
+@mixin ico-arrow-down($color: $default-icon-color) {
+  $ico-arrow-down: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 9l-6 6-6-6'></path></svg>";
+  background-image: url($ico-arrow-down);
+}
+@mixin ico-arrow-left($color: $default-icon-color) {
+  $ico-arrow-left: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 18l-6-6 6-6'></path></svg>";
+  background-image: url($ico-arrow-left);
+}
+@mixin ico-arrow-right($color: $default-icon-color) {
+  $ico-arrow-right: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18l6-6-6-6'></path></svg>";
+  background-image: url($ico-arrow-right);
+}
+@mixin ico-share($color: $default-icon-color) {
+  $ico-share: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3e%3cg stroke='#{$color}' stroke-width='1.5'%3e%3cpath d='M9 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z'/%3e%3cpath stroke-linecap='round' d='m13 7.5-4 3m4 6.5-4-3'/%3e%3cpath d='M17 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm0-12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z'/%3e%3c/g%3e%3c/svg%3e";
+  background-image: url($ico-share);
+}
+@mixin ico-search($color: $default-icon-color) {
+  $ico-search: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>";
+  background-image: url($ico-search);
+}
+@mixin ico-check($color: $default-icon-color) {
+  $ico-check: "data:image/svg+xml,%3Csvg width='16' height='11' viewBox='0 0 16 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6.21053L5.50673 9.65574C5.70125 9.84685 6.01362 9.84627 6.20814 9.65516C9.17241 6.7429 10.9389 5.00738 14 2' stroke='#{$color}' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E%0A";
+  background-image: url($ico-check);
+}
+@mixin ico-circle($color: $default-icon-color) {
+  $ico-circle: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='#{$color}'><circle cx='12' cy='12' r='6'></circle></svg>";
+  background-image: url($ico-circle);
+}
+@mixin ico-hamburger($color: $default-icon-color) {
+  $ico-hamburger: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 12h18'></path><path d='M3 6h18'></path><path d='M3 18h18'></path></svg>";
+  background-image: url($ico-hamburger);
+}
+@mixin ico-refresh($color: $default-icon-color) {
+  $ico-refresh: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3e%3cpath fill='#{$color}' d='M19.071 4.929c-3.905-3.905-10.237-3.905-14.142 0A50.851 50.851 0 0 0 3 6.954V4a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H3.874c.513-.617 1.291-1.479 2.47-2.657A8 8 0 0 1 19.8 10.221a1 1 0 0 0 1.95-.442 9.958 9.958 0 0 0-2.68-4.85ZM4.2 13.779a1 1 0 0 0-1.951.442 9.957 9.957 0 0 0 2.68 4.85c3.905 3.905 10.237 3.905 14.142 0A50.767 50.767 0 0 0 21 17.046V20a1 1 0 1 0 2 0v-6a1 1 0 0 0-1-1h-6a1 1 0 1 0 0 2h4.126c-.512.616-1.29 1.478-2.47 2.657A8 8 0 0 1 4.2 13.779Z'/%3e%3c/svg%3e";
+  background-image: url($ico-refresh);
+}
+@mixin ico-password-show($color: $default-icon-color) {
+  $ico-password-show: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'></path><circle cx='12' cy='12' r='3'></circle></svg>";
+  background-image: url($ico-password-show);
+}
+@mixin ico-password-hide($color: $default-icon-color) {
+  $ico-password-hide: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'></path><circle cx='12' cy='12' r='3'></circle><line x1='1' y1='1' x2='23' y2='23'></line></svg>";
+  background-image: url($ico-password-hide);
+}
+@mixin ico-login-id($color: $default-icon-color) {
+  $ico-login-id: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3e%3cg stroke='#{$color}' stroke-width='1.5' clip-path='url(%23a)'%3e%3ccircle cx='12' cy='8' r='4'/%3e%3cpath stroke-linecap='round' d='M19 20s-1.75-5-7-5-7 5-7 5'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+  background-image: url($ico-login-id);
+}
+@mixin ico-login-pw($color: $default-icon-color) {
+  $ico-login-pw: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3e%3cg stroke='#{$color}' stroke-width='1.5' clip-path='url(%23a)'%3e%3cpath d='M5 15c0-2.357 0-3.536.615-4.268C6.23 10 7.22 10 9.2 10h5.6c1.98 0 2.97 0 3.585.732C19 11.464 19 12.643 19 15c0 2.357 0 3.535-.615 4.268C17.77 20 16.78 20 14.8 20H9.2c-1.98 0-2.97 0-3.585-.732C5 18.535 5 17.357 5 15Z'/%3e%3cpath stroke-linecap='round' d='M8 10V8.5C8 6.015 10.047 4 12.572 4a4.6 4.6 0 0 1 2.874 1'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+  background-image: url($ico-login-pw);
+}
+@mixin ico-calendar($color: $default-icon-color) {
+  $ico-calendar: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cpath fill='#{$color}' fill-rule='evenodd' d='M14 4v-.994C14 2.45 13.55 2 12.994 2H11v1h-1V2H6v1H5V2H3.006C2.45 2 2 2.45 2 3.006v9.988C2 13.55 2.45 14 3.006 14h9.988C13.55 14 14 13.55 14 12.994V5H2V4h12Zm-3-3h1.994C14.102 1 15 1.897 15 3.006v9.988A2.006 2.006 0 0 1 12.994 15H3.006A2.007 2.007 0 0 1 1 12.994V3.006C1 1.898 1.897 1 3.006 1H5V0h1v1h4V0h1v1ZM4 7h2v1H4V7Zm3 0h2v1H7V7Zm3 0h2v1h-2V7ZM4 9h2v1H4V9Zm3 0h2v1H7V9Zm3 0h2v1h-2V9Zm-6 2h2v1H4v-1Zm3 0h2v1H7v-1Zm3 0h2v1h-2v-1Z' clip-rule='evenodd'/%3e%3c/svg%3e";
+  background-image: url($ico-calendar);
+}
+@mixin ico-spinner($color: $default-icon-color) {
+  $ico-spinner: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10' fill='none' stroke-opacity='0.5' /><circle cx='12' cy='12' r='10' fill='none' stroke-dasharray='20.94,41.88' stroke-width='2' /></svg>";
+  background-image: url($ico-spinner);
+}
+@mixin ico-nav-first($color) {
+  $ico-nav-first: "data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath d='M11 17L6 12L11 7' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%2F%3E%3Cpath d='M18 17L13 12L18 7' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%2F%3E%3C%2Fsvg%3E";
+  background-image: url($ico-nav-first);
+}
+
+@mixin ico-nav-prev($color) {
+  $ico-nav-prev: "data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath d='M15 18L9 12L15 6' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%2F%3E%3C%2Fsvg%3E";
+  background-image: url($ico-nav-prev);
+}
+
+@mixin ico-nav-next($color) {
+  $ico-nav-next: "data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath d='M9 18L15 12L9 6' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%2F%3E%3C%2Fsvg%3E";
+  background-image: url($ico-nav-next);
+}
+
+@mixin ico-nav-last($color) {
+  $ico-nav-last: "data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath d='M13 17L18 12L13 7' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%2F%3E%3Cpath d='M6 17L11 12L6 7' stroke='#{$color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%2F%3E%3C%2Fsvg%3E";
+  background-image: url($ico-nav-last);
+}

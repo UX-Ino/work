@@ -1,0 +1,122 @@
+@use "../abstracts" as *;
+
+.header {
+  width: 100%;
+  // @include rem(height, 80);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid $line-000000;
+  // background-color: $bg-cccccc;
+  &.on {
+    transform: translate3d(0, -110%, 0);
+    .header-inner {
+    }
+  }
+  .header-inner {
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  // Header top
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    @include rem(padding, 10);
+    .top-list {
+      display: flex;
+      justify-content: start;
+      li {
+        @include rem(margin, 0 5px);
+        a {
+          @include f14;
+        }
+      }
+    }
+  }
+
+  // Header content
+  .header-content {
+    position: relative;
+    width: 100%;
+  }
+
+  // Gnb
+  .gnb-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    @include rem(padding, 10);
+
+    // logo
+    .gnb-logo {
+      .logo {
+        display: inline-block;
+        @include rem(width, 200);
+        @include rem(height, 22);
+        background: #000000 url("pathGuideImages/uxdev_logo.png") no-repeat center;
+        background-size: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: middle;
+        margin: 0;
+      }
+    }
+
+    // gnb
+    .gnb-area {
+      // margin-left: auto;
+      .gnb-list {
+        position: relative;
+        display: flex;
+        .one-depth {
+          @include rem(margin, 0 30);
+          span {
+            @include f18;
+          }
+          .two-depth-list {
+            display: none;
+            position: absolute;
+            top: 18px;
+            left: 0;
+          }
+          &.on {
+            .two-depth-list {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    // User
+    .user {
+      button[class^="btn-"] {
+        display: inline-block;
+        overflow: hidden;
+        @include rem(width, 48);
+        @include rem(height, 48);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        color: transparent;
+        font-size: 1rem;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin: 0;
+        &.btn-login {
+          background-image: url("pathGuideImagesIcon/ico_login.png");
+          background-size: 50%;
+        }
+        &.btn-search {
+          background-image: url("pathGuideImagesIcon/header_search.png");
+        }
+        &.btn-allmenu {
+          background-image: url("pathGuideImagesIcon/header_allmenu.png");
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Snackbar</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="pathStyles/style.css" type="text/css" rel="stylesheet" />
+    <script src="pathGuideScripts/common.ui.js" data-init></script>
+    <script src="pathScripts/common.js"></script>
+    @@include('pathGuideInclude/_element_head.html')
+  </head>
+
+  <body>
+    <div id="wrap" style="max-width: 1440px; margin: 0 auto">
+      <!-- @@include('_header.html', { "title": "test_title01", "title02": "test_title02" }) -->
+      @@include('pathGuideInclude/_element_menu.html')
+
+      <div class="pageClassMain uxg-page-container-main" id="container">
+        <div id="content" role="main" style="font-size: 1.2rem">
+          <div class="prototype-group">
+            <div class="prototype-tit"> Snackbar </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Snackbar : <span>basic</span> </h3>
+
+              <!-- Snackbar -->
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+              <div style="height: 500px; background: #ccc; overflow: hidden">
+                <button type="button" data-snackbar="snackbar1" class="btn-snackbar"> Show Snackbar1 </button>
+                <button type="button" data-snackbar="snackbar2" class="btn-snackbar"> Show Snackbar2 </button>
+                <button type="button" data-snackbar="snackbar3" class="btn-snackbar"> Show Snackbar3 </button>
+                <button type="button" data-snackbar="snackbar4" class="btn-snackbar"> Show Snackbar4 </button>
+                <button type="button" data-snackbar="snackbar5" class="btn-snackbar"> Show Snackbar5 </button>
+
+                <div class="component-snackbar">
+                  <!-- 동적으로 생성된 스낵바가 여기에 추가됩니다. -->
+                  <!--
+                    <div class="snackbar-container type01">
+                      <div class="snackbar-content">
+                        <p class="snackbar-txt"></p>
+                      </div>
+                    </div>
+                  -->
+                </div>
+              </div>
+              <!-- Snackbar -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- @@include('_footer.html') -->
+    </div>
+  </body>
+  <script>
+    // Type01
+    document.querySelectorAll(".btn-snackbar").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const snackbarId = button.dataset.snackbar;
+        showSnackbar(snackbarId);
+      });
+    });
+
+    function showSnackbar(snackbarId) {
+      const container = document.querySelector(".component-snackbar");
+
+      // 스낵바 메시지 정의
+      const messages = {
+        snackbar1: "스낵바 팝업에 표시될 문장1입니다.",
+        snackbar2: "스낵바 팝업에 표시될 문장2입니다.",
+        snackbar3: "스낵바 팝업에 표시될 문장3입니다.",
+        snackbar4: "스낵바 팝업에 표시될 문장4입니다.",
+        snackbar5: "스낵바 팝업에 표시될 문장5입니다.",
+        default: "기본 문장입니다.",
+      };
+
+      // 새로운 스낵바 엘리먼트 생성
+      const newSnackbar = document.createElement("div");
+      newSnackbar.className = "snackbar-container type01";
+      const innerSnackbar = document.createElement("div");
+      innerSnackbar.className = "snackbar-content";
+      newSnackbar.appendChild(innerSnackbar);
+
+      // 스낵바 텍스트를 동적으로 설정
+      const snackbarText = document.createElement("p");
+      snackbarText.className = "snackbar-txt";
+      snackbarText.textContent = messages[snackbarId] || messages["default"];
+      innerSnackbar.appendChild(snackbarText);
+
+      // 새로운 스낵바를 컨테이너에 추가
+      container.appendChild(newSnackbar);
+
+      // 스낵바 애니메이션
+      let tl = gsap.timeline();
+      tl.to(newSnackbar, {
+        duration: 0.2,
+      })
+        .to(
+          newSnackbar,
+          {
+            duration: 0.5,
+            y: 0,
+          },
+          "<",
+        )
+        .to(newSnackbar, {
+          duration: 0.5,
+          delay: 3,
+          y: 30,
+        })
+        .to(
+          newSnackbar,
+          {
+            duration: 0.2,
+            opacity: 0.2,
+            onComplete: () => {
+              newSnackbar.remove();
+            },
+          },
+          "-=0.5",
+        );
+    }
+  </script>
+</html>

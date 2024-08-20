@@ -1,0 +1,116 @@
+@use "../abstracts" as *;
+
+/* component table */
+.component-table {
+  position: relative;
+
+  // table 공통
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    @include f14;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+  }
+
+  // table 공통 - caption 영역
+  caption {
+    position: absolute;
+    @include rem(left, -9999);
+    @include rem(width, 1);
+    @include rem(height, 1);
+    overflow: hidden;
+  }
+
+  // table 공통 - th,td 영역
+  th,
+  td {
+    @include rem(padding, 10 15);
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    text-align: center;
+    vertical-align: middle;
+    &.align-left {
+      text-align: left;
+    }
+    &.align-right {
+      text-align: right;
+    }
+  }
+  th {
+    background-color: lightgray;
+  }
+
+  // table custom - fixed 영역
+  &.table-fixed {
+    overflow: hidden;
+    overflow-y: auto;
+    @include rem(max-height, 200);
+    border-bottom: 1px solid gray;
+    table {
+      border-collapse: separate;
+      border-bottom: 0 none;
+    }
+    .thead-fixed {
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      th {
+        box-shadow: 0 1px 0 0 gray;
+      }
+    }
+  }
+
+  // table custom - scroll 영역
+  &.table-scroll {
+    overflow: hidden;
+    overflow-x: auto;
+    background-image:
+      /* Shadows */
+      linear-gradient(to right, white, white),
+      linear-gradient(to right, white, white),
+      /* Shadow covers */ linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0)),
+      linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0));
+    background-position:
+      left center,
+      right center,
+      left center,
+      right center;
+    background-repeat: no-repeat;
+    background-color: white;
+    @include rem(background-size, 20 100%, 20 100%, 20 100%, 20 100%);
+    /* Opera doesn't support this in the shorthand */
+    background-attachment: local, local, scroll, scroll;
+    table {
+      table-layout: fixed;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  // table 공통 - scrollbar
+  &::-webkit-scrollbar {
+    @include rem(height, 10);
+    @include rem(width, 10);
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: lightgray;
+  }
+  &::-webkit-scrollbar-track:hover {
+    background-color: gray;
+  }
+  &::-webkit-scrollbar-track:active {
+    background-color: gray;
+  }
+  &::-webkit-scrollbar-thumb {
+    @include rem(border-radius, 5);
+    background-color: darkgray;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: black;
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background-color: black;
+  }
+}

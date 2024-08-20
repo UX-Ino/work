@@ -1,0 +1,100 @@
+@use "../abstracts" as *;
+
+.component-dialog {
+  display: none;
+  position: absolute;
+  .dialog-dimm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: background-color 1s;
+  }
+  .dialog-frame {
+    position: fixed;
+    inset: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 101;
+  }
+
+  .dialog-container {
+    margin: auto;
+    @include rem(padding, 30);
+    display: none;
+    // position: fixed;
+    @include rem(width, 333);
+    @include rem(border-radius, 10);
+    // inset: 0 0 0 0;
+    // z-index: 110;
+    background-color: rgba(250, 250, 250);
+    @include f18;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //opacity: 0;
+    //animation: content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    .dialog-header {
+      // @include rem(margin, 20 0);
+      text-align: center;
+      .dialog-tit {
+        @include rem(border-radius, 10);
+        color: $font-333333;
+        @include f16;
+        &:empty {
+          display: none;
+        }
+      }
+    }
+    .dialog-content {
+      @include rem(margin, 20 0);
+      width: 100%;
+      text-align: center;
+      @include rem(border-radius, 10);
+      @include f16;
+      color: $font-333333;
+      @include rem(max-height, 200);
+      overflow-y: auto;
+      .dialog-info {
+        @include rem(margin-top, 4);
+        @include f14;
+        color: $font-555555;
+      }
+    }
+
+    .btn-group {
+      margin-top: auto;
+      display: flex;
+      width: 100%;
+      .btn {
+        display: block;
+        width: 100%;
+        @include rem(height, 56);
+        @include f16;
+        @include rem(border-radius, 30);
+        &.btn-close {
+          color: $font-333333;
+          background-color: $bg-eeeeee;
+        }
+        & + .btn {
+          @include rem(margin-left, 16);
+        }
+      }
+    }
+
+    // .dialog-close {
+    //   position: absolute;
+    //   @include rem(top, 10);
+    //   @include rem(right, 10);
+    //   @include rem(width, 24);
+    //   @include rem(height, 24);
+    //   background: url("../../assets/images/icon/ico_close.png") no-repeat 0 0 / 100% auto;
+    //   pointer-events: all;
+    // }
+  }
+}

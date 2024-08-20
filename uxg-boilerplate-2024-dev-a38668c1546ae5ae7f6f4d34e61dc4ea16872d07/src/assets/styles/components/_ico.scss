@@ -1,0 +1,50 @@
+@use "../abstracts" as *;
+
+.ico-normal {
+  @include icon-size;
+}
+.ico-close {
+  @include ico-x;
+}
+.ico-clear {
+  @include ico-x;
+}
+.ico-go-back {
+  @include ico-back;
+}
+.ico-arrow-up {
+  @include ico-arrow-up;
+}
+.ico-arrow-down {
+  @include ico-arrow-down;
+}
+.ico-arrow-left {
+  @include ico-arrow-left;
+}
+.ico-arrow-right {
+  @include ico-arrow-right;
+}
+.ico-share {
+  @include ico-share;
+}
+.ico-search {
+  @include ico-search;
+}
+.ico-hamburger {
+  @include ico-hamburger;
+}
+.ico-refresh {
+  @include ico-refresh;
+}
+.ico-calendar {
+  @include ico-calendar;
+}
+.ico-spinner {
+  @include ico-spinner;
+  animation: ico-spinner 0.6s linear infinite;
+}
+@keyframes ico-spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}

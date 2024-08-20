@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko" class="cl-default">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>코딩리스트</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="pathGuideStyles/codinglist.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body id="cl-content-top">
+    <!-- <input id="sql" type="text" value="select *"/>
+    <input id="go" type="button" value="Query"/> -->
+    <div class="cl-info-area">
+      <h1 class="project-tit">
+        프로젝트제목
+        <a href="스크립트로링크삽입" class="cp-google-link" target="_blank" title="Google Sheet"> G </a>
+        <a href="http://uxdev.etribe.co.kr/uxdevLinkFolder/cl.html" class="cp-uxdev-link" target="_blank" title="UX-DEV"> D </a>
+      </h1>
+      <div class="cl-info-group">
+        <span class="cl-info">전체</span>
+        <span class="cl-info ui-all-number"></span>
+        <span class="cl-info">진행중</span>
+        <span class="cl-info ui-ing-number"></span>
+        <span class="cl-info">완료</span>
+        <span class="cl-info ui-end-number"></span>
+        <span class="cl-info">진행률</span>
+        <span class="cl-info ui-percent-number"></span>
+      </div>
+      <a href="pathGuideComponents/component.html" class="cp-guide">Guide</a>
+    </div>
+
+    <!-- s: 테이블 데이터 연동 영역 -->
+    <div id="table-container">
+      <table id="statistics" class="cl-table-data"></table>
+    </div>
+    <!-- e: 테이블 데이터 연동 영역 -->
+
+    <!-- s: preview 영역 -->
+    <div class="frame-preview">
+      <div class="frame-wrap">
+        <div class="frame-head">
+          <a class="frame-page" href="#none" target="_blank"></a>
+          <div class="frame-sort">
+            <select>
+              <option value="375*629">iPhone 12 Mini</option>
+              <option value="375*667" selected>iPhone 6/7/8</option>
+              <option value="414*736">iPhone 6/7/8 Plus</option>
+              <option value="375*812">iPhone X</option>
+              <option value="360*640">Galaxy S5</option>
+            </select>
+            <p class="frame-size">375 X 667</p>
+          </div>
+        </div>
+        <div class="frame-inner" style="width: 375px; height: 667px">
+          <iframe src="" frameborder="0">미리보기 화면</iframe>
+        </div>
+      </div>
+      <button class="frame-toggle" type="button">
+        <span class="hide-txt">창 닫기</span>
+      </button>
+    </div>
+    <!-- e: preview 영역 -->
+
+    <a href="#cl-content-top" class="btn-cl-top">TOP</a>
+
+    <div class="dimm"></div>
+    <script src="pathGuideScripts/codinglist.js"></script>
+  </body>
+</html>

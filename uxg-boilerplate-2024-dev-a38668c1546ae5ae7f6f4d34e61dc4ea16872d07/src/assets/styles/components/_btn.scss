@@ -1,0 +1,97 @@
+@use "../abstracts" as *;
+
+/* component button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  @include rem(min-height, 45);
+  @include rem(padding, 0 30);
+  border: 1px solid $line-000000;
+  background: $bg-ffffff;
+  @include rem(border-radius, 5);
+
+  // button 공통 - 텍스트
+  .btn-txt {
+    @include f14;
+    color: $font-000000;
+  }
+
+  // button 공통 -  icon
+  [class^="ico-"] {
+    @include rem(width, 15);
+    @include rem(height, 15);
+  }
+
+  // button 공통 - Hover, Focus
+  &:focus,
+  &:hover {
+    border-color: blue;
+    .btn-txt {
+      color: blue;
+    }
+  }
+
+  // button 공통 - Full
+  &.btn-full {
+    width: 100%;
+    justify-content: center;
+  }
+
+  // button 스타일 - Primary
+  &.btn-primary {
+    border-color: blue;
+    background: blue;
+    .btn-txt {
+      color: $font-ffffff;
+    }
+    &:focus,
+    &:hover {
+      background: $font-ffffff;
+      .btn-txt {
+        color: blue;
+      }
+    }
+  }
+}
+
+/* component button Group */
+.component-btns {
+  .btns-row {
+    display: flex;
+    justify-content: center;
+    // @include rem(width, calc(100% + 224px));
+    // @include rem(flex, 1 1 500);
+    // @include rem(box-shadow, 0 0 20 #ccc, inset 0 0 5 #eee);
+
+    // btns 공통 - col 영역
+    [class^="btns-col"] {
+      display: flex;
+    }
+
+    // btns row - col 2
+    &.two-col {
+      @include flex-grid((1, 1), 1rem);
+    }
+
+    // btns row - col 3
+    &.three-col {
+      @include flex-grid((1, 1, 1), 1rem);
+    }
+
+    // 버튼 간격 조정
+    .btn + .btn {
+      @include rem(margin-left, 10);
+    }
+  }
+
+  // 버튼 왼쪽 정렬
+  .align-left {
+    justify-content: flex-start;
+  }
+
+  // 버튼 오른쪽 정렬
+  .align-right {
+    justify-content: flex-end;
+  }
+}

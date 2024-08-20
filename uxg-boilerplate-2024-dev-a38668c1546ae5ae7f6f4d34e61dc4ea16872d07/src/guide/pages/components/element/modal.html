@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Modal</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="pathStyles/style.css" type="text/css" rel="stylesheet" />
+    <script src="pathScripts/common.ui.plugin.js"></script>
+    <script src="pathScripts/common.ui.js" data-init></script>
+    <script src="pathScripts/common.js"></script>
+    @@include('pathGuideInclude/_element_head.html')
+  </head>
+
+  <body>
+    <div id="wrap" style="max-width: 960px; margin: 0 auto">
+      <!-- @@include('_header.html', { "title": "test_title01", "title02": "test_title02" }) -->
+      @@include('pathGuideInclude/_element_menu.html')
+
+      <div class="pageClassMain uxg-page-container-main" id="container">
+        <div id="content" role="main" style="font-size: 1.2rem">
+          <div class="prototype-group">
+            <div class="prototype-tit"> Modal </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Modal : <span>basic</span> </h3>
+
+              <!-- Modal -->
+              <div class="modal-btn-wrap basic">
+                <button class="btn type-primary btn-modal01" data-testid="btn-modal01">modal</button>
+              </div>
+              <!-- //Modal -->
+              <br />
+              <!-- Modal -->
+              <div class="modal-btn-wrap basic">
+                <button class="btn type-primary btn-modal02">full modal</button>
+              </div>
+              <!-- //Modal -->
+              <br />
+              <!-- Modal -->
+              <div class="modal-btn-wrap basic">
+                <button class="btn type-primary btn-modal03">bottom modal</button>
+              </div>
+              <!-- //Modal -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- @@include('_footer.html') -->
+    </div>
+
+    <div class="layer-wrap">
+      <!-- S: modal basic 01 -->
+      <div class="component-modal modal01" data-props-dimm-click="false">
+        <div class="modal-dimm"></div>
+        <div class="modal-frame">
+          <div class="modal-container">
+            <div class="modal-header">
+              <h3 class="modal-tit">Modal Example</h3>
+            </div>
+            <div class="modal-content">
+              Modal Basic(normal).
+              <p class="modal-info">this is a modal window.</p>
+              <a href="#">link element</a>
+              <button class="btn type-primary btn-modal011">double modal</button>
+              <label for="input-id">input element</label><input id="input-id" type="text" />
+            </div>
+            <button class="modal-close btn"></button>
+          </div>
+        </div>
+      </div>
+      <!-- E: modal basic 01 -->
+
+      <!-- S: modal basic 02-->
+      <div class="component-modal modal02">
+        <div class="modal-dimm"></div>
+        <div class="modal-frame">
+          <div class="modal-container" style="height:600px">
+            <!-- <div class="modal-header">
+          <h3 class="modal-tit">Modal Example</h3>
+        </div> -->
+            <div class="modal-content">
+              Modal Basic(normal).
+              <p class="modal-info">this is a modal window.</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn">확인</button>
+            </div>
+            <button class="modal-close btn"></button>
+          </div>
+        </div>
+      </div>
+      <!-- E: modal basic 02 -->
+
+      <!-- S: modal modal-full -->
+      <div class="component-modal modal-full modal04">
+        <div class="modal-dimm"></div>
+        <div class="modal-frame">
+          <div class="modal-container">
+            <!-- <div class="modal-header">
+                              <h3 class="modal-tit">Modal Example</h3>
+                            </div> -->
+            <div class="modal-content">
+              Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal).
+              Basic(normal). Modal Basic(normal).
+              <p class="modal-info">this is a modal window.</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-close"> 취소 </button>
+              <button type="button" class="btn">확인</button>
+            </div>
+            <button class="modal-close btn"></button>
+          </div>
+        </div>
+      </div>
+      <!-- E: modal modal-full -->
+
+      <!-- S: modal modal-bottom -->
+      <div class="component-modal modal-bottom modal05" data-init="false">
+        <div class="modal-dimm"></div>
+        <div class="modal-frame">
+          <div class="modal-container">
+            <button type="button" class="modal-slide"><span class="slide-bar"></span></button>
+            <div class="modal-content">
+              Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal). Basic(normal). Modal Basic(normal).
+              Basic(normal). Modal Basic(normal).
+              <p class="modal-info">this is a modal window.</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-close"> 취소 </button>
+              <button type="button" class="btn">확인</button>
+            </div>
+            <button class="modal-close btn"></button>
+          </div>
+        </div>
+      </div>
+      <!-- E: modal modal-bottom -->
+    </div>
+
+    <script>
+      if (document.querySelector('.modal05')) {
+        const modal05 = new Modal();
+        modal05.core.init('.modal05', {});
+      }
+
+      const $btnModal01 = document.querySelector('.btn-modal01');
+
+      $btnModal01.addEventListener('click', function() {
+        const modal01 = document.querySelector('.modal01').ui;
+        modal01.open();
+
+        setTimeout(() => {
+          document.querySelector('.modal02').ui.open();
+
+          setTimeout(() => {
+            etUI.dialog.alert({
+              title: 'alert title',
+              message: 'alert message',
+              callback: function() {
+                console.log('alert callback');
+              }
+            });
+          }, 1000)
+        }, 1000)
+      });
+
+      document.querySelector('.btn-modal011').addEventListener('click', function() {
+        document.querySelector('.modal02').ui.open();
+      });
+
+      document.querySelector('.btn-modal02').addEventListener('click', function() {
+        document.querySelector('.modal04').ui.open();
+      });
+
+      document.querySelector('.btn-modal03').addEventListener('click', function() {
+        document.querySelector('.modal05').ui.open();
+      });
+
+      document.querySelector('.modal05 .btn-close').addEventListener('click', function() {
+        const modal = document.querySelector('.modal05').ui;
+        modal.close();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Accordion</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="pathStyles/style.css" type="text/css" rel="stylesheet" />
+    <script src="pathScripts/common.ui.plugin.js"></script>
+    <script src="pathScripts/common.ui.js" data-init></script>
+    <script src="pathScripts/common.js"></script>
+    @@include('pathGuideInclude/_element_head.html')
+  </head>
+
+  <body>
+  <div id="wrap" style="max-width: 1440px; margin: 0 auto">
+    <!-- @@include('_header.html', { "title": "test_title01", "title02": "test_title02" }) -->
+    @@include('pathGuideInclude/_element_menu.html')
+
+    <div class="pageClassMain uxg-page-container-main" id="container">
+      <div id="content" role="main" style="font-size: 1.2rem">
+        <div class="prototype-group">
+          <div class="prototype-tit"> Accordion </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Accordion : <span>헤더버튼을 클릭했을 때 이전에 열렸던 헤더버튼이 열린 채로 남아있습니다. (여러 아이템 활성화)</span> </h3>
+              <img src="pathGuideImages/temp-favicon-ex.png" alt="" />
+              <!-- Accordion -->
+              <!-- type   -->
+              <div class="component-accordion type01" data-orientation="vertical">
+                <div class="accordion-item" data-state="open" data-type="multiple">
+                  <button type="button" class="accordion-tit" id="tit01-01"> Q. What is HTML? </button>
+                  <div class="accordion-content" aria-hidden="true">
+                    HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It
+                    is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages.
+                    HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages.
+                  </div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="multiple">
+                  <button type="button" class="accordion-tit" id="tit01-02"> Q. What is CSS? </button>
+                  <div class="accordion-content" aria-hidden="true"> CSS stands for Cascading Style Sheets. It is used to style the HTML elements. </div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="multiple">
+                  <button type="button" class="accordion-tit" id="tit01-03"> Q. What is JavaScript? </button>
+                  <div class="accordion-content" aria-hidden="true"> JavaScript is a programming language commonly used for web development. It enables interactive web pages. JavaScript is a programming language commonly used for web development. It enables interactive web pages. </div>
+                </div>
+              </div>
+              <div class="accordion-item" data-state="open">
+                <button type="button" class="accordion-tit" id="tit01-04"> Q. What is CSS? </button>
+                <div class="accordion-txt" aria-hidden="true"> CSS stands for Cascading Style Sheets. It is used to
+                  style the HTML elements. </div>
+              </div>
+              <div class="accordion-item" data-state="close">
+                <button type="button" class="accordion-tit" id="tit01-05"> Q. What is JavaScript? </button>
+                <div class="accordion-txt" aria-hidden="true"> JavaScript is a programming language commonly used for
+                  web development. It enables interactive web pages. JavaScript is a programming language commonly used
+                  for web development. It enables interactive web pages. </div>
+              </div>
+            </div>
+
+              <!-- Accordion -->
+              <div class="component-accordion type02" data-orientation="vertical">
+                <div class="accordion-item" data-state="close" data-type="single">
+                  <button type="button" class="accordion-tit" id="tit02-01"> Q. What is HTML? </button>
+                  <div class="accordion-content" aria-hidden="true">
+                    HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It
+                    is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages.
+                    HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages.
+                  </div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="single">
+                  <button type="button" class="accordion-tit" id="tit02-02"> Q. What is CSS? </button>
+                  <div class="accordion-content" aria-hidden="true"> CSS stands for Cascading Style Sheets. It is used to style the HTML elements. </div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="single">
+                  <button type="button" class="accordion-tit" id="tit02-03"> Q. What is JavaScript? </button>
+                  <div class="accordion-content" aria-hidden="true"> JavaScript is a programming language commonly used for web development. It enables interactive web pages. JavaScript is a programming language commonly used for web development. It enables interactive web pages. </div>
+                </div>
+              </div>
+              <div class="accordion-item" data-state="close">
+                <button type="button" class="accordion-tit" id="tit02-04"> Q. What is CSS? </button>
+                <div class="accordion-txt" aria-hidden="true"> CSS stands for Cascading Style Sheets. It is used to
+                  style the HTML elements. </div>
+              </div>
+              <div class="accordion-item" data-state="close">
+                <button type="button" class="accordion-tit" id="tit02-05"> Q. What is JavaScript? </button>
+                <div class="accordion-txt" aria-hidden="true"> JavaScript is a programming language commonly used for
+                  web development. It enables interactive web pages. JavaScript is a programming language commonly used
+                  for web development. It enables interactive web pages. </div>
+              </div>
+            </div>
+            <!-- //Accordion -->
+          </div>
+
+          <div class="prototype-item">
+            <h3 class="prototype-subtit">Accordion : <span>커스텀 옵션을 부여한 아코디언</span></h3>
+
+              <!-- Accordion -->
+              <div class="component-accordion type03" data-orientation="vertical">
+                <div class="accordion-item" data-state="close" data-type="multiple" data-setting="custom">
+                  <button type="button" class="accordion-tit" id="tit03-01"> Q. What is HTML? </button>
+                  <div class="accordion-content" aria-hidden="true">
+                    HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It
+                    is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages.
+                    HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages. HTML stands for Hyper Text Markup Language. It is used to create the structure of web pages.
+                  </div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="multiple" data-setting="custom">
+                  <button type="button" class="accordion-tit" id="tit03-02"> Q. What is CSS? </button>
+                  <div class="accordion-content" aria-hidden="true"> CSS stands for Cascading Style Sheets. It is used to style the HTML elements. </div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="multiple">
+                  <button type="button" class="accordion-tit" id="tit03-03"> Q. What is JavaScript? </button>
+                  <div class="accordion-content" aria-hidden="true"> JavaScript is a programming language commonly used for web development. It enables interactive web pages. JavaScript is a programming language commonly used for web development. It enables interactive web pages. </div>
+                </div>
+              </div>
+              <div class="accordion-item" data-state="close">
+                <button type="button" class="accordion-tit" id="tit03-04"> Q. What is CSS? </button>
+                <div class="accordion-txt" aria-hidden="true"> CSS stands for Cascading Style Sheets. It is used to
+                  style the HTML elements. </div>
+              </div>
+              <div class="accordion-item" data-state="close">
+                <button type="button" class="accordion-tit" id="tit03-05"> Q. What is JavaScript? </button>
+                <div class="accordion-txt" aria-hidden="true"> JavaScript is a programming language commonly used for
+                  web development. It enables interactive web pages. JavaScript is a programming language commonly used
+                  for web development. It enables interactive web pages. </div>
+              </div>
+            </div>
+
+            <!-- 보일러플레이트 적용 버전 & 추후 수정예정 -->
+          <div class="prototype-item">
+            <h3 class="prototype-subtit">Accordion : <span>보일러플레이트 적용 버전 & 추후 수정예정</span></h3>
+
+              <!-- Accordion -->
+              <div class="component-accordion" data-orientation="vertical">
+                <div class="accordion-item" data-state="open" data-type="multiple">
+                  <button type="button" class="item-tit"> Q. accordion-item01 </button>
+                  <div class="item-content">accordion-content01</div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="multiple">
+                  <button type="button" class="item-tit"> Q. accordion-item02 </button>
+                  <div class="item-content">accordion-content02</div>
+                </div>
+                <div class="accordion-item" data-state="close" data-type="multiple">
+                  <button type="button" class="item-tit"> Q. accordion-item03 </button>
+                  <div class="item-content">accordion-content03</div>
+                </div>
+              </div>
+            <!-- //Accordion -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- @@include('_footer.html') -->
+  </div>
+  <script>
+
+    // const options = {
+    //   defaultValue: 0,
+    //   collapsible: false,
+    //   animation: {
+    //     duration: 0.5,
+    //     easing: "power4.out",
+    //   },
+    // };
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   const $accordionSelector = document?.querySelectorAll(".component-accordion .accordion-item");
+    //   $accordionSelector.forEach((accordion) => {
+    //     const accordionComponent = Accordion();
+    //     accordionComponent.core.init(accordion, options);
+    //   });
+
+    //   // UPDATE 테스트
+    //   // $accordionSelector[0].ui.update({
+    //   //   type: "single",
+    //   //   tit: "타이틀 변경변경",
+    //   //   txt: "내용 변경",
+    //   //   items: [],
+    //   //   selectedIndex: 0,
+    //   // });
+
+    //   // $accordionSelector[0].ui.update();
+    // });
+
+
+    // https://www.radix-ui.com/primitives/docs/components/accordion
+
+    // 1.state
+    // 1-1. open | close
+    // 1-2.type
+    // single : 하나만 열림 (기본)
+    // multiple : 여러개 동시에 열림
+    // nested : 아코디언 하위에 아코디언이 존재
+
+    // 2. options
+    // defaultValue : 초기에 열려있는 아이템
+    // collapsible: true면 자기 자신도 닫힘
+    // rotation: 아이콘 회전(기본 180deg)
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+@use "../abstracts" as *;
+
+/* common */
+// .clfix{*zoom:1}
+.clfix::after,
+.clfix::before {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clfix::after {
+  clear: both;
+}
+
+//- 장재연님이 만드신 만능 숨김텍스트 클라스. 모바일도 버그없이 가능염.
+//- 메뉴나 링크 부분이 아닌 순수한 이미지에 대한 대체 텍스트 영역에만 사용할 것.
+.hide-txt {
+  // display:inline-block;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  line-height: 0;
+  // clip:rect(1px 1px 1px 1px);
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+// a태그 이하 hide-txt 클래스는 모바일 디바이스 사이즈에서는 font-size:1px 을 font-size:0 으로 변경해야 초점 오류를 방지할 수 있다.
+// 모바일 분기 사이즈에 따라 아래 max-width 값은 변경될 수 있음.
+@media (max-width: 1024px) {
+  a .hide-txt {
+    font-size: 0;
+  }
+}
+
+// 웹접근성용 추가 소스
+// a 태그의 before 가상클래스 쓰지 말 것
+// 20240314 이제는 필요 없는 속성이라 주석 처리함. 필요시 주석 해제할 것.
+// a {
+//   &:before {
+//     content: "　";
+//     position: absolute;
+//     font-size: 0;
+//   }
+// }
+
+// 강제 포커스 생성되는 곳의 아웃라인을 제거하는 소스
+[tabindex="-1"] {
+  &:focus {
+    outline: 0;
+  }
+}
+// [tabindex="-1"]:focus:not(:focus-visible) {
+//   outline: 0 !important;
+// }
+
+/* 반응형 미지원 컨텐츠의 모바일 화면시 가림막 소스 */
+.mobile-mode-dimm {
+  display: none;
+}
+@media (max-width: 1023px) {
+  .mobile-mode-dimm {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    overflow: hidden;
+    text-align: center;
+    z-index: $zindex-notification;
+    background: #000000;
+    opacity: 1;
+    .mobile-mode-box {
+      position: relative;
+      @include rem(padding, 20);
+      @include rem(margin, 0 40);
+      background: #ffffff;
+      @include rem(border-radius, 10);
+      border: 2px solid blue;
+      @include rem(font-size, 24);
+    }
+  }
+}
+
+/* Browser Upgrade Prompt */
+.browserupgrade {
+  margin: 0.2em 0;
+  padding: 0.2em 0;
+  background: #cccccc;
+  color: #000000;
+  font-size: 1px;
+  a {
+    color: #8d0080;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  strong {
+    color: #000000;
+    font-weight: 700;
+  }
+}
+
+/* skipnav */
+.skipnav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 0;
+  line-height: 1;
+  a {
+    display: block;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: 0 -1px -1px 0;
+    padding: 0;
+    font-size: 0;
+    line-height: 1;
+    &:active,
+    &:focus,
+    &:hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      width: 100%;
+      height: 19px;
+      margin: 0;
+      padding: 5px 0;
+      border: 1px solid #c4d7ea;
+      background: #2b6cb0;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.333em;
+      text-align: center;
+      line-height: 100%;
+    }
+  }
+}
+
+/* dimm */
+.dimm {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background: #000000;
+  opacity: 0.6;
+}
+.dimm img {
+  display: block;
+}
+
+/* 공통 레이아웃 속성 */
+html,
+body {
+  height: 100%;
+}
+#wrap {
+  height: 100%;
+}
+#container {
+  height: 100%;
+}
+#content {
+  height: 100%;
+}
+
+/* 아이콘 공통 속성 */
+// mobile, pc 공통
+[class^="ico-"] {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

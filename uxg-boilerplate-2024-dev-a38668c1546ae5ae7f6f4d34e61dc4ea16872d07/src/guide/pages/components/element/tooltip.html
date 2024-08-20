@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Tooltip</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="pathStyles/style.css" type="text/css" rel="stylesheet" />
+    <script src="pathScripts/common.ui.plugin.js"></script>
+    <script src="pathScripts/common.ui.js" data-init></script>
+    <script src="pathScripts/common.js"></script>
+    @@include('pathGuideInclude/_element_head.html')
+    <!-- <script src="../../../assets/js/ui/components/Tooltip.js"></script> -->
+  </head>
+
+  <body>
+    <div id="wrap" style="max-width: 1440px; margin: 0 auto">
+      <!-- @@include('_header.html', { "title": "test_title01", "title02": "test_title02" }) -->
+      @@include('pathGuideInclude/_element_menu.html')
+
+      <div class="pageClassMain uxg-page-container-main" id="container">
+        <div id="content" role="main" style="font-size: 1.2rem">
+          <div class="prototype-group">
+            <div class="prototype-tit"> Tooltip </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Tooltip : <span>basic</span> </h3>
+
+              <!-- Tooltip -->
+              <div style="display: flex; flex-direction: column; align-items: center; height: 500px">
+                <div class="component-tooltip" data-init="false" data-state="open" data-props-position="bottom">
+                  <button class="btn tooltip-btn" aria-expanded="false" aria-controls="tooltip-container">기본형 툴팁(bottom)</button>
+                  <div class="tooltip-container" id="tooltip-container" aria-hidden="true">
+                    <p>툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.</p>
+                    <button class="btn-close"></button>
+                  </div>
+                </div>
+                <div class="component-tooltip" data-init="false" data-state="close" data-props-position="right">
+                  <button class="btn tooltip-btn" aria-expanded="false" aria-controls="tooltip-container">기본형 툴팁(right)</button>
+                  <div class="tooltip-container" id="tooltip-container" aria-hidden="true">
+                    <p>툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.</p>
+                    <button class="btn-close"></button>
+                  </div>
+                </div>
+                <!-- <div class="component-tooltip" data-position="left">
+                  <button class="btn tooltip-btn" aria-expanded="false" aria-controls="tooltip-container">기본형 툴팁(left)</button>
+                  <div class="tooltip-container" id="tooltip-container" aria-hidden="true">
+                    <p>툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.</p>
+                    <button class="btn-close"></button>
+                  </div>
+                </div>
+                <div class="component-tooltip" data-position="top">
+                  <button class="btn tooltip-btn" aria-expanded="false" aria-controls="tooltip-container">기본형 툴팁(top)</button>
+                  <div class="tooltip-container" id="tooltip-container" aria-hidden="true">
+                    <p>툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.툴팁 메세지 호출 영역입니다.</p>
+                    <button class="btn-close"></button>
+                  </div>
+                </div> -->
+              </div>
+
+              <!-- //Tooltip -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- @@include('_footer.html') -->
+    </div>
+  </body>
+  <script>
+    const defaultOption = {
+      type: "default",
+      duration: 0.2,
+      height: "auto",
+      transform: {
+        scale: {
+          x: 1,
+          y: 1,
+        },
+        translate: {
+          x: 0,
+          y: 0,
+        },
+        delay: 0,
+        easeing: "power4.out",
+      },
+    };
+    const tooltipOptions = [
+      {
+        ...defaultOption,
+      },
+      {
+        ...defaultOption,
+        type: "custom",
+        transform: {
+          ...defaultOption.transform,
+          scale: {
+            x: 0,
+            y: 0,
+          },
+        },
+      },
+    ];
+
+    console.log(tooltipOptions[1]);
+    document.addEventListener("DOMContentLoaded", function () {
+      const $tooltipSelector = document?.querySelectorAll(".component-tooltip");
+      $tooltipSelector.forEach((tooltip) => {
+        const tooltipComponent = Tooltip();
+        tooltipComponent.init(tooltip, tooltipOptions[1]);
+      });
+    });
+  </script>
+</html>

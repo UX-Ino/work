@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    @@include('pathGuideInclude/_component_head.html', {"title": "project components guide"})
+  </head>
+  <body>
+    <div class="uid-container">
+      @@include('pathGuideInclude/_component_header.html') @@include('pathGuideInclude/_component_navigation.html')
+
+      <main class="uid-main code-guide">
+        <h1 class="uid-title01">Input</h1>
+        <p class="uid-desc">가이드 모음</p>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">기본 가이드</h2>
+          <ul class="uid-list">
+            <li> 설계 단계의 특별한 UX 요청이나 개발 환경에 따른 제약으로 개발 요청 사항이 없다면 <strong>테스트 완료된 코드</strong>를 <strong>복사 붙여 넣기</strong>를 <strong>기본</strong>으로 합니다. </li>
+            <li>
+              <a href="http://www.naver.com"> 링크스타일은 아이콘이 자동으로 붙습니다. </a>
+            </li>
+            <li> &#60;a href="#">&#60;/a> 태그 사용 할 때는 이렇게 작성하면 됩니다. </li>
+          </ul>
+        </section>
+
+        <!-- <section class="uid-component">
+          <h2 class="uid-title02">테스트된 브라우저(최신 버전 기준)</h2>
+          <div class="uid-table">
+            <table class="table-fixed">
+              @@include('pathGuideInclude/_component_browsers_check01.html')
+              <tbody>
+                <tr>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">테스트된 스크린 리더</h2>
+          <div class="uid-table">
+            <table class="table-fixed">
+              @@include('pathGuideInclude/_component_screen_reader_check01.html')
+              <tbody>
+                <tr>
+                  <td>none</td>
+                  <td>supported</td>
+                  <td>supported</td>
+                  <td>partial</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section> -->
+
+        <section class="uid-component">
+          <h2 class="uid-title02">협의 할 점</h2>
+          <ul class="uid-list">
+            <li>브라우저 및 디바이스 테스트 필요 </li>
+            <li>패스워드 숨기고 보이기 스크립트 기능 추가 필요</li>
+            <li>텍스트 초기화 스크립트 기능 추가 필요</li>
+            <li>파일 첨부 스크립트 기능 추가 필요</li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">접근성 가이드</h2>
+          <ul class="uid-list">
+            <li>가이드를 작성 합니다.</li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Input</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-input</code>
+              </li>
+              <li>
+                컴포넌트 공통 자식 클래스 :
+                <code class="uid-codeblock">.input-label</code>
+                <code class="uid-codeblock">.input-info</code>
+                <code class="uid-codeblock">.input-sub-txt</code>
+              </li>
+              <li>
+                input 타입 :
+                <code class="uid-codeblock">type="text"</code>
+                <code class="uid-codeblock">type="password"</code>
+                <code class="uid-codeblock">type="email"</code>
+                <code class="uid-codeblock">type="tel"</code>
+                <code class="uid-codeblock">type="number"</code>
+                <code class="uid-codeblock">type="search"</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input">
+  <label for="temp_input_0001" class="input-label">
+    <span class="label-txt">
+      <i class="ico-required-mark" role="img" aria-label="필수">*</i>
+      Label
+    </span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+    <div class="input-sub-txt">서브 텍스트</div>
+  </label>
+  <div class="input-field">
+    <input type="text" id="temp_input_0001" placeholder="input text">
+  </div>
+  <div class="input-info">유틸리티 Info 영역</div>
+</div>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Input + button</h2>
+            <ul class="uid-list">
+              <li>버튼 공통 클래스 <code class="uid-codeblock">.input-field-btn</code></li>
+              <li>
+                버튼 유형 클래스 :
+                <code class="uid-codeblock">.search</code>
+                <code class="uid-codeblock">.calendar</code>
+                <code class="uid-codeblock">.clear</code>
+                <code class="uid-codeblock">.password-state</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input">
+  <label for="temp_input_btn_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <input type="text" id="temp_input_btn_0001" placeholder="버튼">
+    <button type="button" class="input-field-btn search">
+      <span class="hide-txt">검색</span>
+      <i class="ico-search ico-normal" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="input-field-btn calendar">
+      <span class="hide-txt">캘린더</span>
+      <i class="ico-calendar ico-normal" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="input-field-btn clear">
+      <span class="hide-txt">내용 지우기</span>
+      <i class="ico-clear ico-normal" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="input-field-btn password-state">
+      <span class="hide-txt hide">비밀번호 숨기기</span>
+      <span class="hide-txt show">비밀번호 표시</span>
+      <i class="ico-password-state ico-normal" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="input-info">유틸리티 Info 영역</div>
+</div>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Input + Icon</h2>
+            <ul class="uid-list">
+              <li>아이콘 공통 클래스 <code class="uid-codeblock">.input-field-ico</code></li>
+              <li>
+                아이콘 유형 클래스 :
+                <code class="uid-codeblock">.login-id</code>
+                <code class="uid-codeblock">.login-pw</code>
+                <code class="uid-codeblock">.spinner</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input">
+  <label for="temp_input_ico_id_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <i class="input-field-ico login-id" aria-hidden="true"></i>
+    <i class="input-field-ico login-pw" aria-hidden="true"></i>
+    <input type="text" id="temp_input_ico_id_0001" placeholder="아이콘">
+    <i class="input-field-ico spinner" aria-hidden="true"></i>
+  </div>
+  <div class="input-info">유틸리티 Info 영역</div>
+</div>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Input + Text</h2>
+            <ul class="uid-list">
+              <li>텍스트 공통 클래스 <code class="uid-codeblock">.input-field-txt</code></li>
+              <li> 텍스트 유형 클래스 : 프로젝트 스타일 가이드에 맞게 생성 </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input">
+  <label for="temp_input_txt_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <span class="input-field-txt">$</span>
+    <input type="text" id="temp_input_txt_0001" placeholder="0.00">
+    <span class="input-field-txt">USD</span>
+  </div>
+  <div class="input-info">유틸리티 Info 영역</div>
+</div>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Input 상태</h2>
+            <ul class="uid-list">
+              <li>
+                상태 클래스
+                <code class="uid-codeblock">.input-disabled</code>
+                <code class="uid-codeblock">.input-readonly</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input input-disabled">
+  <label for="temp_input_valid_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <input type="text" id="temp_input_valid_0001" placeholder="비활성" disabled>
+  </div>
+  <div class="input-info">비활성 입니다.</div>
+</div>
+
+<br><br>
+
+<div class="component-input input-readonly">
+  <label for="temp_input_invalid_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <input type="text" id="temp_input_invalid_0001" placeholder="읽기전용" readonly>
+  </div>
+  <div class="input-info">읽기전용 입니다.</div>
+</div>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Input 유효성 검사</h2>
+            <ul class="uid-list">
+              <li>
+                유효성 검사 클래스 :
+                <code class="uid-codeblock">.input-valid</code>
+                <code class="uid-codeblock">.input-invalid</code>
+                <code class="uid-codeblock">.input-required</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input input-valid">
+  <label for="temp_input_valid_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <input type="text" id="temp_input_valid_0001" placeholder="성공">
+  </div>
+  <div class="input-info">성공 입니다.</div>
+</div>
+
+<br><br>
+
+<div class="component-input input-invalid">
+  <label for="temp_input_invalid_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <input type="text" id="temp_input_invalid_0001" placeholder="오류">
+  </div>
+  <div class="input-info">오류 입니다.</div>
+</div>
+
+<br><br>
+
+<div class="component-input input-required">
+  <label for="temp_input_required_0001" class="input-label">
+    <span class="label-txt">
+      <i class="ico-required-mark" role="img" aria-label="필수">*</i>
+      Label
+    </span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-field">
+    <input type="text" id="temp_input_required_0001" placeholder="필수입력">
+  </div>
+  <div class="input-info">필수입력 입니다.</div>
+</div>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Input file</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-input</code>
+              </li>
+              <li>
+                컴포넌트 공통 자식 클래스 :
+                <code class="uid-codeblock">.input-label</code>
+                <code class="uid-codeblock">.input-info</code>
+              </li>
+              <li>
+                input 타입 :
+                <code class="uid-codeblock">type="file"</code>
+              </li>
+              <li>
+                컴포넌트 type="file" 전용 클래스 :
+                <code class="uid-codeblock">.input-file-field</code>
+                <code class="uid-codeblock">.input-file-txt</code>
+                <code class="uid-codeblock">.input-file-btn</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input">
+  <div class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </div>
+  <label class="input-file-field">
+    <input type="file" aria-label="파일 첨부">
+    <span class="input-file-txt">선택된 파일 없음</span>
+    <span class="input-file-btn">찾아보기</span>
+  </label>
+  <div class="input-info">가이드 텍스트 영역</div>
+</div>
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Textarea</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-input</code>
+              </li>
+              <li>
+                컴포넌트 공통 자식 클래스 :
+                <code class="uid-codeblock">.input-label</code>
+                <code class="uid-codeblock">.input-info</code>
+              </li>
+              <li>
+                컴포넌트 textarea 전용 클래스 :
+                <code class="uid-codeblock">.input-textarea-field</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+<div class="component-input">
+  <label for="temp_textarea_0001" class="input-label">
+    <span class="label-txt">Label</span>
+    <span class="label-util">텍스트,버튼등등 위치</span>
+  </label>
+  <div class="input-textarea-field">
+    &lt;textarea id="temp_textarea_0001" class="textarea" placeholder="텍스트를 입력해주세요."&gt;&lt;/textarea&gt;
+  </div>
+  <div class="input-info">유틸리티 Info 영역</div>
+</div>
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+        </section>
+      </main>
+
+      @@include('pathGuideInclude/_component_footer.html')
+    </div>
+    <script src="pathGuideScripts/component_guide.js"></script>
+    <script></script>
+  </body>
+</html>

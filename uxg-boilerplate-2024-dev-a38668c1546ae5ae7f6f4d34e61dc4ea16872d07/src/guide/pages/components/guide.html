@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    @@include('pathGuideInclude/_component_head.html', {"title": "project components guide"})
+  </head>
+  <body>
+    <div class="uid-container">
+      @@include('pathGuideInclude/_component_header.html') @@include('pathGuideInclude/_component_navigation.html')
+
+      <main class="uid-main">
+        <h1 class="uid-title01">Components 작성법</h1>
+        <p class="uid-desc">Components를 작성하는 요령</p>
+        <section class="uid-component">
+          <h2 class="uid-title02">1. sample.html 복사</h2>
+          <ul class="uid-list">
+            <li> sample.html 파일을 복사하여 필요한 컨포넌트 파일명으로 변경하여 사용합니다. </li>
+            <li> sample.html을 복사하여 필요한 컨포넌트를 생성하였으면 component_guide.json 파일로 들어가서 생성한 파일명을 추가 합니다. </li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">2. 컨포넌트 파일</h2>
+          <ul class="uid-list">
+            <li>컨포넌트파일.html을 열어 컨포넌트를 작성합니다.</li>
+            <li> 작서하기에 앞서 uid-main 클래스 옆에 code-guide 클래스가 추가 되었는지 확인합니다. </li>
+            <li> 컨포넌트의 내용은 code-wrap 클래스 요소의 하위 각각의 code-group에 html, css, javascript를 작성합니다. </li>
+            <li> css 내용 작성에 주석이 필요할시 /* */을 사용하여 주석을 작성합니다. </li>
+          </ul>
+        </section>
+      </main>
+
+      @@include('pathGuideInclude/_component_footer.html')
+    </div>
+    <script src="pathGuideScripts/component_guide.js"></script>
+    <script></script>
+  </body>
+</html>

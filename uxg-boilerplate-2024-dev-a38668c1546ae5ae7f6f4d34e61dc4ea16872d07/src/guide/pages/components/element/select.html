@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Select Box</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="pathStyles/style.css" type="text/css" rel="stylesheet" />
+    <script src="pathScripts/common.ui.plugin.js"></script>
+    <script src="pathScripts/common.ui.js" data-init></script>
+    <script src="pathScripts/common.js"></script>
+    @@include('pathGuideInclude/_element_head.html')
+    <style>
+      [data-component="select-box"] [role="listbox"] li:hover {
+        background-color: #aaa;
+      }
+
+      [data-component="select-box"] .current {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrap" style="max-width: 1440px; margin: 0 auto">
+      <!-- @@include('_header.html', { "title": "test_title01", "title02": "test_title02" }) -->
+      @@include('pathGuideInclude/_element_menu.html')
+
+      <div class="pageClassMain uxg-page-container-main" id="container">
+        <div id="content" role="main" style="font-size: 1.2rem">
+          <div class="prototype-group">
+            <div class="prototype-tit"> SelectBox </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Select-base</h3>
+
+              <div class="component-select">
+                <select class="select-list" required>
+                  <option value="" selected disabled hidden>선택해주세요.</option>
+                  <option value="value1">Option 1</option>
+                  <option value="value2">Option 2</option>
+                  <option value="value3">Option 3</option>
+                  <option value="value4">Option 4</option>
+                  <option value="value5">Option 5</option>
+                  <option value="value6">Option 6</option>
+                  <option value="value7">Option 7</option>
+                </select>
+              </div>
+            </div>
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Select-optgroup</h3>
+
+              <div class="component-select">
+                <select class="select-list" required>
+                  <option value="" selected disabled hidden>선택해주세요.</option>
+                  <optgroup label="과일(Fruit)">
+                    <option value="apple">Apple</option>
+                    <option value="banana">Banana</option>
+                    <option value="cherry">Cherry</option>
+                  </optgroup>
+                  <optgroup label="색깔(Color)">
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Select-basic : <span> 데이터 배열로 넣기 </span></h3>
+
+              <!-- SelectBox -->
+              <div id="select1" data-component="select-box" class="component-select" data-init="false"></div>
+              <!-- //SelectBox -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Select-custom : <span> 데이터 배열로 넣기 </span></h3>
+
+              <!-- SelectBox -->
+              <div id="select2" data-component="select-box" class="component-select type-custom" data-init="false"></div>
+              <!-- //SelectBox -->
+            </div>
+
+            <div class="prototype-item">
+              <h3 class="prototype-subtit">Select-custom : <span> 데이터 직접 작성해서 넣기 </span></h3>
+
+              <!-- SelectBox -->
+              <div id="select3" data-component="select-box" class="component-select type-custom" data-props-default="Choose a Fruit">
+                <div class="combo-label">select label</div>
+
+                <button type="button" class="select-box">
+                  <span style="pointer-events: none"></span>
+                </button>
+
+                <ul class="select-options">
+                  <li class="option" data-value="apple">
+                    <div>apple</div>
+                  </li>
+                  <li class="option" data-value="Banana"> Banana </li>
+                  <li class="option" data-value="Blueberry"> Blueberry </li>
+                  <li class="option" data-value="Cherry"> Cherry </li>
+                  <li class="option" data-value="Durian"> Durian </li>
+                  <li class="option" data-value="Guava"> Guava </li>
+                  <li class="option" data-value="Eggplant"> Eggplant </li>
+                  <li class="option" data-value="Fig"> Fig </li>
+                  <li class="option" data-value="Huckleberry"> Huckleberry </li>
+                </ul>
+              </div>
+              <!-- //SelectBox -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- @@include('_footer.html') -->
+    </div>
+
+    <script>
+      const $selectBox1 = document.querySelector("#select1");
+      const selectComponent1 = SelectBox();
+      selectComponent1.core.init($selectBox1, {
+        type: "basic",
+        label: "select label",
+        default: "Choose a Fruit",
+        items: [
+          { value: "apple", text: "<div>apple</div>" },
+          { value: "Banana", text: "Banana" },
+          { value: "Blueberry", text: "Blueberry" },
+          { value: "Cherry", text: "Cherry", disabled: true },
+          { value: "Durian", text: "Durian" },
+          { value: "Guava", text: "Guava", disabled: true },
+          { value: "Eggplant", text: "Eggplant", disabled: true },
+          { value: "Fig", text: "Fig" },
+          { value: "Huckleberry", text: "Huckleberry" },
+        ],
+      });
+
+      setTimeout(() => {
+        const props = {
+          type: "custom",
+          // state: "open",
+          label: "select label",
+          default: "Choose a Fruit",
+          items: [
+            { value: "apple", text: "<div>apple</div>" },
+            { value: "Banana", text: "Banana" },
+            { value: "Blueberry", text: "Blueberry" },
+            { value: "Cherry", text: "Cherry", disabled: true },
+            { value: "Durian", text: "Durian" },
+            { value: "Guava", text: "Guava", disabled: true },
+            { value: "Eggplant", text: "Eggplant", disabled: true },
+            { value: "Fig", text: "Fig" },
+            { value: "Huckleberry", text: "Huckleberry" },
+          ],
+          selectedIndex: 6,
+          // scrollTo: true,
+        };
+
+        const $selectBox2 = document.querySelector("#select2");
+        const selectComponent2 = SelectBox();
+        selectComponent2.core.init($selectBox2, props);
+      }, 500);
+
+      const $selectBox3 = document.querySelector("#select3");
+      const selectComponent3 = SelectBox();
+      selectComponent3.core.init($selectBox3);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    @@include('pathGuideInclude/_component_head.html', {"title": "project components guide"})
+  </head>
+  <body>
+    <div class="uid-container">
+      @@include('pathGuideInclude/_component_header.html') @@include('pathGuideInclude/_component_navigation.html')
+
+      <main class="uid-main code-guide">
+        <h1 class="uid-title01">Tab</h1>
+        <p class="uid-desc">가이드 모음</p>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">기본 가이드</h2>
+          <ul class="uid-list">
+            <li>설계 단계의 특별한 UX 요청이나 개발 환경에 따른 제약으로 개발 요청 사항이 없다면 <strong>테스트 완료된 코드</strong>를 <strong>복사 붙여 넣기</strong>를 <strong>기본</strong>으로 합니다. </li>
+            <li>각각의 탭과 컨텐츠별로 <code class="uid-codeblock">data-tab-value를</code> 를 부여합니다</li>
+            <li>디폴트로 활성화 할 탭이있다면 <code class="uid-codeblock">data-active</code> 를 사용합니다. 기본값은 첫번째탭입니다.</li>
+          </ul>
+        </section>
+
+        <!-- <section class="uid-component">
+          <h2 class="uid-title02">테스트된 브라우저(최신 버전 기준)</h2>
+          <div class="uid-table">
+            <table class="table-fixed">
+              @@include('pathGuideInclude/_component_browsers_check01.html')
+              <tbody>
+                <tr>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">테스트된 스크린 리더</h2>
+          <div class="uid-table">
+            <table class="table-fixed">
+              @@include('pathGuideInclude/_component_screen_reader_check01.html')
+              <tbody>
+                <tr>
+                  <td>none</td>
+                  <td>supported</td>
+                  <td>supported</td>
+                  <td>partial</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section> -->
+
+        <section class="uid-component">
+          <h2 class="uid-title02">협의 할 점</h2>
+          <ul class="uid-list">
+            <li>가이드를 작성 합니다.</li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">접근성 가이드</h2>
+          <ul class="uid-list">
+            <li>가이드를 작성 합니다.</li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Tab</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-tab</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.tab-head</code>, <code class="uid-codeblock">.tab-body</code>, <code class="uid-codeblock">.tab-label</code>, <code class="uid-codeblock">.tab-content</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+
+<!-- Tab : default -->
+<div class="component-tab" data-component="tab" data-active="tab2">
+  <div class="tab-head">
+    <button type="button" class="tab-label" data-tab-value="tab1">TAB 1</button>
+    <button type="button" class="tab-label" data-tab-value="tab2">TAB 2</button>
+    <button type="button" class="tab-label" data-tab-value="tab3">TAB 3</button>
+  </div>
+  <div class="tab-body">
+    <div class="tab-content" data-tab-value="tab1">
+      <div class="content-inner"> Tab content 1 </div>
+    </div>
+    <div class="tab-content" data-tab-value="tab2">
+      <div class="content-inner"> Tab content 2 </div>
+    </div>
+    <div class="tab-content" data-tab-value="tab3">
+      <div class="content-inner"> Tab content 3 </div>
+    </div>
+  </div>
+</div>
+<!-- // Tab : default -->
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="uid-title02">Tab in Tab</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-tab</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.tab-head</code>, <code class="uid-codeblock">.tab-body</code>, <code class="uid-codeblock">.tab-label</code>, <code class="uid-codeblock">.tab-content</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html" data-height="300">
+
+<!-- Tab in Tab -->
+<div class="component-tab" data-component="tab" data-active="tab1">
+  <div class="tab-head">
+    <button type="button" class="tab-label" data-tab-value="tab1">Tab1</button>
+    <button type="button" class="tab-label" data-tab-value="tab2">Tab2</button>
+    <button type="button" class="tab-label" data-tab-value="tab3">Tab3</button>
+  </div>
+  <div class="tab-body">
+    <div class="component-tab tab-content" data-component="tab" data-tab-value="tab1" data-active="tab1-1">
+      <div class="tab-head">
+        <button type="button" class="tab-label" data-tab-value="tab1-1">Tab1-1</button>
+        <button type="button" class="tab-label" data-tab-value="tab1-2">Tab1-2</button>
+        <button type="button" class="tab-label" data-tab-value="tab1-3">Tab1-3</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab-content" data-tab-value="tab1-1">
+          <div class="content-inner"> Tab content 1 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab1-2">
+          <div class="content-inner"> Tab content 1 - 2</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab1-3">
+          <div class="content-inner"> Tab content 1 - 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="component-tab tab-content" data-component="tab" data-tab-value="tab2">
+      <div class="tab-head">
+        <button type="button" class="tab-label" data-tab-value="tab2-1">Tab2-1</button>
+        <button type="button" class="tab-label" data-tab-value="tab2-2">Tab2-2</button>
+        <button type="button" class="tab-label" data-tab-value="tab2-3">Tab2-3</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab-content" data-tab-value="tab2-1">
+          <div class="content-inner"> Tab content 2 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab2-2">
+          <div class="content-inner"> Tab content 2 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab2-3">
+          <div class="content-inner"> Tab content 2 - 1</div>
+        </div>
+      </div>
+    </div>
+    <div class="component-tab tab-content" data-component="tab" data-tab-value="tab3">
+      <div class="tab-head">
+        <button type="button" class="tab-label" data-tab-value="tab3-1">Tab3-1</button>
+        <button type="button" class="tab-label" data-tab-value="tab3-2">Tab3-2</button>
+        <button type="button" class="tab-label" data-tab-value="tab3-3">Tab3-3</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab-content" data-tab-value="tab3-1">
+          <div class="content-inner"> Tab content 3 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab3-2">
+          <div class="content-inner"> Tab content 3 - 2</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab3-3">
+          <div class="content-inner"> Tab content 3 - 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Tab in Tab -->
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="uid-title02">Tab Head Sticky</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-tab</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.tab-head</code>, <code class="uid-codeblock">.tab-body</code>, <code class="uid-codeblock">.tab-label</code>, <code class="uid-codeblock">.tab-content</code>
+              </li>
+              <li>Tab Head Sticky : <code class="uid-codeblock">data-props-sticky="true"</code></li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html" data-height="400">
+
+<!-- Tab Head Sticky -->
+  <div class="component-tab" data-component="tab" data-props-sticky="true">
+    <div class="tab-head">
+      <button type="button" class="tab-label" data-tab-value="tab1">TAB 1</button>
+      <button type="button" class="tab-label" data-tab-value="tab2">TAB 2</button>
+      <button type="button" class="tab-label" data-tab-value="tab3">TAB 3</button>
+    </div>
+    <div class="tab-body">
+      <div class="tab-content" data-tab-value="tab1">
+        <div class="content-inner" style="height: 400px;"> Tab content 1</div>
+      </div>
+      <div class="tab-content" data-tab-value="tab2">
+        <div class="content-inner" style="height: 400px;"> Tab content 2</div>
+      </div>
+      <div class="tab-content" data-tab-value="tab3">
+        <div class="content-inner" style="height: 400px;"> Tab content 3</div>
+      </div>
+    </div>
+  </div>
+  <!-- // Tab Head Sticky -->
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="uid-title02">Tab Head Sticky : 위치 조절</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-tab</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.tab-head</code>, <code class="uid-codeblock">.tab-body</code>, <code class="uid-codeblock">.tab-label</code>, <code class="uid-codeblock">.tab-content</code>
+              </li>
+              <li>Tab Head Sticky : <code class="uid-codeblock">data-props-sticky="class"</code> - class의 높이에 따라 Tab 위치를 조절할수있다.</li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html" data-height="300">
+
+<!-- Tab Head Sticky -->
+<p class="height-controll" style="position: sticky; top: 0; height: 50px;background-color: aliceblue; font-size: 20px; line-height: 50px; text-align: center; ">타이틀 or GNB</p>
+  <div class="component-tab" data-component="tab" data-props-sticky=".height-controll">
+    <div class="tab-head">
+      <button type="button" class="tab-label" data-tab-value="tab11">TAB 1</button>
+      <button type="button" class="tab-label" data-tab-value="tab12">TAB 2</button>
+      <button type="button" class="tab-label" data-tab-value="tab13">TAB 3</button>
+    </div>
+    <div class="tab-body">
+      <div class="tab-content" data-tab-value="tab11">
+        <div class="content-inner" style="height: 250px;"> Tab content 1</div>
+      </div>
+      <div class="tab-content" data-tab-value="tab12">
+        <div class="content-inner" style="height: 250px;"> Tab content 2</div>
+      </div>
+      <div class="tab-content" data-tab-value="tab13">
+        <div class="content-inner" style="height: 250px;"> Tab content 3</div>
+      </div>
+    </div>
+  </div>
+  <!-- // Tab Head Sticky -->
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="uid-title02">Tab Scroll</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-tab</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.tab-head</code>, <code class="uid-codeblock">.tab-body</code>, <code class="uid-codeblock">.tab-label</code>, <code class="uid-codeblock">.tab-content</code>
+              </li>
+              <li>Tab Head Scroll : <code class="uid-codeblock">.tab-scroll</code></li>
+              <li>활성화 탭 좌측으로 이동</li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+
+<!-- Tab Scroll -->
+<div class="component-tab tab-scroll" data-component="tab">
+  <div class="tab-head">
+    <button type="button" class="tab-label" data-tab-value="tab1">TAB 1</button>
+    <button type="button" class="tab-label" data-tab-value="tab3">TAB 2</button>
+    <button type="button" class="tab-label" data-tab-value="tab2">TAB 3</button>
+    <button type="button" class="tab-label" data-tab-value="tab4">TAB 4</button>
+    <button type="button" class="tab-label" data-tab-value="tab5">TAB 5</button>
+  </div>
+  <div class="tab-body">
+    <div class="tab-content" data-tab-value="tab1">
+      <div class="content-inner"> Tab content 1</div>
+    </div>
+    <div class="tab-content" data-tab-value="tab2">
+      <div class="content-inner"> Tab content 2</div>
+    </div>
+    <div class="tab-content" data-tab-value="tab3">
+      <div class="content-inner"> Tab content 3</div>
+    </div>
+    <div class="tab-content" data-tab-value="tab4">
+      <div class="content-inner"> Tab content 4</div>
+    </div>
+    <div class="tab-content" data-tab-value="tab5">
+      <div class="content-inner"> Tab content 5</div>
+    </div>
+  </div>
+</div>
+<!-- // Tab Scroll -->
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="uid-title02">Tab Head Sticky + Scroll</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-tab</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.tab-head</code>, <code class="uid-codeblock">.tab-body</code>, <code class="uid-codeblock">.tab-label</code>, <code class="uid-codeblock">.tab-content</code>
+              </li>
+              <li>Tab Head Sticky : <code class="uid-codeblock">data-props-sticky="true"</code></li>
+              <li>Tab Head Scroll : <code class="uid-codeblock">.tab-scroll</code></li>
+              <li>활성화 탭 좌측으로 이동</li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html" data-height="400">
+
+<!-- Tab Head Sticky + Scroll -->
+<div class="component-tab tab-scroll" data-component="tab" data-props-sticky="true">
+  <div class="tab-head">
+    <button type="button" class="tab-label" data-tab-value="tab6">TAB 1</button>
+    <button type="button" class="tab-label" data-tab-value="tab7">TAB 2</button>
+    <button type="button" class="tab-label" data-tab-value="tab8">TAB 3</button>
+    <button type="button" class="tab-label" data-tab-value="tab9">TAB 4</button>
+    <button type="button" class="tab-label" data-tab-value="tab10">TAB 5</button>
+  </div>
+  <div class="tab-body">
+    <div class="tab-content" data-tab-value="tab6">
+      <div class="content-inner" style="height: 400px;"> Tab content 1</div>
+    </div>
+    <div class="tab-content" data-tab-value="tab7">
+      <div class="content-inner" style="height: 400px;"> Tab content 2</div>
+    </div>
+    <div class="tab-content" data-tab-value="tab8">
+      <div class="content-inner" style="height: 400px;"> Tab content 3</div>
+    </div>
+    <div class="tab-content" data-tab-value="tab9">
+      <div class="content-inner" style="height: 400px;"> Tab content 4</div>
+    </div>
+    <div class="tab-content" data-tab-value="ttab10ab5">
+      <div class="content-inner" style="height: 400px;"> Tab content 5</div>
+    </div>
+  </div>
+</div>
+<!-- // Tab Head Sticky + Scroll -->
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="uid-title02">Tab in Tab + Sub Tab Sticky</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-tab</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.tab-head</code>, <code class="uid-codeblock">.tab-body</code>, <code class="uid-codeblock">.tab-label</code>, <code class="uid-codeblock">.tab-content</code>
+              </li>
+              <li>Tab Head Sticky : <code class="uid-codeblock">data-props-sticky="true"</code></li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html" data-height="350">
+
+<!-- Tab in Tab + Sub Tab Sticky -->
+<div class="component-tab" data-component="tab" data-active="tab1">
+  <div class="tab-head">
+    <button type="button" class="tab-label" data-tab-value="tab1">Tab1</button>
+    <button type="button" class="tab-label" data-tab-value="tab2">Tab2</button>
+    <button type="button" class="tab-label" data-tab-value="tab3">Tab3</button>
+  </div>
+  <div class="tab-body">
+    <div class="component-tab tab-content" data-component="tab" data-tab-value="tab1" data-active="tab1-1" data-props-sticky="true">
+      <div class="tab-head">
+        <button type="button" class="tab-label" data-tab-value="tab1-1">Tab1-1</button>
+        <button type="button" class="tab-label" data-tab-value="tab1-2">Tab1-2</button>
+        <button type="button" class="tab-label" data-tab-value="tab1-3">Tab1-3</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab-content" data-tab-value="tab1-1">
+          <div class="content-inner" style="height: 400px;"> Tab content 1 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab1-2">
+          <div class="content-inner" style="height: 400px;"> Tab content 1 - 2</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab1-3">
+          <div class="content-inner" style="height: 400px;"> Tab content 1 - 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="component-tab tab-content" data-component="tab" data-tab-value="tab2" data-props-sticky="true">
+      <div class="tab-head">
+        <button type="button" class="tab-label" data-tab-value="tab2-1">Tab2-1</button>
+        <button type="button" class="tab-label" data-tab-value="tab2-2">Tab2-2</button>
+        <button type="button" class="tab-label" data-tab-value="tab2-3">Tab2-3</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab-content" data-tab-value="tab2-1">
+          <div class="content-inner" style="height: 400px;"> Tab content 2 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab2-2">
+          <div class="content-inner" style="height: 400px;"> Tab content 2 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab2-3">
+          <div class="content-inner" style="height: 400px;"> Tab content 2 - 1</div>
+        </div>
+      </div>
+    </div>
+    <div class="component-tab tab-content" data-component="tab" data-tab-value="tab3" data-props-sticky="true">
+      <div class="tab-head">
+        <button type="button" class="tab-label" data-tab-value="tab3-1">Tab3-1</button>
+        <button type="button" class="tab-label" data-tab-value="tab3-2">Tab3-2</button>
+        <button type="button" class="tab-label" data-tab-value="tab3-3">Tab3-3</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab-content" data-tab-value="tab3-1">
+          <div class="content-inner" style="height: 400px;"> Tab content 3 - 1</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab3-2">
+          <div class="content-inner" style="height: 400px;"> Tab content 3 - 2</div>
+        </div>
+        <div class="tab-content" data-tab-value="tab3-3">
+          <div class="content-inner" style="height: 400px;"> Tab content 3 - 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Tab in Tab + Sub Tab Sticky -->
+
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+        </section>
+      </main>
+
+      @@include('pathGuideInclude/_component_footer.html')
+    </div>
+    <script src="pathGuideScripts/component_guide.js"></script>
+    <script></script>
+  </body>
+</html>

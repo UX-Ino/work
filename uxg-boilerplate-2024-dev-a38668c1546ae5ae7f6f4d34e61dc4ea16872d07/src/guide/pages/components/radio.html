@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    @@include('pathGuideInclude/_component_head.html', {"title": "project components guide"})
+  </head>
+  <body>
+    <div class="uid-container">
+      @@include('pathGuideInclude/_component_header.html') @@include('pathGuideInclude/_component_navigation.html')
+
+      <main class="uid-main code-guide">
+        <h1 class="uid-title01">Radio</h1>
+        <p class="uid-desc">
+          라디오 버튼은 여러 옵션 중에서 단 하나의 옵션을 선택할 수 있는 입력 요소입니다.<br />
+          각 라디오 버튼은 그룹 내에서 고유한 값을 갖고 있으며, 사용자가 그룹 내에서 하나의 옵션을 선택하면 다른 옵션들은 자동으로 선택 해제됩니다.
+        </p>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">기본 가이드</h2>
+          <ul class="uid-list">
+            <li> 설계 단계의 특별한 UX 요청이나 개발 환경에 따른 제약으로 개발 요청 사항이 없다면 <strong>테스트 완료된 코드</strong>를 <strong>복사 붙여 넣기</strong>를 <strong>기본</strong>으로 합니다. </li>
+          </ul>
+        </section>
+
+        <!-- <section class="uid-component">
+          <h2 class="uid-title02">테스트된 브라우저(최신 버전 기준)</h2>
+          <div class="uid-table">
+            <table class="table-fixed">
+              @@include('pathGuideInclude/_component_browsers_check01.html')
+              <tbody>
+                <tr>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">테스트된 스크린 리더</h2>
+          <div class="uid-table">
+            <table class="table-fixed">
+              @@include('pathGuideInclude/_component_screen_reader_check01.html')
+              <tbody>
+                <tr>
+                  <td>none</td>
+                  <td>supported</td>
+                  <td>supported</td>
+                  <td>partial</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section> -->
+
+        <section class="uid-component">
+          <h2 class="uid-title02">협의 할 점</h2>
+          <ul class="uid-list">
+            <li> </li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">접근성 가이드</h2>
+          <ul class="uid-list">
+            <li>:focus-visible{outline: -webkit-focus-ring-color auto 1px;}</li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <!-- S : 작성 단위 / 추가는 article 단위로 입력  -->
+          <article>
+            <h2 class="uid-title02">Radio : default</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 클래스 :
+                <code class="uid-codeblock">.component-radio</code>
+              </li>
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.radio-inner</code>
+              </li>
+              <li>
+                input 컴포넌트 가상클래스 :
+                <code class="uid-codeblock">:checked</code>
+                <code class="uid-codeblock">:disabled</code>
+                <code class="uid-codeblock">:checked + disabled</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+
+ <!-- radio : 기본 -->
+ <br>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0001" name="temp_radio_0001">
+  </label>
+</div>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0002" name="temp_radio_0001" checked>
+  </label>
+</div>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0003" name="temp_radio_0001" disabled>
+  </label>
+</div>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0101" name="temp_radio_0100" checked disabled>
+  </label>
+</div>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="uid-title02">Radio + 텍스트</h2>
+            <ul class="uid-list">
+              <li>
+                컴포넌트 자식 클래스 :
+                <code class="uid-codeblock">.radio-item</code>
+              </li>
+              <li>
+                input 컴포넌트 가상클래스 :
+                <code class="uid-codeblock">:checked</code>
+                <code class="uid-codeblock">:disabled</code>
+                <code class="uid-codeblock">:checked + disabled</code>
+              </li>
+            </ul>
+            <div class="code-wrap">
+              <div class="code_preview uid-demo">
+                <iframe class="preview"></iframe>
+              </div>
+              <div class="code-tab">
+                <button type="button" class="code-btn is-active">
+                  <span class="tab-label">Html</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">Css</span>
+                </button>
+                <button type="button" class="code-btn">
+                  <span class="tab-label">JavaScript</span>
+                </button>
+              </div>
+              <div class="code-group is-active">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content html ui_code_content" data-code="html">
+
+ <!-- radio : input + 텍스트 -->
+<br>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0201" name="temp_radio_0200">
+    <span class="radio-item">
+      <span class="radio-txt">Radio default</span>
+    </span>
+  </label>
+</div>
+<br>
+<br>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0202" name="temp_radio_0200" checked>
+    <span class="radio-item">
+      <span class="radio-txt">Radio checked</span>
+    </span>
+  </label>
+</div>
+<br>
+<br>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0203" name="temp_radio_0200" disabled>
+    <span class="radio-item">
+      <span class="radio-txt">Radio disabled</span>
+    </span>
+  </label>
+</div>
+<br>
+<br>
+<div class="component-radio">
+  <label class="radio-inner">
+    <input type="radio" id="temp_radio_0301" name="temp_radio_0300" checked disabled>
+    <span class="radio-item">
+      <span class="radio-txt">Radio checked + disabled</span>
+    </span>
+  </label>
+</div>
+<br>
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content css ui_code_content" data-code="css">
+/* css 주석 사용시 이 주석사용 부탁드립니다. */
+                </textarea>
+              </div>
+              <div class="code-group">
+                <div class="code_info">
+                  <button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!"> Copy to clipboard </button>
+                </div>
+                <textarea class="code_content javascript ui_code_content" data-code="javascript"></textarea>
+              </div>
+            </div>
+          </article>
+          <!-- E : 작성 단위 / 추가는 article 단위로 입력  -->
+        </section>
+      </main>
+
+      @@include('pathGuideInclude/_component_footer.html')
+    </div>
+    <script src="pathGuideScripts/component_guide.js"></script>
+    <script></script>
+  </body>
+</html>

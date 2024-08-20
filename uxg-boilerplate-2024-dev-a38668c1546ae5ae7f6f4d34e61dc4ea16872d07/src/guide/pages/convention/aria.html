@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>WAI-ARIA Attributes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5bfb2017-ebcd-45ac-95c9-ba09b4c65e49" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/solid_red.png" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📄</span></div><h1 class="page-title">WAI-ARIA Attributes</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>문서 관리 책임자 </th><td><span class="user"><img src="%25EB%258F%2584%25EC%25BF%2584%25EB%25A7%2588%25EB%259D%25BC%25ED%2586%25A402.png" class="icon user-icon"/>[UX]이명주</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>태그</th><td><span class="selected-value select-value-color-yellow">가이드</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>최종 편집 일시</th><td><time>@2024년 4월 18일 오전 11:50</time></td></tr><tr class="property-row property-row-last_edited_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>최종 편집자</th><td><span class="user"><img src="%25EB%258F%2584%25EC%25BF%2584%25EB%25A7%2588%25EB%259D%25BC%25ED%2586%25A402.png" class="icon user-icon"/>[UX]이명주</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>추가 카테고리</th><td><span class="selected-value select-value-color-red">퍼블리싱</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>현재 문서 상태 </th><td><span class="selected-value select-value-color-brown">스탠다드</span></td></tr></tbody></table></header><div class="page-body"><p id="190810a9-bd5a-419a-9487-5a758d7230ea" class=""><strong>목차</strong></p><nav id="a9a284f4-d360-43ad-b3d4-0bf0574017cf" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#55a7d061-8652-4beb-95f5-b63bface18a7">1. 지원되는 상태 및 속성</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3f818702-a4a3-431a-a113-16f3e70bbcdf">1-1. 번역 가능한 상태와 속성</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#66e0a56f-7592-4e36-8b00-628abc8b81d7">1-2. <strong>전역 상태와 속성</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b19bcd4b-c691-4700-82db-1e3177129e70">1-3. WAI-ARIA 상태 및 속성 분류</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#6f1312e0-86f9-4965-a06c-b884eb9d7eef">1-3-1. <strong><strong>Widget Attributes</strong></strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#1f93af57-4962-4ca7-b08b-8f3459535485">1-3-2. <strong><strong>Live Region Attributes</strong></strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9f35ac42-ac21-4c35-8bf1-139d69fc4f6d">1-3-3. <strong><strong>Drag-and-Drop Attributes</strong></strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#6b8ae236-ef6e-4953-9f03-ad8270dbeebc">1-3-4<strong><strong>. Relationship Attributes</strong></strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8b1675be-b4e6-43d8-a461-976a6aaa1749">1-4. <strong>상태 및 속성 정의(모든 aria-* 속성) - 48개</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#5f0f84f9-7155-4ff3-8d67-0a0ff4d69d8f"><strong>1-4-1. </strong><code><strong>aria-activedescendant</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#380d7854-cfa9-47f8-8afb-71e7863af297"><strong>1-4-2. </strong><code><strong>aria-atomic</strong></code> (<strong>Property</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#1497f4c8-da8c-4e35-bc71-82cbc6de86b4"><strong>1-4-3. </strong><code><strong>aria-autocomplete</strong></code> (<strong>Property</strong>) - <strong>none</strong> (<strong>기본값</strong>) | <strong>inline</strong> | <strong>list</strong> | <strong>both</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#25e75428-7d23-4387-92fc-596c93c58285"><strong>1-4-4. </strong><code><strong>aria-busy</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#eef8bc4c-04e9-4d15-bbc0-deb067ef9c4d"><strong>1-4-5. </strong><code><strong>aria-checked</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>mixed</strong> | <strong>undefined</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fcc7f521-9979-410f-8374-973753e3dd0b"><strong>1-4-6. </strong><code><strong>aria-colcount</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b2e6260c-f302-4cd8-925a-1444add3718c"><strong>1-4-7. </strong><code><strong>aria-colindex</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#029f1521-92b8-42bd-902b-141865415346"><strong>1-4-8. </strong><code><strong>aria-colspan</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#6f5df4b3-2a2d-4019-b033-8149190cfb6c"><strong>1-4-9. </strong><code><strong>aria-controls</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#0eab9533-254b-4788-86e6-3f9281844cc9"><strong>1-4-10. </strong><code><strong>aria-current</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>page</strong> | <strong>step</strong> | <strong>location</strong> | <strong>date</strong> | <strong>time</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#c1b2944e-f872-4700-9d70-14dd7521bbc6"><strong>1-4-11. </strong><code><strong>aria-describedby</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fe48fe2f-1407-4f42-b5d3-e6a62cacc6e1"><strong>1-4-12. </strong><code><strong>aria-details</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f8d89ff5-86a9-4759-9580-94749c7c5875"><strong>1-4-13. </strong><code><strong>aria-disabled</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#5a7c463c-ecb9-4b71-ae2b-0ad52622c6b7"><strong>1-4-14. </strong><code><strong>aria-dropeffect</strong></code> (<strong>Property</strong>) - <strong>none</strong> (<strong>기본값</strong>) | <strong>copy</strong> | <strong>execute</strong> | <strong>link</strong> | <strong>move</strong> | <strong>popup</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#0ea87fab-fb23-49a7-8ddb-4b58fc43757e"><strong>1-4-15. </strong><code><strong>aria-errormessage</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#5a44e626-e653-47b1-b6fd-500829ad9a5c"><strong>1-4-16. </strong><code><strong>aria-expanded</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>undefined</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#e8295b83-85dc-40c5-96e0-d6fa10161669"><strong>1-4-17. </strong><code><strong>aria-flowto</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fdd8e5b8-2580-4c98-a786-a5f090d5850c"><strong>1-4-18. </strong><code><strong>aria-grabbed</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#56b5af11-0b94-48d5-8985-811b24a93bd1"><strong>1-4-19. </strong><code><strong>aria-haspopup</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>menu</strong> | <strong>listbox</strong> | <strong>tree</strong> | <strong>grid</strong> | <strong>dialog</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d48bd6a4-58dc-4296-ac3e-e6cb8ac8d62e"><strong>1-4-20. </strong><code><strong>aria-hidden</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#e0ea5c56-da17-44a3-85d0-27e8bbcb299a"><strong>1-4-21. </strong><code><strong>aria-invalid</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>grammar</strong> | <strong>spelling</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#a8a881bf-c6a9-4e76-832e-cb9b51848a3c"><strong>1-4-22. </strong><code><strong>aria-keyshortcuts</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#22acb2c6-1e7f-4bc7-8e12-ff75a60a7426"><strong>1-4-23. </strong><code><strong>aria-label</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#aa847aa3-186a-4c05-98d5-8aa76393f7fb"><strong>1-4-24. </strong><code><strong>aria-labelledby</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#8f9dcb7b-9978-4edf-8686-8241f1bb977d"><strong>1-4-25. </strong><code><strong>aria-level</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#82e3783d-573e-43f7-88d9-d1fbc5f92e0a"><strong>1-4-26. </strong><code><strong>aria-live</strong></code><strong> (Property)</strong> - <strong>off</strong> (<strong>기본값</strong>) | <strong>assertive</strong> | <strong>polite</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#62e1c681-2608-46fb-a098-165147675a11"><strong>1-4-27. </strong><code><strong>aria-modal</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#836598db-883e-4666-86d2-cb7d378ce032"><strong>1-4-28. </strong><code><strong>aria-multiline</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b8929f5f-71b3-474d-8a58-620d6ae63d1e"><strong>1-4-29. </strong><code><strong>aria-multiselectable</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9115f387-30f5-452d-976a-65d935f49b6b"><strong>1-4-30. </strong><code><strong>aria-orientation</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>) | <strong>horizontal</strong> | <strong>vertical</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#05659096-e52c-4f50-9504-c6233e589d39"><strong>1-4-31. </strong><code><strong>aria-owns</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#1856bb69-06ef-4da3-a90b-ad92e886a958"><strong>1-4-32. </strong><code><strong>aria-placeholder</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#7864e3cd-6f07-4529-a29e-606fc5d47ddd"><strong>1-4-33. </strong><code><strong>aria-posinset</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9d19fb21-a5ec-4626-8b1b-278faaa36c25"><strong>1-4-34. </strong><code><strong>aria-pressed</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>mixed</strong> | <strong>undefined</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#843cc0c2-18c6-4db9-b66d-0e2fbceb7cdf"><strong>1-4-35. </strong><code><strong>aria-readonly</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#aed8678e-2fd5-4e65-9d13-926699c28fa1"><strong>1-4-36. </strong><code><strong>aria-relevant</strong></code><strong> (Property)</strong> - <strong>additions</strong> (<strong>기본값</strong>) | <strong>additions text</strong> | <strong>all</strong> | <strong>removals</strong> | <strong>text</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2fd2b7ce-42f1-410f-8e49-5910020cd485"><strong>1-4-37. </strong><code><strong>aria-required</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#0189d417-8da8-42cd-8019-04762b4a57b9"><strong>1-4-38. </strong><code><strong>aria-roledescription</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f9927dd8-9ca0-4f12-87e2-2b1dc17c6be3"><strong>1-4-39. </strong><code><strong>aria-rowcount</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#edeef2a4-7c11-48eb-ab65-e53d3367bb33"><strong>1-4-40. </strong><code><strong>aria-rowindex</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#31e8aad7-daae-4a5e-aa44-0511389e68d5"><strong>1-4-41. </strong><code><strong>aria-rowspan</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#54fede0a-2d73-4d98-b104-635332d9d132"><strong>1-4-42. </strong><code><strong>aria-selected</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>undefined</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#0d5acbca-3e41-413e-a59b-3db790d4ad63"><strong>1-4-43. </strong><code><strong>aria-setsize</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2e207977-60c6-4815-93b7-79a0f00f5efc"><strong>1-4-44. </strong><code><strong>aria-sort</strong></code><strong> (Property)</strong> - <strong>none</strong> (<strong>기본값</strong>) | <strong>ascending</strong> | <strong>descending</strong> | <strong>other</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#16082bf0-80ed-49e1-a0e4-1b9a81375ad5"><strong>1-4-45. </strong><code><strong>aria-valuemax</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#c3d34bdf-95c9-4b1f-87cd-c305ff0bce1e"><strong>1-4-46. </strong><code><strong>aria-valuemin</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#a3546cac-a7c2-4679-91de-82dbb86cd095"><strong>1-4-47. </strong><code><strong>aria-valuenow</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#c1fdf473-087f-491a-a986-3ee0547b6020"><strong>1-4-48. </strong><code><strong>aria-valuetext</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2e20dacf-0554-40e9-bcd2-d3f6c6af053d"><strong>1-5. 용어 설명 - IDREF</strong></a></div></nav><h1 id="55a7d061-8652-4beb-95f5-b63bface18a7" class="">1. 지원되는 상태 및 속성</h1><p id="32488e63-94fb-4473-8c77-8ed7f7111415" class="">WAI-ARIA(Web Accessibility Initiative - Accessible Rich Internet Applications)는 웹 콘텐츠와 웹 애플리케이션을 보다 접근성 있게 만들기 위한 기술 명세입니다. 이 가이드는 WAI-ARIA 1.2의 최신 권고 사항을 기반으로, 웹 개발 시 사용하는 주요 속성 및 상태에 대해 분류하고 설명합니다.</p><h2 id="3f818702-a4a3-431a-a113-16f3e70bbcdf" class="">1-1. 번역 가능한 상태와 속성</h2><p id="d6d8f358-5d98-4ec2-89df-d3e2d113071e" class="">HTML 사양은 다른 사양들이 <a href="https://html.spec.whatwg.org/multipage/dom.html#translatable-attributes">번역 가능한 속성</a>을 정의할 수 있음을 명시합니다. 보조 기술 사용자들에게 이해될 수 있도록, 다음 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-state">상태</a>와 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-property">속성</a>의 값은 <a href="https://html.spec.whatwg.org/multipage/dom.html#translatable-attributes">번역 가능한 속성</a>이며 페이지가 현지화될 때 번역되어야 합니다:</p><ul id="e9997501-e984-4d5a-be34-5d50b95093f7" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-label"><code>aria-label</code></a></li></ul><ul id="75594fa8-5622-4b15-92dc-f982d76eb729" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-placeholder"><code>aria-placeholder</code></a></li></ul><ul id="e30b5331-d49e-4e66-b834-de40a2a7d68d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-roledescription"><code>aria-roledescription</code></a></li></ul><ul id="6160fa4a-f248-486b-9634-726eb7529ecf" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-valuetext"><code>aria-valuetext</code></a></li></ul><h2 id="66e0a56f-7592-4e36-8b00-628abc8b81d7" class="">1-2. <strong>전역 상태와 속성</strong></h2><p id="2706b246-8291-4a3e-a1bf-9dae20cd2c8d" class="">일부 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-state">상태</a>와 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-property">속성</a>은 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-role">역할</a>이 적용되었는지 여부와 상관없이 모든 호스트 언어 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-element">요소</a>에 적용됩니다. 다음 전역 상태와 속성은 모든 역할과 모든 기본 마크업 요소에서 지원되며, 달리 금지되지 않는 한 사용할 수 있습니다. 역할이 어떤 전역 상태나 속성의 사용을 금지하는 경우, 그 상태나 속성은 역할을 정의하는 섹션에 포함된 특성 표에서 금지된 것으로 나열됩니다.</p><ul id="38820fa6-2265-4b9c-ad2e-0d31b5103c25" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-atomic"><code>aria-atomic</code></a></li></ul><ul id="a2af1ef2-2b3a-444a-99cc-ceb9a5809a5a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-busy"><code>aria-busy (state)</code></a></li></ul><ul id="c72a8704-436f-4994-bf2a-e68059d139cd" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-controls"><code>aria-controls</code></a></li></ul><ul id="ec2e3668-b3f1-4eec-81d8-71275a5bf44e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-current"><code>aria-current (state)</code></a></li></ul><ul id="484faf76-a2a4-4ad1-afce-e42a06ec5333" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-describedby"><code>aria-describedby</code></a></li></ul><ul id="925a167c-2bed-41d1-ac77-2d4c85795514" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-details"><code>aria-details</code></a></li></ul><ul id="3c11612a-233a-47df-8260-e9e70cb80bf1" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-disabled"><code>aria-disabled (state)</code></a> (Global use deprecated in ARIA 1.2)</li></ul><ul id="c2387c25-6481-4e3e-8e5e-b955f2cbe18f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-dropeffect"><code>aria-dropeffect</code></a></li></ul><ul id="3a031c15-1e3a-4ad3-a8cf-8a7d15c1c1b3" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-errormessage"><code>aria-errormessage</code></a> (Global use deprecated in ARIA 1.2)</li></ul><ul id="800a831d-cb10-4713-b3f1-ca36421fe210" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-flowto"><code>aria-flowto</code></a></li></ul><ul id="506432de-efa6-4f8b-83d9-4bdfd7a898d9" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-grabbed"><code>aria-grabbed (state)</code></a></li></ul><ul id="dae3b286-d26d-45a2-a77c-d113682732be" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-haspopup"><code>aria-haspopup</code></a> (Global use deprecated in ARIA 1.2)</li></ul><ul id="0e9d21c5-fa92-4796-8787-cb0ead402b7f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-hidden"><code>aria-hidden (state)</code></a></li></ul><ul id="4dbefb88-d106-46f1-96cb-c27ee7501afe" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-invalid"><code>aria-invalid (state)</code></a> (Global use deprecated in ARIA 1.2)</li></ul><ul id="0027e52a-8d47-4981-b401-3e3bec05e098" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts"><code>aria-keyshortcuts</code></a></li></ul><ul id="3bc5e42c-671a-4823-80d9-a3447e02f23d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-label"><code>aria-label</code></a> (Except where prohibited)</li></ul><ul id="0da59aa8-ea14-4e5f-b3bb-a07363bbb842" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-labelledby"><code>aria-labelledby</code></a> (Except where prohibited)</li></ul><ul id="ecf25e65-8108-42c9-855b-c4127d8d3908" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-live"><code>aria-live</code></a></li></ul><ul id="20dd3cef-0b6b-4a43-add8-1e3e44e7beb5" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-owns"><code>aria-owns</code></a></li></ul><ul id="a295443c-3191-4c75-86d7-db74850206c9" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-relevant"><code>aria-relevant</code></a></li></ul><ul id="61539c89-e3d4-45c2-8bdd-18b67e37c162" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-roledescription"><code>aria-roledescription</code></a></li></ul><h2 id="b19bcd4b-c691-4700-82db-1e3177129e70" class="">1-3. WAI-ARIA 상태 및 속성 분류</h2><p id="155b0d19-2cfc-4259-849d-37fd77a3767e" class="">상태와 속성은 다음과 같이 분류됩니다.</p><ul id="3421a1dd-38be-4b0b-8810-673dace36e2c" class="bulleted-list"><li style="list-style-type:disc"><strong>Widget Attributes (위젯 속성)</strong>: 사용자 인터페이스 구성 요소의 상태, 속성 및 기능을 정의합니다.</li></ul><ul id="a7942253-ec58-4bdb-a396-e8bdbb26b9bc" class="bulleted-list"><li style="list-style-type:disc"><strong>Live Region Attributes (라이브 영역 속성)</strong>: 동적으로 변경되는 콘텐츠의 업데이트 방식을 보조 기술에 알립니다.</li></ul><ul id="305c2029-5ff5-4c61-92c3-4746fd8b7a68" class="bulleted-list"><li style="list-style-type:disc"><strong>Drag-and-Drop Attributes (드래그 앤 드롭 속성)</strong>: 드래그 앤 드롭 인터랙션을 지원하는 요소의 속성을 정의합니다.</li></ul><ul id="0d679450-0fee-44d7-831f-4b8da6b891d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Relationship Attributes (관계 속성)</strong>: 문서 내 요소 간의 관계를 정의합니다.</li></ul><h3 id="6f1312e0-86f9-4965-a06c-b884eb9d7eef" class="">1-3-1. <strong><strong>Widget Attributes</strong></strong></h3><p id="4f260581-ab5e-43b8-bcbc-efd50c0694ce" class="">이 섹션은 GUI 시스템이나 풍부한 인터넷 응용 프로그램에서 사용자 입력을 받고 사용자 동작을 처리하는 일반적인 사용자 인터페이스 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-element">요소</a>에 특화된 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-attribute">속성들</a>을 포함합니다. 이러한 속성들은 <a href="https://www.w3.org/TR/wai-aria-1.2/#widget_roles">위젯 역할</a>을 지원하기 위해 사용됩니다.</p><ul id="aea38005-851b-46dd-ad14-00c1f276ac03" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-autocomplete"><code>aria-autocomplete</code></a></li></ul><ul id="603fbabf-7644-4c2e-9134-602e4208cd75" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-checked"><code>aria-checked</code></a></li></ul><ul id="03a78f58-b433-4676-b8b1-e0cedec7c847" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-disabled"><code>aria-disabled</code></a></li></ul><ul id="b8d6b584-b1bd-4452-9a72-003793b3e9af" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-errormessage"><code>aria-errormessage</code></a></li></ul><ul id="7701f09b-f29a-4c8b-a1fa-c26814206a6e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-expanded"><code>aria-expanded</code></a></li></ul><ul id="7fa29b14-b201-4ba8-a5fd-ea2e177654d8" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-haspopup"><code>aria-haspopup</code></a></li></ul><ul id="8c15f3b6-58fa-460a-bf28-899bbe06b625" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-hidden"><code>aria-hidden</code></a></li></ul><ul id="7130170e-f219-4267-9963-64dc7f0f147b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-invalid"><code>aria-invalid</code></a></li></ul><ul id="57a76e24-f764-4615-bc4e-6f9f30123ced" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-label"><code>aria-label</code></a></li></ul><ul id="363f8192-7ba2-444e-810d-a05358770d5d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-level"><code>aria-level</code></a></li></ul><ul id="48323ddb-8074-4404-8af7-b13597746290" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-modal"><code>aria-modal</code></a></li></ul><ul id="59c71aac-bec1-4b49-9cb5-f48386f46b79" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-multiline"><code>aria-multiline</code></a></li></ul><ul id="219f3141-9715-4d90-9626-0f0237e4f90a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-multiselectable"><code>aria-multiselectable</code></a></li></ul><ul id="3afed10a-603d-4ff7-b68e-e032baf15f73" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-orientation"><code>aria-orientation</code></a></li></ul><ul id="8d34b84d-003c-43c5-91c6-1fe5f65061d8" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-placeholder"><code>aria-placeholder</code></a></li></ul><ul id="35db36d3-78a8-46ca-a54b-080168cf513b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-pressed"><code>aria-pressed</code></a></li></ul><ul id="85c7f00f-475a-48e4-948a-53635a2a59dd" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-readonly"><code>aria-readonly</code></a></li></ul><ul id="2eeacf8e-2b08-41ba-9476-15b0ba7cd88a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-required"><code>aria-required</code></a></li></ul><ul id="15c9d604-fc9a-49a8-9c7b-050e9c5c0da7" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-selected"><code>aria-selected</code></a></li></ul><ul id="88cb6a38-b0fe-4c68-ad94-9257254e5c9a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-sort"><code>aria-sort</code></a></li></ul><ul id="5e2ee4d7-1f25-46a6-a3f6-492495ff2219" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-valuemax"><code>aria-valuemax</code></a></li></ul><ul id="656ffd03-a825-47aa-a7eb-6340f6472398" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-valuemin"><code>aria-valuemin</code></a></li></ul><ul id="d62cc34d-069f-40ca-8b61-5f86810a46b4" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-valuenow"><code>aria-valuenow</code></a></li></ul><ul id="9f8f9d26-867a-44c2-b813-a2e7044bce4c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-valuetext"><code>aria-valuetext</code></a></li></ul><p id="4768dd80-fdf8-475c-8a0d-7b22fb82d56f" class="">위젯 속성은 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-user-agent">사용자 에이전트</a>에 의해 플랫폼 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-accessibility-api">접근성 API</a> <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-state">상태</a>로 매핑될 수 있으며, 이는 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-assistive-technology">보조 기술</a>에 의해 접근될 수 있습니다. 또는, DOM에서 직접 접근될 수도 있습니다. 사용자 에이전트는 상태가 변경될 때 보조 기술이 알림을 받을 수 있는 방법을 제공해야 합니다(<strong>반드시</strong> 제공해야 합니다). 이는 DOM 속성 변경 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-event">이벤트</a>나 플랫폼 접근성 API 이벤트를 통해 가능합니다.</p><h3 id="1f93af57-4962-4ca7-b08b-8f3459535485" class="">1-3-2. <strong><strong>Live Region Attributes</strong></strong></h3><p id="48341cb6-81b8-4579-b2f6-0829d5eb7c9b" class="">이 섹션은 풍부한 인터넷 응용 프로그램에서 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-live-region">실시간 영역</a>에 특화된 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-attribute">속성들</a>을 포함합니다. 이러한 속성은 어떤 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-element">요소</a>에도 적용될 수 있습니다. 이 속성들의 목적은 요소가 포커스를 가지고 있지 않을 때도 내용 변경이 발생할 수 있음을 나타내고, 그러한 내용 업데이트를 처리하는 방법에 대한 정보를 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-assistive-technology">보조 기술</a>에 제공하는 것입니다. 일부 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-role">역할</a>은 해당 역할에 특정한 <code><strong>aria-live</strong></code> 속성의 기본값을 지정합니다. 실시간 영역의 예로는 업데이트되는 주식 시세를 나열하는 티커 섹션이 있습니다.</p><ul id="6a4eca3c-b26e-4f08-9198-eed02a5eec98" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-atomic"><code>aria-atomic</code></a></li></ul><ul id="ee58544d-8f3f-4ea3-93b9-3d85b8cbadd2" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-busy"><code>aria-busy</code></a></li></ul><ul id="29240eb1-ad23-457d-bd46-f2b122033bef" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-live"><code>aria-live</code></a></li></ul><ul id="08483d62-b909-4805-bf39-6419ed9ef4d3" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-relevant"><code>aria-relevant</code></a></li></ul><h3 id="9f35ac42-ac21-4c35-8bf1-139d69fc4f6d" class="">1-3-3. <strong><strong>Drag-and-Drop Attributes</strong></strong></h3><p id="0aa13288-f853-4c69-ab39-61e1f5f7d912" class="">이 섹션은 드래그 앤 드롭 인터페이스 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-element">요소</a>에 대한 정보를 나타내는 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-attribute">속성</a>을 나열합니다. 여기에는 드래그 가능한 요소와 그들의 드롭 대상 등이 포함됩니다. 드롭 대상 정보는 저자에 의해 시각적으로 렌더링되고, 대체 모달리티를 통해 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-assistive-technology">보조 기술</a>에 제공될 것입니다.</p><ul id="ec881be3-6ba5-4a62-8c7b-588a4bdb7151" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-dropeffect"><code>aria-dropeffect</code></a></li></ul><ul id="b2be299f-c014-4b0b-8dec-ab48c958062f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-grabbed"><code>aria-grabbed</code></a></li></ul><h3 id="6b8ae236-ef6e-4953-9f03-ad8270dbeebc" class="">1-3-4<strong><strong>. Relationship Attributes</strong></strong></h3><p id="61525be8-939f-493d-8f79-5129037e1af9" class="">이 섹션은 문서 구조에서 쉽게 파악할 수 없는 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-element">요소들</a> 사이의 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-relationship">관계</a>나 연관성을 나타내는 <a href="https://www.w3.org/TR/wai-aria-1.2/#dfn-attribute">속성들</a>을 나열합니다.</p><ul id="30c8067c-a9ff-4bb7-a11f-d0a1da3c7f3d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-activedescendant"><code>aria-activedescendant</code></a></li></ul><ul id="1593e405-19c7-457c-8dfc-f8e5743c39fe" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-colcount"><code>aria-colcount</code></a></li></ul><ul id="e6dfa21b-b32a-4fdf-afa1-820792c7975e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-colindex"><code>aria-colindex</code></a></li></ul><ul id="073a7191-e0ab-4ad2-9c16-9f4069f4efe3" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-colspan"><code>aria-colspan</code></a></li></ul><ul id="4c8352f9-8e3a-47fe-ba7a-943d8d8f5ae5" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-controls"><code>aria-controls</code></a></li></ul><ul id="8e0fff71-c2e6-4c65-aaca-24296426c63b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-describedby"><code>aria-describedby</code></a></li></ul><ul id="09529000-26c7-4abf-b1a6-e51e14bd3cc4" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-details"><code>aria-details</code></a></li></ul><ul id="b8cb36ad-e5fc-47ee-8181-faaa832cafcd" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-errormessage"><code>aria-errormessage</code></a></li></ul><ul id="4d7fcf10-530f-47a0-a004-6d486481f858" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-flowto"><code>aria-flowto</code></a></li></ul><ul id="f327b906-f586-440c-9121-0b227b6ac8e1" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-labelledby"><code>aria-labelledby</code></a></li></ul><ul id="748d0bbf-9d0f-4e93-960f-66522c7a147f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-owns"><code>aria-owns</code></a></li></ul><ul id="59dc94ce-1b4c-4a4f-a1c5-402340251f9a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-posinset"><code>aria-posinset</code></a></li></ul><ul id="be9703c6-5800-44d9-b0a2-7051ff6f2bbf" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-rowcount"><code>aria-rowcount</code></a></li></ul><ul id="4ce97a9a-496f-41f5-9f05-caf808345997" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-rowindex"><code>aria-rowindex</code></a></li></ul><ul id="f9f919c8-b875-4ee0-995d-9f16628e815f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-rowspan"><code>aria-rowspan</code></a></li></ul><ul id="6e615b6b-22e1-4839-a679-6a470df317d6" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-setsize"><code>aria-setsize</code></a></li></ul><h2 id="8b1675be-b4e6-43d8-a461-976a6aaa1749" class="">1-4. <strong>상태 및 속성 정의(모든 aria-* 속성) - 48개</strong></h2><p id="730d71bd-c2fa-4127-b244-bdabfc97cc7a" class=""><strong>스크린리더 지원여부 확인 사이트</strong></p><figure id="f3450b7b-b0b5-4abf-8076-6ba5d144a218"><a href="https://a11ysupport.io/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Accessibility Support</div><div class="bookmark-description">Important: This website does not attempt to establish a standard for how assistive technologies must behave. Read the FAQ for more information. Additionally, this is a work in progress. Please submit feedback or suggestions.</div></div><div class="bookmark-href">https://a11ysupport.io/</div></div></a></figure><h3 id="5f0f84f9-7155-4ff3-8d67-0a0ff4d69d8f" class=""><strong>1-4-1. </strong><code><strong>aria-activedescendant</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="9be86529-3700-407f-b472-17aa335f4331" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 컴포넌트 내에서 현재 활성화된 항목을 가리키는데 사용됩니다. 컨테이너 또는 복합 위젯 내에서 키보드 탐색에 사용됩니다.</li></ul><ul id="be864488-471b-4d7a-8a16-1165d2dc97dd" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 콤보박스(<strong>Combobox</strong>), 리스트박스(<strong>Listbox</strong>), 메뉴(<strong>Menu</strong>), 트리뷰(<strong>Treeview</strong>)</li></ul><ul id="21bb9665-0a1d-43d9-b4ea-caf75d5a1240" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="380d7854-cfa9-47f8-8afb-71e7863af297" class=""><strong>1-4-2. </strong><code><strong>aria-atomic</strong></code> (<strong>Property</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="da5b5243-bd79-4b0c-a534-6071c06b60af" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 라이브 영역에 대한 변경 사항이 전체적으로 또는 부분적으로 스크린 리더에 의해 발표되어야 하는지 여부를 나타냅니다.</li></ul><ul id="f6aca697-7dbe-4211-99e0-caafbe27cd0d" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 알림(<strong>Alert</strong>), 상태 표시줄(<strong>Status Bar</strong>)</li></ul><ul id="0d514439-7a3d-45b8-93a5-821b9ea297de" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>partial</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="1497f4c8-da8c-4e35-bc71-82cbc6de86b4" class=""><strong>1-4-3. </strong><code><strong>aria-autocomplete</strong></code> (<strong>Property</strong>) - <strong>none</strong> (<strong>기본값</strong>) | <strong>inline</strong> | <strong>list</strong> | <strong>both</strong></h3><ul id="6558de2b-e88f-46b5-976f-3463f272de78" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 사용자가 입력을 시작할 때 입력값을 자동 완성할 수 있는지 여부를 나타냅니다.</li></ul><ul id="98fd247c-f508-484b-97e4-c4c67146d0ca" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 입력 필드(<strong>Input Field</strong>), 콤보박스(<strong>Combobox</strong>)</li></ul><ul id="fc7a4ec8-92c9-417c-8da0-68cc91abc613" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>none</strong>), NVDA (<strong>some partial support</strong>), VoiceOver (iOS) (<strong>none</strong>), TalkBack (<strong>none</strong>), Narrator (<strong>none</strong>)</li></ul><h3 id="25e75428-7d23-4387-92fc-596c93c58285" class=""><strong>1-4-4. </strong><code><strong>aria-busy</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="09c65205-969f-4037-b68d-c2173d8cb24b" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 현재 업데이트 중임을 나타내어 사용자 인터페이스의 나머지 부분이 현재 사용할 수 없거나 바쁘다는 것을 사용자에게 알립니다.</li></ul><ul id="8f41a7a1-65d2-4bda-bf8e-7d5af46fd123" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 페이지 또는 섹션 로딩 중(<strong>Loading Spinners</strong>), 데이터 그리드(<strong>Data Grids</strong>)</li></ul><ul id="a817d6ae-ba64-477b-9962-23fb0602bdcc" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), <mark class="highlight-red">VoiceOver (iOS) (</mark><mark class="highlight-red"><strong>none</strong></mark><mark class="highlight-red">)</mark>, TalkBack (<strong>none</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="eef8bc4c-04e9-4d15-bbc0-deb067ef9c4d" class=""><strong>1-4-5. </strong><code><strong>aria-checked</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>mixed</strong> | <strong>undefined</strong></h3><ul id="b2cdc3b1-2b5b-47ee-8296-deda944c2a03" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 체크박스, 라디오 버튼, 또는 스위치의 체크 상태를 나타냅니다.</li></ul><ul id="d681031a-9296-4daf-9b60-71a3a4544bc3" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 체크박스(<strong>Checkbox</strong>), 라디오 버튼(<strong>Radio Button</strong>), 스위치(<strong>Switch</strong>)</li></ul><ul id="64dc576c-fca6-4c2f-879a-e058afeba9de" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="fcc7f521-9979-410f-8374-973753e3dd0b" class=""><strong>1-4-6. </strong><code><strong>aria-colcount</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="cfc7eec9-0e4c-45fb-8ff2-2061fe7cbd6c" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 그리드나 테이블에 있는 열의 총 수를 나타냅니다.</li></ul><ul id="bcd5a205-4b46-42ad-96d5-6b946307d740" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 그리드(<strong>Grid</strong>), 테이블(<strong>Table</strong>)</li></ul><ul id="de0c8589-7868-480f-935b-f8083f361284" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>partial</strong>), NVDA (<strong>unknown</strong>), VoiceOver (iOS) (<strong>none</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="b2e6260c-f302-4cd8-925a-1444add3718c" class=""><strong>1-4-7. </strong><code><strong>aria-colindex</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="94d0cae2-bd23-4301-a652-71cae8c58040" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 그리드나 테이블 내에서 셀의 열 위치를 나타냅니다.</li></ul><ul id="d925f7c4-c938-4eaf-a654-d4ad2e6e6872" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 그리드 셀(<strong>Grid Cell</strong>), 테이블 셀(<strong>Table Cell</strong>)</li></ul><ul id="d2a9ceb7-3a38-412a-b61c-acaae54f29b4" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>unknown</strong>), NVDA (<strong>unknown</strong>), VoiceOver (iOS) (<strong>unknown</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>unknown</strong>)</li></ul><h3 id="029f1521-92b8-42bd-902b-141865415346" class=""><strong>1-4-8. </strong><code><strong>aria-colspan</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="f24e1035-c936-4545-a5a3-f2d6c77cd821" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 셀이 차지하는 열의 수를 나타냅니다. 테이블이나 그리드 구조에서 사용됩니다.</li></ul><ul id="3170be05-37c8-41b0-9c0d-dce233147db0" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 그리드 셀(<strong>Grid Cell</strong>), 테이블 셀(<strong>Table Cell</strong>)</li></ul><ul id="c4e38433-3e14-4cb2-a0a8-0f90949f7801" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>unknown</strong>), NVDA (<strong>unknown</strong>), VoiceOver (iOS) (<strong>unknown</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>unknown</strong>)</li></ul><h3 id="6f5df4b3-2a2d-4019-b033-8149190cfb6c" class=""><strong>1-4-9. </strong><code><strong>aria-controls</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="6b6aa7ef-fe94-403b-abaa-3ced1e42518a" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 현재 요소가 제어하는 다른 요소의 ID를 참조합니다. 주로 탭, 드롭다운 메뉴, 커스텀 슬라이더 등에서 사용됩니다.</li></ul><ul id="8041bd32-5c99-48fb-97a8-42bbc6c978e9" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 탭(<strong>Tab</strong>), 드롭다운 메뉴(<strong>Dropdown Menu</strong>), 슬라이더(<strong>Slider</strong>)</li></ul><ul id="227c25b7-1eca-4f4e-a875-e2ee448cef53" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>none</strong>), TalkBack (<strong>none</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="0eab9533-254b-4788-86e6-3f9281844cc9" class=""><strong>1-4-10. </strong><code><strong>aria-current</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>page</strong> | <strong>step</strong> | <strong>location</strong> | <strong>date</strong> | <strong>time</strong></h3><ul id="f63e5dc2-7bf2-4987-97f5-eae0108ef459" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 현재 요소가 페이지, 단계, 위치 등에 대한 현재 상태를 나타냅니다. 링크, 메뉴 항목, 또는 스텝 인디케이터에 사용됩니다.</li></ul><ul id="aea195ec-707d-4878-978f-c68ce529c580" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 링크(<strong>Link</strong>), 메뉴 항목(<strong>Menu Item</strong>), 스텝 인디케이터(<strong>Step Indicator</strong>)</li></ul><ul id="2f6b7a3f-c87c-47bf-939b-d1d6b1bdae7c" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="c1b2944e-f872-4700-9d70-14dd7521bbc6" class=""><strong>1-4-11. </strong><code><strong>aria-describedby</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="e8380d71-c3bf-4f5f-b60d-ddc30d6a8ff3" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 현재 요소에 대한 추가 설명이나 설명을 제공하는 요소의 ID를 참조합니다. 복잡한 위젯, 이미지, 또는 인터랙션에 대한 설명 제공 시 사용됩니다.</li></ul><ul id="56f6e842-f4cf-4fde-a9a6-503fac14d1ad" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 위젯(<strong>Widget</strong>), 이미지(<strong>Image</strong>), 버튼(<strong>Button</strong>)</li></ul><ul id="384c8567-f1aa-4627-bea5-5a38cc78f533" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="fe48fe2f-1407-4f42-b5d3-e6a62cacc6e1" class=""><strong>1-4-12. </strong><code><strong>aria-details</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="c9929006-b841-4089-a138-11c0c6902f2c" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 현재 요소의 복잡한 정보에 대한 상세 정보를 제공하는 요소의 ID를 참조합니다. 주로 문서, 이미지, 또는 다른 요소들에 대한 상세 설명을 제공하는 데 사용됩니다.</li></ul><ul id="febe9930-6ea0-45ec-a5ec-77ae78596f27" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 문서(<strong>Document</strong>), 이미지(<strong>Image</strong>), 그래프(<strong>Graph</strong>)</li></ul><ul id="ec69f2a0-5d16-4ffa-abf3-5e0c95656908" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>partial</strong>), NVDA (<strong>partial</strong>), VoiceOver (iOS) (<strong>partial</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="f8d89ff5-86a9-4759-9580-94749c7c5875" class=""><strong>1-4-13. </strong><code><strong>aria-disabled</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="eb35b37b-ae2c-4498-8cfc-c7007ea4d84b" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 비활성화되었음을 나타냅니다. 비활성화된 요소는 사용자 인터랙션을 받지 않습니다.</li></ul><ul id="0bf2c7d0-3702-42d2-8488-e12a18da7ba4" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 버튼(<strong>Button</strong>), 링크(<strong>Link</strong>), 입력 필드(<strong>Input Field</strong>)</li></ul><ul id="2d4a422c-70c7-4ed7-ba57-802e74ad4cd0" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="5a7c463c-ecb9-4b71-ae2b-0ad52622c6b7" class=""><strong>1-4-14. </strong><code><strong>aria-dropeffect</strong></code> (<strong>Property</strong>) - <strong>none</strong> (<strong>기본값</strong>) | <strong>copy</strong> | <strong>execute</strong> | <strong>link</strong> | <strong>move</strong> | <strong>popup</strong></h3><ul id="850cd218-4160-4674-9f9d-184ce41e73e9" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 드래그 앤 드롭 작업 중 객체에 적용될 수 있는 효과를 나타냅니다.</li></ul><ul id="8e34413c-58ad-4c88-a027-707338f5e5a6" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 드래그 가능한 아이템(<strong>Draggable Item</strong>)</li></ul><ul id="ea76a438-9f79-424a-8ae6-f223736c8778" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: 현재 대부분의 스크린리더와 브라우저에서는 이 속성을 지원하지 않습니다.</li></ul><h3 id="0ea87fab-fb23-49a7-8ddb-4b58fc43757e" class=""><strong>1-4-15. </strong><code><strong>aria-errormessage</strong></code> (<strong>Property</strong>) - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="9444b699-1a34-4b82-bded-dc5d0b112f9d" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소의 에러 메시지를 제공하는 요소의 ID를 참조합니다. 주로 유효성 검사 실패 시 사용됩니다.</li></ul><ul id="2faac965-9385-40fd-a260-32c3b89ba27a" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 입력 필드(<strong>Input Field</strong>), 폼(<strong>Form</strong>)</li></ul><ul id="cde1109c-5bba-4098-b515-da6b9d2dab1a" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>partial</strong>), NVDA (<strong>partial</strong>), VoiceOver (iOS) (<strong>partial</strong>), TalkBack (<strong>partial</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="5a44e626-e653-47b1-b6fd-500829ad9a5c" class=""><strong>1-4-16. </strong><code><strong>aria-expanded</strong></code> (<strong>State</strong>) - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>undefined</strong></h3><ul id="f1a69003-9c28-4376-b01a-929c492aa61b" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 확장되어 추가 정보를 표시하는지 여부를 나타냅니다. 주로 드롭다운 메뉴, 컬랩서블 섹션에서 사용됩니다.</li></ul><ul id="9949edef-70ef-4799-bad1-1f5fd902a1d5" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 드롭다운 메뉴(<strong>Dropdown Menu</strong>), 컬랩서블 섹션(<strong>Collapsible Section</strong>), 트리 아이템(<strong>Tree Item</strong>)</li></ul><ul id="82b4a4e3-6294-4f79-8ab7-19467df66403" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="e8295b83-85dc-40c5-96e0-d6fa10161669" class=""><strong>1-4-17. </strong><code><strong>aria-flowto</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="10e5b99b-0362-47d6-974b-8e4e14d58011" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 사용자가 키보드 또는 다른 입력 메커니즘으로 요소 간을 탐색할 때, 특정 순서로 흐름을 제어합니다.</li></ul><ul id="10572343-c2f9-4b75-a967-9ded18a2923e" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 모든 엘리먼트에 적용 가능하지만, 주로 문서 흐름을 구성할 때 사용됩니다.</li></ul><ul id="9c8152d7-e7ca-4c03-9d1c-4b1f4920bee7" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>partial</strong>), NVDA (<strong>partial</strong>), VoiceOver (iOS/macOS) (<strong>partial</strong>), TalkBack (<strong>partial</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="fdd8e5b8-2580-4c98-a786-a5f090d5850c" class=""><strong>1-4-18. </strong><code><strong>aria-grabbed</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="6781fb62-25a1-4b38-bcea-b2873491e9f3" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 드래그 앤 드롭 인터페이스에서 사용자가 요소를 &#x27;잡았는지&#x27; 여부를 나타냅니다. ARIA 1.1부터는 더 이상 사용되지 않으며, 대신 HTML5 드래그 앤 드롭 API 사용이 권장됩니다.</li></ul><ul id="b9b1cea4-77ae-4d3d-9bac-652352767091" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 드래그 가능한 항목들</li></ul><ul id="97100504-0545-4bf2-86a9-903919628944" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: 현재 대부분의 스크린리더에서는 이 속성을 직접적으로 지원하지 않습니다.</li></ul><h3 id="56b5af11-0b94-48d5-8985-811b24a93bd1" class=""><strong>1-4-19. </strong><code><strong>aria-haspopup</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>menu</strong> | <strong>listbox</strong> | <strong>tree</strong> | <strong>grid</strong> | <strong>dialog</strong></h3><ul id="d058ee7c-f952-40f7-9b94-073038ff94df" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 팝업 메뉴 또는 다른 타입의 팝업을 가지고 있는지 여부를 나타냅니다.</li></ul><ul id="2a0f0f63-036e-4fa8-973d-12b86ac1cf72" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 버튼, 링크 또는 다른 인터랙션 요소</li></ul><ul id="9fa360e6-09b8-4994-87e0-6ef5da7e433a" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="d48bd6a4-58dc-4296-ac3e-e6cb8ac8d62e" class=""><strong>1-4-20. </strong><code><strong>aria-hidden</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="67579d9e-fb56-46b0-a4de-75dc825dd38e" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 스크린리더 사용자에게 숨겨져야 하는지 여부를 나타냅니다. 주로 시각적으로는 보이지만, 접근성 트리에서 제외해야 할 때 사용됩니다.</li></ul><ul id="ac2e8736-35fa-4b5c-b502-81fd2e628864" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 모든 엘리먼트</li></ul><ul id="b4548fb2-0d5c-46c8-b338-4b5710cbbe82" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="e0ea5c56-da17-44a3-85d0-27e8bbcb299a" class=""><strong>1-4-21. </strong><code><strong>aria-invalid</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>grammar</strong> | <strong>spelling</strong></h3><ul id="4ac6a5e1-0bea-464c-94ec-50761f92cf2a" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 입력 필드에 입력된 데이터가 유효성 검사에 실패했음을 나타냅니다.</li></ul><ul id="d94940f0-43cf-4a6d-8604-60403c81c903" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 입력 필드(<strong>Input Field</strong>), 텍스트 에어리어(<strong>Textarea</strong>)</li></ul><ul id="acbe1abf-cc58-4353-a9fa-0722564be2e7" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="a8a881bf-c6a9-4e76-832e-cb9b51848a3c" class=""><strong>1-4-22. </strong><code><strong>aria-keyshortcuts</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="84b3fb98-3bfc-47b3-88da-7c313d588f45" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소에 할당된 키보드 단축키를 나타냅니다.</li></ul><ul id="b4a042f2-fe86-4da5-9de1-48d7b08fa7d8" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 모든 인터랙티브 요소</li></ul><ul id="0e94529e-8527-4397-8283-2bea50a3947e" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>unknown</strong>), NVDA (<strong>unknown</strong>), VoiceOver (iOS/macOS) (<strong>unknown</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>unknown</strong>)</li></ul><h3 id="22acb2c6-1e7f-4bc7-8e12-ff75a60a7426" class=""><strong>1-4-23. </strong><code><strong>aria-label</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="d89deea2-3813-4e2e-85cb-824a4a64b53a" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소의 레이블을 정의합니다. 시각적 표현 없이 접근성 트리에만 레이블을 제공합니다.</li></ul><ul id="09f70bff-b5b8-40f0-8183-01d9bafbd183" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 모든 엘리먼트, 특히 레이블이 시각적으로 표현되지 않는 인터랙티브 요소에 유용</li></ul><ul id="ee83a4fc-10ba-480d-a71d-cafcc6e2aa42" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="aa847aa3-186a-4c05-98d5-8aa76393f7fb" class=""><strong>1-4-24. </strong><code><strong>aria-labelledby</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="962d4ac9-8cab-4be6-bf4b-e82ddbbbc2e0" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 다른 요소가 제공하는 레이블로 요소를 식별합니다. 하나 이상의 ID를 참조할 수 있으며, 참조된 요소의 내용을 현재 요소의 레이블로 사용합니다.</li></ul><ul id="be45fb1e-0044-446b-800a-4d8522dbe2c3" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 모든 엘리먼트, 특히 여러 정보 소스에서 레이블을 구성해야 하는 경우 유용</li></ul><ul id="3074dab4-87a9-49e6-a64f-da67c086d332" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="8f9dcb7b-9978-4edf-8686-8241f1bb977d" class=""><strong>1-4-25. </strong><code><strong>aria-level</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="975d7b88-c365-41d2-86ca-f7a4c7ced124" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 계층 구조 내에서의 레벨을 나타냅니다. 주로 헤딩이나 리스트 아이템에 사용됩니다.</li></ul><ul id="b407ce50-b145-4978-8d41-05c4ce8a218e" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 헤딩(<strong>Heading</strong>), 리스트 아이템(<strong>Listitem</strong>)</li></ul><ul id="eca8f31d-b19d-4250-a5f9-4f949694ee4e" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="82e3783d-573e-43f7-88d9-d1fbc5f92e0a" class=""><strong>1-4-26. </strong><code><strong>aria-live</strong></code><strong> (Property)</strong> - <strong>off</strong> (<strong>기본값</strong>) | <strong>assertive</strong> | <strong>polite</strong></h3><ul id="95abffb8-327f-458f-ae6e-70ad37b1d81a" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 동적 콘텐츠 변경을 스크린 리더가 사용자에게 어떻게 알릴지 결정합니다. <code><strong>polite</strong></code>는 사용자가 바쁘지 않을 때, <code><strong>assertive</strong></code>는 즉시 알립니다.</li></ul><ul id="0e0e9f9b-099c-4519-9cdd-03def2919a24" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 동적으로 업데이트 되는 콘텐츠(예: 라이브 티커, 알림, 폼 검증 메시지)</li></ul><ul id="9594fb0a-542a-4465-b351-9c8b65b07502" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="62e1c681-2608-46fb-a098-165147675a11" class=""><strong>1-4-27. </strong><code><strong>aria-modal</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="2a145c85-a03a-4a8d-a736-d202a1b4102b" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 모달 창을 나타내는지 여부를 나타냅니다. 모달이 활성화되면 사용자는 모달을 닫기 전까지 다른 페이지 요소와 상호작용할 수 없습니다.</li></ul><ul id="f6b9dafa-bb55-4781-bd0d-5251c57ac7dd" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 대화 상자(<strong>Dialog</strong>), 경고 창(<strong>Alert</strong>)</li></ul><ul id="177c284d-b497-4b18-9b8b-925931dae495" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="836598db-883e-4666-86d2-cb7d378ce032" class=""><strong>1-4-28. </strong><code><strong>aria-multiline</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="ece0c557-fddb-4735-99f9-e9581ef444b0" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 입력 필드가 여러 줄의 입력을 허용하는지 여부를 나타냅니다.</li></ul><ul id="8edc4f26-5747-42fe-8066-3975d2e189b7" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 텍스트 에어리어(<strong>Textarea</strong>)</li></ul><ul id="8ae1bb90-5495-43a1-8d67-2dcd2d457202" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="b8929f5f-71b3-474d-8a58-620d6ae63d1e" class=""><strong>1-4-29. </strong><code><strong>aria-multiselectable</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="890066ac-a754-4d5a-8eac-0098b2ddfc9c" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 사용자가 여러 항목을 선택할 수 있는 컨테이너(예: 리스트박스)인지 여부를 나타냅니다.</li></ul><ul id="4cc2bedf-1584-4e4a-a775-385c0e2cd3c1" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 리스트박스(<strong>Listbox</strong>), 그리드(<strong>Grid</strong>), 트리(<strong>Tree</strong>)</li></ul><ul id="1a0c12c6-a4c5-497c-ae6a-0de3057866f2" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="9115f387-30f5-452d-976a-65d935f49b6b" class=""><strong>1-4-30. </strong><code><strong>aria-orientation</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>) | <strong>horizontal</strong> | <strong>vertical</strong></h3><ul id="f5ec644a-0ce6-4851-9f52-9b152b0f212c" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소의 방향(수평 또는 수직)을 나타냅니다. 슬라이더, 스크롤바, 툴바 등에서 주로 사용됩니다.</li></ul><ul id="aa3e96b5-f054-4ef4-a7fb-40eb8104e175" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 슬라이더(<strong>Slider</strong>), 스크롤바(<strong>Scrollbar</strong>), 툴바(<strong>Toolbar</strong>)</li></ul><ul id="e57b9f66-45b5-430b-9849-71c10b500fb0" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="05659096-e52c-4f50-9504-c6233e589d39" class=""><strong>1-4-31. </strong><code><strong>aria-owns</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="901f65f3-475e-49c7-8678-120906e69db9" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 페이지의 다른 위치에 있는 DOM 요소를 현재 요소의 자식으로 프로그래밍 방식으로 재배치합니다. 이는 DOM 구조와는 독립적으로 접근성 트리에서의 관계를 정의합니다.</li></ul><ul id="68981535-a4b8-415b-ac2e-c012c99a1cd9" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 재배치가 필요한 모든 요소, 드래그 앤 드롭 구성 요소</li></ul><ul id="e65a41f5-69fb-4763-bab1-9ae7289bcec4" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="1856bb69-06ef-4da3-a90b-ad92e886a958" class=""><strong>1-4-32. </strong><code><strong>aria-placeholder</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="a0445a02-5db7-4db6-bac7-f6749cc912f9" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 사용자 입력 필드의 플레이스홀더 또는 예시 텍스트를 정의합니다. 입력 필드가 비어 있을 때 표시되는 짧은 힌트나 지침을 제공합니다.</li></ul><ul id="a3dbb94f-0b66-4f1a-abdd-1b22dd1a731d" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 텍스트 입력 필드(<strong>Text Input</strong>), 텍스트 에어리어(<strong>Textarea</strong>)</li></ul><ul id="c281880d-c635-4f92-b41c-88554cb80a23" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="7864e3cd-6f07-4529-a29e-606fc5d47ddd" class=""><strong>1-4-33. </strong><code><strong>aria-posinset</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="fe3a0cd4-c54b-4b6d-b84e-ca9b2b7e2f3f" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 세트 내에서의 위치를 나타냅니다. 세트의 항목 수가 동적으로 변경되거나 모든 항목이 동시에 표시되지 않을 때 유용합니다.</li></ul><ul id="5208d10a-6264-4113-ac3f-fc456b7a195a" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 리스트 항목(<strong>Listitem</strong>), 트리 아이템(<strong>Treeitem</strong>)</li></ul><ul id="27e48c29-bed8-4b66-9095-f66cd568ba68" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>partial</strong>), NVDA (<strong>partial</strong>), VoiceOver (iOS/macOS) (<strong>partial</strong>), TalkBack (<strong>partial</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="9d19fb21-a5ec-4626-8b1b-278faaa36c25" class=""><strong>1-4-34. </strong><code><strong>aria-pressed</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>mixed</strong> | <strong>undefined</strong></h3><ul id="788cd72a-1d9f-4bf4-b98c-3e43d2b28ffe" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 토글 버튼이 눌렸는지 여부를 나타냅니다. <code><strong>mixed</strong></code>는 토글 버튼이 부분적으로 활성화되었음을 나타낼 때 사용됩니다.</li></ul><ul id="145a26c0-02d8-4edc-9a3b-5b17a602e529" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 버튼(<strong>Button</strong>)</li></ul><ul id="fed19d01-80f9-410a-9a26-33f2c457ce3b" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="843cc0c2-18c6-4db9-b66d-0e2fbceb7cdf" class=""><strong>1-4-35. </strong><code><strong>aria-readonly</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="0facd7f6-d7cb-424a-9942-dc0c04bea9b3" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 읽기 전용인지 여부를 나타냅니다. 사용자가 수정할 수 없는 입력 필드에 주로 사용됩니다.</li></ul><ul id="85ca5105-2ac8-48ea-afb2-a0cb82f4e81f" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 입력 필드(<strong>Input Field</strong>), 그리드 셀(<strong>Grid Cell</strong>)</li></ul><ul id="41b8c347-1c94-4928-ac96-4e16893620dc" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="aed8678e-2fd5-4e65-9d13-926699c28fa1" class=""><strong>1-4-36. </strong><code><strong>aria-relevant</strong></code><strong> (Property)</strong> - <strong>additions</strong> (<strong>기본값</strong>) | <strong>additions text</strong> | <strong>all</strong> | <strong>removals</strong> | <strong>text</strong></h3><ul id="717a05a6-69bf-4a38-b431-740039d16ade" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 동적 콘텐츠 변경이 발생할 때 스크린 리더가 사용자에게 어떻게 알릴지 결정합니다. 변경의 유형(추가, 제거, 텍스트 변경 등)에 따라 다양한 값이 사용될 수 있습니다.</li></ul><ul id="8ecc9526-0b37-41de-8148-947cc793179f" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 동적으로 업데이트되는 콘텐츠 영역</li></ul><ul id="6453601b-48cd-4e41-9703-c5f47fd190a0" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>partial</strong>), NVDA (<strong>partial</strong>), VoiceOver (iOS/macOS) (<strong>partial</strong>), TalkBack (<strong>partial</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="2fd2b7ce-42f1-410f-8e49-5910020cd485" class=""><strong>1-4-37. </strong><code><strong>aria-required</strong></code><strong> (Property)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong></h3><ul id="dc3833b0-7c93-4ed2-bc5a-d8c840785ed2" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 사용자 입력이 필요한 필드임을 나타냅니다. 주로 폼 필드에서 필수 입력 값을 지정할 때 사용됩니다.</li></ul><ul id="7e69031b-4196-4fa3-b82c-6451c5ac356f" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 입력 필드(<strong>Input Field</strong>), 체크박스(<strong>Checkbox</strong>), 라디오 버튼(<strong>Radio Button</strong>), 기타 필수 입력 요소</li></ul><ul id="155a0a87-bff9-4683-8c83-960a670ac967" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="0189d417-8da8-42cd-8019-04762b4a57b9" class=""><strong>1-4-38. </strong><code><strong>aria-roledescription</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="f1c57980-f650-42d3-987e-d8771e93409f" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소의 역할을 설명하는 사용자 정의 문자열을 제공합니다. 기본적으로 요소의 역할을 재정의하거나 보다 구체적인 설명이 필요할 때 사용됩니다.</li></ul><ul id="659de782-eb25-4be9-8428-22b8a0db6c17" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 모든 역할(<strong>Role</strong>)에 적용 가능</li></ul><ul id="1921ddb2-1351-411d-bbb0-971c5355e564" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>partial</strong>), TalkBack (<strong>partial</strong>), Narrator (<strong>partial</strong>)</li></ul><h3 id="f9927dd8-9ca0-4f12-87e2-2b1dc17c6be3" class=""><strong>1-4-39. </strong><code><strong>aria-rowcount</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="de8be019-1add-4265-9d52-59117cd0e8b0" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 그리드나 테이블에 있는 행의 총 수를 나타냅니다. 동적 콘텐츠의 경우, 전체 행 수를 예측할 수 없을 때 <code><strong>1</strong></code>로 설정될 수 있습니다.</li></ul><ul id="a42f0092-79fe-423f-9359-0c5dafe095fe" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 그리드(<strong>Grid</strong>), 테이블(<strong>Table</strong>)</li></ul><ul id="34f53520-df3c-4c0d-a3bb-d457f8045b80" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>partial</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>unknown</strong>)</li></ul><h3 id="edeef2a4-7c11-48eb-ab65-e53d3367bb33" class=""><strong>1-4-40. </strong><code><strong>aria-rowindex</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="8316e485-137c-46c6-9461-f8b854b6910c" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 요소가 속한 행의 인덱스(위치)를 나타냅니다. 테이블이나 그리드에서 특정 행의 위치를 지정할 때 사용됩니다.</li></ul><ul id="83624125-3b54-455e-aed1-9fcf889740f2" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 테이블 행(<strong>Row</strong>), 그리드 셀(<strong>Grid Cell</strong>)</li></ul><ul id="7d76e354-01fb-4111-b2f9-5dbed7244f0f" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>partial</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>unknown</strong>)</li></ul><h3 id="31e8aad7-daae-4a5e-aa44-0511389e68d5" class=""><strong>1-4-41. </strong><code><strong>aria-rowspan</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="bde1fc39-d2d9-4813-95e9-ce3b2d4102d5" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 테이블 셀이 차지하는 행의 수를 나타냅니다. 테이블 레이아웃에서 셀이 여러 행에 걸쳐 있는 경우 사용됩니다.</li></ul><ul id="c501ce2c-d079-447f-875e-348baaa0c6b9" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 테이블 셀(<strong>Table Cell</strong>)</li></ul><ul id="f9aec48f-4106-4433-8a67-65c67a35f5cd" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>partial</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>unknown</strong>)</li></ul><h3 id="54fede0a-2d73-4d98-b104-635332d9d132" class=""><strong>1-4-42. </strong><code><strong>aria-selected</strong></code><strong> (State)</strong> - <strong>false</strong> (<strong>기본값</strong>) | <strong>true</strong> | <strong>undefined</strong></h3><ul id="e8a37a6f-027e-4323-86e7-e3330d823f1a" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 항목(예: 목록상자의 항목, 탭 패널의 탭 등)이 선택되었는지 여부를 나타냅니다.</li></ul><ul id="3c1b6a14-58a9-4e51-a170-06b485c9654f" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 탭(<strong>Tab</strong>), 트리 아이템(<strong>Treeitem</strong>), 옵션(<strong>Option</strong>)</li></ul><ul id="6f66b2df-aa73-4a8a-b0c2-0655839270a5" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="0d5acbca-3e41-413e-a59b-3db790d4ad63" class=""><strong>1-4-43. </strong><code><strong>aria-setsize</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="44ba7539-61f6-40a8-9d67-759f751d38ad" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 세트(예: 리스트박스의 옵션, 트리의 트리 아이템 등) 내의 항목 총 수를 나타냅니다.</li></ul><ul id="d593795a-2a08-4ca4-b54d-8b418fa6ace2" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 리스트 아이템(<strong>Listitem</strong>), 트리 아이템(<strong>Treeitem</strong>), 옵션(<strong>Option</strong>)</li></ul><ul id="aeadde55-77af-42c3-9708-c1ad02b949de" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="2e207977-60c6-4815-93b7-79a0f00f5efc" class=""><strong>1-4-44. </strong><code><strong>aria-sort</strong></code><strong> (Property)</strong> - <strong>none</strong> (<strong>기본값</strong>) | <strong>ascending</strong> | <strong>descending</strong> | <strong>other</strong></h3><ul id="2e61aa42-6997-45be-adbe-d2b1d53d4d03" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 테이블 헤더 셀이나 그리드 셀에 적용하여 해당 열의 정렬 방식을 나타냅니다.</li></ul><ul id="c203b522-0a5a-468a-9169-8d182f8e72bc" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 테이블 헤더(<strong>Table Header</strong>), 그리드 셀(<strong>Grid Cell</strong>)</li></ul><ul id="15d32fba-487e-471b-8b5a-d575384e4e37" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>unknown</strong>), Narrator (<strong>unknown</strong>)</li></ul><h3 id="16082bf0-80ed-49e1-a0e4-1b9a81375ad5" class=""><strong>1-4-45. </strong><code><strong>aria-valuemax</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="7b5b959a-adab-4e6c-b1ac-2f6681338bdb" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 슬라이더, 스크롤바 또는 프로그레스바와 같은 범위 위젯의 최대 값입니다.</li></ul><ul id="1fc7f474-c88f-4807-815e-3c53866a1d94" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 슬라이더(<strong>Slider</strong>), 프로그레스바(<strong>Progressbar</strong>), 스크롤바(<strong>Scrollbar</strong>)</li></ul><ul id="d37548e0-6134-4566-9f3e-f5fd8333c9fe" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="c3d34bdf-95c9-4b1f-87cd-c305ff0bce1e" class=""><strong>1-4-46. </strong><code><strong>aria-valuemin</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="17c1b642-44d6-456f-8029-e41165e2293e" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 범위 위젯의 최소 값입니다. 슬라이더나 프로그레스바의 시작 값을 나타냅니다.</li></ul><ul id="6455c654-3a04-4c42-8a25-ebf85db5406d" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 슬라이더(<strong>Slider</strong>), 프로그레스바(<strong>Progressbar</strong>), 스크롤바(<strong>Scrollbar</strong>)</li></ul><ul id="c6b134d8-00be-4871-8d4b-937ff3efd5f2" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="a3546cac-a7c2-4679-91de-82dbb86cd095" class=""><strong>1-4-47. </strong><code><strong>aria-valuenow</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="4b400c02-8a27-4ba3-9f69-f9813acbf4aa" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 범위 위젯의 현재 값입니다. 사용자가 조정할 수 있는 위젯의 실시간 값을 나타냅니다.</li></ul><ul id="9f8cda58-a5af-435b-a0dc-ddd59037fc58" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 슬라이더(<strong>Slider</strong>), 프로그레스바(<strong>Progressbar</strong>), 스크롤바(<strong>Scrollbar</strong>)</li></ul><ul id="435758e5-637f-409b-868d-a8648570de96" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h3 id="c1fdf473-087f-491a-a986-3ee0547b6020" class=""><strong>1-4-48. </strong><code><strong>aria-valuetext</strong></code><strong> (Property)</strong> - <strong>undefined</strong> (<strong>기본값</strong>)</h3><ul id="53ebb497-1453-4797-885c-5e8e233e10a1" class="bulleted-list"><li style="list-style-type:disc"><strong>용도</strong>: 범위 위젯의 현재 값이 숫자가 아니거나 숫자만으로는 충분한 정보를 제공하지 못할 때 사용하는 문자열 값입니다. 예를 들어, 볼륨 조절 슬라이더가 &quot;높음&quot;, &quot;중간&quot;, &quot;낮음&quot;과 같은 값을 가질 수 있습니다.</li></ul><ul id="74e8c9db-047a-4880-821e-4b2995ba7df7" class="bulleted-list"><li style="list-style-type:disc"><strong>적용 컴포넌트</strong>: 슬라이더(<strong>Slider</strong>), 프로그레스바(<strong>Progressbar</strong>), 스크롤바(<strong>Scrollbar</strong>)</li></ul><ul id="c64384ef-cf42-4dcb-9171-ef0e9769180e" class="bulleted-list"><li style="list-style-type:disc"><strong>스크린리더 지원여부</strong>: JAWS (<strong>supported</strong>), NVDA (<strong>supported</strong>), VoiceOver (iOS/macOS) (<strong>supported</strong>), TalkBack (<strong>supported</strong>), Narrator (<strong>supported</strong>)</li></ul><h2 id="2e20dacf-0554-40e9-bcd2-d3f6c6af053d" class=""><strong>1-5. 용어 설명 - IDREF</strong></h2><p id="459277da-b18d-4ef8-8693-5eef2a6d8d4e" class=""><code><strong>IDREF</strong></code>는 HTML에서 사용되는 용어로, &quot;ID Reference&quot;의 약자입니다. 이는 특정 HTML 요소의 <code><strong>id</strong></code> 속성 값에 대한 참조를 의미합니다. 즉, 어떤 속성의 값으로 <code><strong>IDREF</strong></code>를 사용한다는 것은, 해당 속성이 다른 요소의 <code><strong>id</strong></code> 값을 참조하여 그 요소를 식별하게 됨을 의미합니다.</p><p id="3fc4bd7c-6185-43eb-a775-0b8a815fa416" class="">예를 들어, <code><strong>aria-activedescendant</strong></code> 속성의 경우, 이 속성이 설정된 요소는 키보드 네비게이션을 통해 현재 활성화 또는 선택된 상태를 가지는 자식 요소의 <code><strong>id</strong></code> 값을 참조합니다. 이를 통해 사용자가 키보드로 네비게이션할 때, 활성화된 요소를 보조 기술을 통해 식별하고 상호작용할 수 있게 됩니다.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2ec3090b-627a-4129-859b-60a21a7aae48" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div role=&quot;listbox&quot; aria-activedescendant=&quot;listitem3&quot;&gt;
+  &lt;div id=&quot;listitem1&quot; role=&quot;option&quot;&gt;Item 1&lt;/div&gt;
+  &lt;div id=&quot;listitem2&quot; role=&quot;option&quot;&gt;Item 2&lt;/div&gt;
+  &lt;div id=&quot;listitem3&quot; role=&quot;option&quot;&gt;Item 3&lt;/div&gt;
+  &lt;div id=&quot;listitem4&quot; role=&quot;option&quot;&gt;Item 4&lt;/div&gt;
+&lt;/div&gt;</code></pre><p id="728179bc-b226-4a5a-924e-243887982125" class="">위 예제에서, <code><strong>div</strong></code> 요소는 <code><strong>role=&quot;listbox&quot;</strong></code>를 가지며, <code><strong>aria-activedescendant</strong></code> 속성을 사용하여 현재 활성화된 항목을 <code><strong>id=&quot;listitem3&quot;</strong></code>으로 지정합니다. 따라서 &quot;Item 3&quot;이 현재 선택되어 있는 상태임을 나타냅니다. <code><strong>IDREF</strong></code>를 사용함으로써, 해당 <code><strong>listbox</strong></code>는 &quot;Item 3&quot;이 활성 항목임을 보조 기술에 명확하게 알릴 수 있습니다.</p><p id="96d4fbc6-1b0b-4b1e-9a06-3b7a14ec45de" class="">
+</p><p id="7251bd94-4ea2-456d-aa26-79686ed9bbe1" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

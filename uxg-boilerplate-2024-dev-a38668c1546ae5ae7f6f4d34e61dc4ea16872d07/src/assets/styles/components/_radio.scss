@@ -1,0 +1,60 @@
+@use "../abstracts" as *;
+
+/* component radio */
+.component-radio {
+  display: inline-flex;
+
+  // radio  공통 - inner 영역
+  .radio-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  // radio 텍스트
+  .radio-txt {
+    @include f14;
+    @include rem(margin-left, 5);
+    cursor: pointer;
+  }
+
+  // radio input 속성 : checked, disabled, checked+disabled
+  input[type="radio"] {
+    appearance: none;
+    outline: none;
+    @include rem(width, 20);
+    @include rem(height, 20);
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:checked {
+      @include ico-circle("%23ffffff");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+      background-color: blue;
+      border: 1px solid blue;
+      & + .radio-item {
+        .radio-txt {
+          color: blue;
+        }
+      }
+    }
+
+    &:disabled {
+      background-color: gray;
+      border: 1px solid gray;
+      cursor: not-allowed;
+      & + .radio-item {
+        .radio-txt {
+          color: gray;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    &:focus-visible {
+      outline: 1px solid $line-000000;
+    }
+  }
+}

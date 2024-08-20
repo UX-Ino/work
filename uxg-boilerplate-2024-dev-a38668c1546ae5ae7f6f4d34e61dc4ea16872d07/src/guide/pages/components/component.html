@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    @@include('pathGuideInclude/_component_head.html', {"title": "project components guide"})
+  </head>
+  <body>
+    <div class="uid-container">
+      @@include('pathGuideInclude/_component_header.html') @@include('pathGuideInclude/_component_navigation.html')
+
+      <main class="uid-main">
+        <h1 class="uid-title01">프로젝트 가이드</h1>
+        <p class="uid-desc">컴포넌트 모음</p>
+
+        <section class="uid-component">
+          <h2 class="uid-title02 bold">안내 From 그룹장</h2>
+
+          <div class="from-warchief">
+            아래 가이드의 모든 규칙은 현장의 PL 의 그라운드 룰이 우선 이며 모든 규칙은 개발과의 협의와 회의를 통해서 정하셔야 합니다.
+            <br />
+            아래 예제에 사용 하는 실제 데이타를 넣으시면 됨니다! 아래 문서는 안내 From 그룹장 부분을 제거 하시고 산출물로 대체 할수 있습니다.
+            <br />
+            형제 자매님들 오늘도 무탈한 하루가 되길 빕니다!
+          </div>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">기본 가이드 - 리스트 타입</h2>
+          <ul class="uid-list">
+            <li>기본 가이드를 프로젝트에 맞게 작성 합니다.</li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02">기본 가이드 - 리스트 타입</h2>
+          <ul class="uid-list">
+            <li>기본 가이드를 프로젝트에 맞게 작성 합니다.</li>
+          </ul>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02 bold">Codinglist</h2>
+          <ul class="uid-list">
+            <li>코딩리스트(작업 현황판)</li>
+          </ul>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>파일</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>cl.html</td>
+                <td>코딩리스트 html</td>
+              </tr>
+              <tr>
+                <td>codinglist.js</td>
+                <td>코딩리스트 js</td>
+              </tr>
+              <tr>
+                <td>_codinglist.scss</td>
+                <td>코딩리스트 css</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02 bold">Components</h2>
+          <ul class="uid-list">
+            <li>프로젝트 가이드(산출물 겸용)</li>
+          </ul>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>파일</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>component.html</td>
+                <td>컴포넌트 가이드 페이지 메인</td>
+              </tr>
+              <tr>
+                <td>_component_header.html</td>
+                <td>컴포넌트 가이드 페이지 헤더 html</td>
+              </tr>
+              <tr>
+                <td>_component_footer.html</td>
+                <td>컴포넌트 가이드 페이지 푸터 html</td>
+              </tr>
+              <tr>
+                <td>_component_navigation.html</td>
+                <td>컴포넌트 가이드 페이지 네비게이션 html</td>
+              </tr>
+              <tr>
+                <td>component_guide.json</td>
+                <td>컴포넌트 가이드 페이지 네비게이션 json</td>
+              </tr>
+              <tr>
+                <td>component_guide.js</td>
+                <td>컴포넌트 가이드 페이지 js</td>
+              </tr>
+              <tr>
+                <td>_component_guide.scss</td>
+                <td>컴포넌트 가이드 페이지 scss</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02 bold">Convention</h2>
+          <ul class="uid-list">
+            <li>코딩 컨벤션(산출물 겸용)</li>
+          </ul>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>파일</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>convention.html</td>
+                <td>코딩 컨벤션</td>
+              </tr>
+              <tr>
+                <td>semantic01.html</td>
+                <td>시맨틱 태그 올바른 사용</td>
+              </tr>
+              <tr>
+                <td>semantic02.html</td>
+                <td>시맨틱 태그 잘 못 된 사용</td>
+              </tr>
+              <tr>
+                <td>nesting.html</td>
+                <td>중첩 코드 최소화</td>
+              </tr>
+              <tr>
+                <td>aria.html</td>
+                <td>지원되는 상태 및 속성</td>
+              </tr>
+              <tr>
+                <td>role.html</td>
+                <td>역할 모델</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="uid-component">
+          <h2 class="uid-title02 bold">소스(폴더) 구조</h2>
+          <ul class="uid-list">
+            <li>프로젝트 세팅 시 필요한 공통적인 소스구조입니다.</li>
+          </ul>
+          <div class="uid-title04 bold">기본 폴더 구조</div>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>폴더</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>pages</td>
+                <td> 웹사이트나 애플리케이션의 각각의 페이지에 해당하는 HTML 파일 또는 페이지 컴포넌트 파일을 저장하는 데 사용 </td>
+              </tr>
+              <tr>
+                <td>assets</td>
+                <td> 웹 사이트나 애플리케이션에 필요한 다양한 정적 파일들을 저장하기 위해 사용 </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="uid-title04 bold">html</div>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>폴더</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>pages/include</td>
+                <td>인클루드 파일 폴더</td>
+              </tr>
+              <tr>
+                <td>pages/components</td>
+                <td>컴포넌트 파일 폴더</td>
+              </tr>
+              <tr>
+                <td>pages/main</td>
+                <td>메인 파일 폴더</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="uid-title04 bold">style</div>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>폴더</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>assets/styles/abstracts</td>
+                <td> 글로벌 변수, 함수, 믹스인 및 플레이스홀더 등을 포함합니다. </td>
+              </tr>
+              <tr>
+                <td>assets/styles/base</td>
+                <td> 프로젝트의 기본적인 스타일 설정을 포함합니다. 여기에는 HTML 요소(예: h1, p, a)에 대한 기본 스타일이 포함됩니다. </td>
+              </tr>
+              <tr>
+                <td>assets/styles/utilities</td>
+                <td> 유틸리티 클래스를 포함하며, 이들은 프로젝트 전체에서 공통적으로 사용됩니다. </td>
+              </tr>
+              <tr>
+                <td>assets/styles/components</td>
+                <td>재사용 가능한 UI 컴포넌트의 스타일을 정의합니다.</td>
+              </tr>
+              <tr>
+                <td>assets/styles/layout</td>
+                <td> 사이트 또는 애플리케이션의 레이아웃 관련 스타일을 정의합니다 (예: 헤더, 푸터, 사이드바). </td>
+              </tr>
+              <tr>
+                <td>assets/styles/pages</td>
+                <td>특정 페이지에 특화된 스타일을 정의합니다.</td>
+              </tr>
+              <tr>
+                <td>assets/styles/themes</td>
+                <td>다양한 테마 또는 스킨에 대한 스타일을 포함합니다.</td>
+              </tr>
+              <tr>
+                <td>assets/styles/vendors</td>
+                <td> 서드파티 라이브러리 및 프레임워크의 오버라이드 및 커스텀 스타일을 포함합니다. </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="uid-title04 bold">script</div>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>폴더</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>assets/common</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>assets/uiComp</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>assets/pageComp</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>assets/lib</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="uid-title04 bold">image</div>
+          <table class="uid-datatable">
+            <thead>
+              <tr>
+                <th>폴더</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>assets/images</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- <section class="uid-component">
+            <h2 class="uid-title02">제목</h2>
+            <ul class="uid-list">
+                <li>설명</li>
+            </ul>
+            <div class="code_preview uid-demo"></div>
+            <div class="code_info"><button class="btn_codecopy ui_btnCodeCopy" data-text-swap="Copy!">Copy to clipboard</button></div>
+            <textarea class="code_content html ui_code_content" data-code="html">
+                <p>icon sample</p>
+            </textarea>
+        </section> -->
+      </main>
+
+      @@include('pathGuideInclude/_component_footer.html')
+    </div>
+    <script src="pathGuideScripts/component_guide.js"></script>
+    <!-- 공통 -->
+    <script></script>
+  </body>
+</html>

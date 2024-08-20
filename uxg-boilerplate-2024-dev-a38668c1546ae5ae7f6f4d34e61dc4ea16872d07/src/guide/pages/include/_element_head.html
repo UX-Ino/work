@@ -1,0 +1,107 @@
+<!-- element head include -->
+<style>
+  @media screen and (max-width: 1280px) {
+    .element-list {
+      display: none;
+    }
+  }
+  .prototype-group.on .prototype-tit {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: red;
+    z-index: 100;
+  }
+  .prototype-group .prototype-tit {
+    position: relative;
+    margin: 40px 0 20px 0;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: black;
+    border: 2px solid;
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 1px 6px 8px 0px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: #fff;
+  }
+  .prototype-group .prototype-tit::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: -10px;
+  }
+  .prototype-group .prototype-tit .prototype-desc {
+    position: relative;
+    margin: 15px 0;
+    padding-left: 23px;
+    font-size: 19px;
+    font-weight: 700;
+  }
+  .prototype-group .prototype-tit .prototype-desc::before {
+    display: block;
+    content: "";
+    width: 8px;
+    height: 23px;
+    background: #e5e5e5;
+    position: absolute;
+    top: 2px;
+    left: 0;
+  }
+  .prototype-group .prototype-item + .prototype-item {
+    padding-top: 10px;
+  }
+  .prototype-group + .prototype-group {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .prototype-group h3.prototype-subtit {
+    position: relative;
+    margin: 15px 0;
+    padding-left: 23px;
+    font-size: 19px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+    color: green;
+  }
+  .prototype-group h3.prototype-subtit::before {
+    display: block;
+    content: "";
+    width: 8px;
+    height: 15px;
+    background: green;
+    position: absolute;
+    top: 2px;
+    left: 0;
+  }
+  .prototype-group h3.prototype-subtit span {
+    color: #000;
+    font-weight: 400;
+  }
+
+  .element-list {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    text-transform: capitalize;
+  }
+
+  .element-list li ~ li {
+    margin-top: 5px;
+  }
+
+  .element-list li ~ li a {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+</style>
+<!-- //element head include -->

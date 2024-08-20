@@ -1,0 +1,767 @@
+@use "sass:math";
+@use "variables" as *;
+
+// ******************** code comments ********************
+// flex grid - 컴포넌트 레이아웃을 쉽게 구현하기 위한 믹스인
+// /* 사용 예제 Languages */
+// @include flex-grid((1, 1), 1rem); // 비율 1:1, 갭 좌우 1rem
+// @include flex-grid((1, 1, 1), 1rem); // 비율 1:1:1, 갭 좌우 1rem
+// @include flex-grid((4, 3, 2, 1), 1rem); // 비율 4:3:2:1, 갭 좌우 1rem
+// ******************** code comments ********************
+@mixin flex-grid($columns-widths, $gap: 0) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+
+  // 총 너비 계산
+  $total-width: 0;
+  @each $width in $columns-widths {
+    $total-width: $total-width + $width;
+  }
+
+  $num-of-gaps: length($columns-widths) - 1; // 컬럼 사이의 간격 수
+  $total-gap-width: $gap * $num-of-gaps; // 총 간격 너비
+
+  $index: 1; // 인덱스 초기화
+  @each $width in $columns-widths {
+    > [class*="-col-#{$index}"] {
+      // 각 컬럼의 너비 비율 계산
+      $width-percent: math.div($width, $total-width) * 100%;
+      // 각 간격의 평균 너비 계산
+      flex: 0 0 calc(#{$width-percent} - (#{$gap} * #{$num-of-gaps} / length($columns-widths)));
+    }
+    $index: $index + 1; // 인덱스 업데이트
+  }
+}
+
+// ******************** code comments ********************
+// 언어별 폰트 설정
+// /* 사용 예제 Languages */
+// @include languages();
+// ******************** code comments ********************
+@mixin languages() {
+  @each $type, $font-family in $global-font-family {
+    &:lang(#{$type}) {
+      font-family: $font-family;
+    }
+  }
+  @each $type, $line-height in $global-line-height {
+    &:lang(#{$type}) {
+      line-height: $line-height;
+    }
+  }
+  @each $type, $word-break in $global-word-break {
+    &:lang(#{$type}) {
+      word-break: $word-break;
+    }
+  }
+  @each $type, $word-wrap in $global-word-wrap {
+    &:lang(#{$type}) {
+      word-wrap: $word-wrap;
+    }
+  }
+  @each $type, $letter-spacing in $global-letter-spacing {
+    &:lang(#{$type}) {
+      letter-spacing: $letter-spacing;
+    }
+  }
+}
+
+// ******************** code comments ********************
+// 프로젝트 폰트 사이즈 세팅
+// 프로젝트 웹스타일 가이드에서 폰트 사이즈, 굵기, 행간을 세팅 하여 사용하기
+// 사용예) @include f12(900, 1.8); // 둘다 변경해야 할 경우(순서 중요)
+// 사용예) @include f12(bold); // 폰트 굵기만 변경해야 할 경우
+// 사용예) @include f12($lineHeight: 1.8); // 행간만 변경해야 할 경우
+// ******************** code comments ********************
+@mixin f12($fontWeight: null, $lineHeight: 1.4) {
+  @include rem(font-size, 12);
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+@mixin f14($fontWeight: null, $lineHeight: 1.4) {
+  @include rem(font-size, 14);
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+@mixin f16($fontWeight: null, $lineHeight: 1.4) {
+  @include rem(font-size, 16);
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+@mixin f18($fontWeight: null, $lineHeight: 1.4) {
+  @include rem(font-size, 18);
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+
+// ******************** code comments ********************
+// disabled 속성
+// ******************** code comments ********************
+@mixin ui-disabled() {
+  // disabled 속성 (모던 브라우저)
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    position: relative;
+    z-index: -1;
+    // disabled 속성 ie10 대응
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      /* IE10+ CSS styles go here */
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #ffffff;
+        opacity: 0;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+// ******************** code comments ********************
+// 텍스트 말줄임
+// ******************** code comments ********************
+@mixin ellipsis($line: 1) {
+  // 인자 값의 기본 값은 1
+  @if ($line == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
+}
+
+// ******************** code comments ********************
+// 샘플
+// .ico-triangle-up-sample01{
+//     @include ico-triangle-up(10, 10, 16, #141414);
+// }
+// .ico-triangle-down-sample01{
+//     @include ico-triangle-down(10, 10, 16, #141414);
+// }
+// .ico-triangle-left-sample01{
+//     @include ico-triangle-left(10, 10, 16, #141414);
+// }
+// .ico-triangle-right-sample01{
+//     @include ico-triangle-right(10, 10, 16, #141414);
+// }
+// ******************** code comments ********************
+@mixin ico-triangle-up($w1, $w2, $w3, $color) {
+  width: 0;
+  height: 0;
+  @include rem(border-left, $w1 solid transparent);
+  @include rem(border-right, $w2 solid transparent);
+  @include rem(border-bottom, $w3 solid $color);
+}
+@mixin ico-triangle-down($w1, $w2, $w3, $color) {
+  width: 0;
+  height: 0;
+  @include rem(border-left, $w1 solid transparent);
+  @include rem(border-right, $w2 solid transparent);
+  @include rem(border-top, $w3 solid $color);
+}
+@mixin ico-triangle-left($w1, $w2, $w3, $color) {
+  width: 0;
+  height: 0;
+  @include rem(border-top, $w1 solid transparent);
+  @include rem(border-bottom, $w2 solid transparent);
+  @include rem(border-right, $w3 solid $color);
+}
+@mixin ico-triangle-right($w1, $w2, $w3, $color) {
+  width: 0;
+  height: 0;
+  @include rem(border-top, $w1 solid transparent);
+  @include rem(border-bottom, $w2 solid transparent);
+  @include rem(border-left, $w3 solid $color);
+}
+
+// ******************** code comments ********************
+// /**
+// * Computes a CSS calc function that betweens a value from
+// * A to B over viewport-width A to viewport-width B.
+// * Requires a media query to cap the value at B.
+// * vw 단위를 활용하여 미디어쿼리 분기의 중간 상태값을
+// * 계산해주는 SASS 함수.
+// * 간격이나 폰트사이즈에 적용하면 자연스러운
+// * 반응형 사이즈 처리가 가능 함.
+// * 참고사이트 http://dohoons.com/blog/1364
+// */
+// 소스 사용예제
+// @media (min-width: $small) {
+// 	padding: between(16px, 32px, $small, $medium);
+// }
+// @media (min-width: $medium) {
+// 	padding: between(32px, 90px, $medium, $large);
+// }
+// @media (min-width: $large) {
+// 	padding: 90px;
+// }
+// ******************** code comments ********************
+$small: 400px;
+$large: 1000px;
+@function between($to, $from, $toWidth, $fromWidth) {
+  $slope: ($to - $from) / ($toWidth - $fromWidth);
+  $base: $from - $slope * $fromWidth;
+
+  @return calc(#{$base} + #{100vw * $slope});
+}
+
+// ******************** code comments ********************
+// /**
+// * Read the article: http://sassbreak.com/viewport-relative-headings-with-sass
+// * px 를 vw 로 자동으로 바꿔 줌.
+// * max-breakpoint 를 설정하면 미디어쿼리 브레이크 포인트가 됨.
+// * 그래서 미디어쿼리 브레이크 포인트에 맞춰 px 가 vw 로 변환됨.
+// * 100% 보다 더 크게 적용 하고 싶으면 return 부분을 수정하면됨.
+// * 참고사이트 http://sassbreak.com/viewport-relative-headings-with-sass/
+// */
+// 예) width: get-vw(21px);
+// ******************** code comments ********************
+// Max breakpoint
+$max-breakpoint-main: 1400;
+$max-breakpoint-main-height: 720;
+
+// This could be one of your media query breakpoint variables
+$wide-screen: "(min-width: #{$max-breakpoint-main}px)";
+
+// Function
+@function get-vw($target) {
+  // 1 vw is equal to 1% of the viewport width
+  $vw-context: ($max-breakpoint-main * 0.01) * 1px; // 1% viewport width
+  @return ($target/$vw-context) * 1vw; // 100=1, 140=1.4
+}
+
+@function get-vh($target) {
+  // 1 vw is equal to 1% of the viewport width
+  $vw-context: ($max-breakpoint-main-height * 0.01) * 1px; // 1% viewport width
+  @return ($target/$vw-context) * 1vh;
+}
+
+// 입력 받은 값의 숫자만 남겨놓고 단위 지우기
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// ******************** code comments ********************
+// px를 rem 변환 (2021.03.22 버전) - 기존버전 보다 다양하게 활용할 수 있음 아래 url 참고 바람.
+// reset.css 의 기본 폰트와는 별개로 정해짐. psd 가이드에 맞게 $global-font-size 수정함.
+//
+// sass 기본 사용법
+// @include rem(font-size, 24px); // Simple
+// @include rem(padding, 5px 10px); // Multiple values
+// @include rem(border-bottom, 1px solid black); // Multiple mixed values
+// @include rem(box-shadow, 0 0 2px #ccc, inset 0 0 5px #eee); // Comma-separated values
+// // Multiple properties
+// @include rem((
+//     margin: 10px 5px,
+//     text-shadow: (1px 1px #eee, -1px -1px #eee) // Parentheses needed because of comma
+// ));
+//
+// css 출력
+// font-size: 24px;
+// font-size: 1.5rem;
+// padding: 5px 10px;
+// padding: 0.3125rem 0.625rem;
+// border-bottom: 1px solid black;
+// border-bottom: 0.0625rem solid black;
+// box-shadow: 0 0 2px #ccc, inset 0 0 5px #eee;
+// box-shadow: 0 0 0.125rem #ccc, inset 0 0 0.3125rem #eee;
+// margin: 10px 5px;
+// margin: 0.625rem 0.3125rem;
+// text-shadow: 1px 1px #eee, -1px -1px #eee;
+// text-shadow: 0.0625rem 0.0625rem #eee, -0.0625rem -0.0625rem #eee;
+//
+// rem line-height 사용법
+// 예) @include rem(font-size, 23px, 33);
+// 가이드) @include rem(font-size, 23px, psd line-height)
+//
+// libsass (v3.5.0.beta.2)
+// https://github.com/pierreburel/sass-rem
+// ******************** code comments ********************
+
+$rem-baseline: $global-font-size !default;
+$rem-fallback: false !default;
+// 하위브라우저 호환 맞춰야 할때 - false: rem만 출력, true: px,rem 둘다 출력
+$rem-px-only: false !default;
+// rem 변환이 필요 없을 때 - false: rem 변환 사용(기본), true: rem 변환 사용 안함(px출력)
+
+@function rem-separator($list, $separator: false) {
+  @if $separator == "comma" or $separator == "space" {
+    @return append($list, null, $separator);
+  }
+
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+  font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+  $result: ();
+  $separator: rem-separator($values);
+
+  @each $value in $values {
+    // 단위 안써도 되게하는 소스
+    @if type-of($value) == number and unitless($value) {
+      $value: px($value);
+    }
+
+    // 기본 소스 (단위 안써도 되는거 필요 없을 경우 위 소스 삭제)
+    @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
+      $result: append($result, $value / 1rem * $rem-baseline + 0px, $separator);
+    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
+      $result: append($result, math.div($value, $rem-baseline) + 0rem, $separator);
+    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "lineheight" {
+      $result: append($result, floor((($value + 10) / $value) * 100) / 100, $separator);
+    } @else if type-of($value) == "list" {
+      $value-separator: rem-separator($value);
+      $value: rem-convert($to, $value...);
+      $value: rem-separator($value, $value-separator);
+      $result: append($result, $value, $separator);
+    } @else {
+      $result: append($result, $value, $separator);
+    }
+
+    // line-height 기능 추가 - 위에 else if로 추가 되어 있음.
+    // @if type-of($value) == "number" and unit($value) == "px" and $to == "lineheight" {
+    //     $result: append($result, floor((($value + 10) / $value)*100)/100, $separator);
+    // }
+  }
+
+  @return if(length($result) == 1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+  @if $rem-px-only {
+    @return rem-convert(px, $values...);
+  } @else {
+    @return rem-convert(rem, $values...);
+  }
+}
+
+@mixin rem($properties, $values...) {
+  @if type-of($properties) == "map" {
+    @each $property in map-keys($properties) {
+      @include rem($property, map-get($properties, $property));
+    }
+    // line-height 자동으로 넣는 소스
+  } @else if $properties == "font-size" {
+    @each $property in $properties {
+      @if $rem-fallback or $rem-px-only {
+        #{$property}: rem-convert(px, $values...);
+      }
+      @if not $rem-px-only {
+        #{$property}: rem-convert(rem, $values...);
+      }
+      // line-height: rem-convert(lineheight, $values...);
+    }
+  } @else {
+    @each $property in $properties {
+      @if $rem-fallback or $rem-px-only {
+        #{$property}: rem-convert(px, $values...);
+      }
+      @if not $rem-px-only {
+        #{$property}: rem-convert(rem, $values...);
+      }
+    }
+  }
+}
+
+// ******************** code comments ********************
+// px를 em 변환
+//
+// em 기본 사용법
+// @include em(height,51px);
+// @include em(padding, 0 15px);
+// font-size + line-height 사용법
+//
+// em line-height 사용법
+// 예) @include em(font-size, 23px, 33);
+// 가이드) @include em(font-size, 23px, psd line-height)
+//
+// em border 사용법
+// 예) @include em(border, 2px, solid blue);
+// 예) @include em(border-left, 20px, solid blue);
+//
+// reset.css 의 기본 폰트와는 별개로 정해짐. psd 가이드에 맞게 $global-font-size 수정함.
+// ******************** code comments ********************
+$baseFont: $global-font-size;
+@mixin em($target, $values, $line-height: 0, $border-info...) {
+  $mixin-base-font-size: $baseFont;
+  $px-values: ();
+  $em-values: ();
+
+  @each $value in $values {
+    @if $value == 0 or $value == 0px {
+      $px-values: join($px-values, 0);
+      $em-values: join($em-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      $new-em-value: $value / $mixin-base-font-size;
+      $px-values: join($px-values, round($value));
+      $em-values: join($em-values, #{$new-em-value}em);
+    } @else {
+      $px-values: join($px-values, round($value * $mixin-base-font-size));
+      $em-values: join($em-values, #{$value}em);
+    }
+  }
+  @if $target == "font-size" {
+    @if $line-height == 0 {
+      #{$target}: $px-values;
+      #{$target}: $em-values;
+    } @else {
+      #{$target}: $px-values;
+      #{$target}: $em-values;
+      line-height: $line-height / strip-unit($values);
+    }
+    //} @else if $target == 'border' & 'border-left' & 'border-right' & 'border-top' & 'border-bottom' {
+  } @else if index(border border-left border-right border-top border-bottom, $target) {
+    #{$target}: $px-values $line-height $border-info;
+    #{$target}: $em-values $line-height $border-info;
+  } @else {
+    #{$target}: $px-values;
+    #{$target}: $em-values;
+  }
+}
+
+// $title
+// ____________________________________________________________________________
+//
+//    SCSS Unit Conversion v.2.1.2
+//
+//
+//    Links:
+//    GitHub   https://github.com/jakob-e/unitconversion
+//    Codepen  https://codepen.io/jakob-e/pen/AHunv
+// ____________________________________________________________________________
+//
+//   Function               Input units
+//
+//   Absolute length
+//   px(input);             px, pt, pc, in, mm, cm, em, rem, number
+//   pt(input);             px, pt, pc, in, mm, cm, em, rem, number
+//   pc(input);             px, pt, pc, in, mm, cm, em, rem, number
+//   in(input);             px, pt, pc, in, mm, cm, em, rem, number
+//   mm(input);             px, pt, pc, in, mm, cm, em, rem, number
+//   cm(input);             px, pt, pc, in, mm, cm, em, rem, number
+//
+//   Relative length
+//   em(input);             px, pt, pc, in, mm, cm, em, rem, number
+//   rem(input);            px, pt, pc, in, mm, cm, em, rem, number
+//   ex(input);             ex, number
+//   ch(input);             ch, number
+//   vw(input);             vw, number
+//   vh(input);             vh, number
+//   vmin(input);           vmin, number
+//   vmax(input);           vmax, number
+//
+//   Angle
+//   deg(input);            deg, rad, grad, turn, number
+//   rad(input);            deg, rad, grad, turn, number
+//   grad(input);           deg, rad, grad, turn, number
+//   turn(input);           deg, rad, grad, turn, number
+//
+//   Resolution
+//   dpi(input);            dpi, dpcm, dppx, number
+//   dpcm(input);           dpi, dpcm, dppx, number
+//   dppx(input);           dpi, dpcm, dppx, number
+//
+//   Time
+//   s(input);              s, ms, number
+//   ms(input);             s, ms, number
+//
+//   Frequency
+//   hz(input);             hz, khz, number
+//   khz(input);            hz, khz, number
+//
+//   String
+//   str(input);            anything not null
+//
+//   Number, int and uint
+//   num(input);            px, pt, pc, in, mm, cm, em, rem, ex, ch,
+//                          vw, vh, vmin, vmax, deg, rad, grad, turn,
+//                          dpi, dpcm, dppx, s, ms, hz, khz, number
+//   int(input);            as number
+//   uint(input);           as number
+//
+//   ratio                  number to fraction
+//
+//   Aliases
+//   string(input);
+//   number(input);
+//
+// ____________________________________________________________________________
+
+// Base font size in pixel for converting em and rem to absolute lengths.
+$unit-base-font-size: $global-font-size;
+
+// Absolute lengths
+@function px($input) {
+  @return to-unit(px, $input);
+}
+@function pt($input) {
+  @return to-unit(pt, $input);
+}
+@function pc($input) {
+  @return to-unit(pc, $input);
+}
+@function in($input) {
+  @return to-unit(in, $input);
+}
+@function mm($input) {
+  @return to-unit(mm, $input);
+}
+@function cm($input) {
+  @return to-unit(cm, $input);
+}
+
+// Angles
+@function deg($input) {
+  @return to-unit(deg, $input);
+}
+@function rad($input) {
+  @return to-unit(rad, $input);
+}
+@function grad($input) {
+  @return to-unit(grad, $input);
+}
+@function turn($input) {
+  @return to-unit(turn, $input);
+}
+
+// Resolution
+@function dpi($input) {
+  @return to-unit(dpi, $input);
+}
+@function dpcm($input) {
+  @return to-unit(dpcm, $input);
+}
+@function dppx($input) {
+  @return to-unit(dppx, $input);
+}
+
+// Time
+@function ms($input) {
+  @return to-unit(ms, $input);
+}
+@function s($input) {
+  @return to-unit(s, $input);
+}
+
+// Frequencies
+@function hz($input) {
+  @return to-unit(hz, $input);
+}
+@function khz($input) {
+  @return to-unit(khz, $input);
+}
+
+// Relative lengths
+@function em($input...) {
+  $em: to-unit(em, nth($input, 1));
+  // Adjust for compounds (visual size)
+  @if length($input) > 1 {
+    @for $i from 2 through length($input) {
+      $em: $em / num(em(nth($input, $i)));
+    }
+  }
+  @return $em;
+}
+@function rem($input) {
+  @return to-unit(rem, num(em($input)));
+}
+
+// Inconvertible relative lengths – depends on font
+@function ex($input) {
+  @return to-unit(ex, $input);
+}
+@function ch($input) {
+  @return to-unit(ch, $input);
+}
+
+// Viewport
+@function vw($input) {
+  @return to-unit(vw, $input);
+}
+@function vh($input) {
+  @return to-unit(vh, $input);
+}
+@function vmin($input) {
+  @return to-unit(vmin, $input);
+}
+@function vmax($input) {
+  @return to-unit(vmax, $input);
+}
+
+// Strings and numbers
+@function str($input) {
+  @return #{$input};
+}
+@function num($input) {
+  @if type-of($input) != number {
+    @error 'Could not convert `#{$input}` - must be `type-of number`';
+    @return null;
+  }
+  @return math.div($input, ($input * 0+1));
+}
+@function int($input) {
+  $num: num($input);
+  @return if($num<0, ceil($num), floor($num));
+}
+@function uint($input) {
+  @return abs(int($input));
+}
+
+// Aliases
+@function string($input) {
+  @return str($input);
+}
+@function number($input) {
+  @return num($input);
+}
+
+// Conversion function
+@function to-unit($unit, $input) {
+  // Test against valid CSS units
+  $to-unit: map-get(
+    (
+      px: 0px,
+      pt: 0pt,
+      pc: 0pc,
+      in: 0in,
+      mm: 0mm,
+      cm: 0cm,
+      // absolute length
+      em: 0em,
+      rem: 0rem,
+      ch: 0ch,
+      ex: 0ex,
+      // relative length - font based
+      vw: 0vw,
+      vh: 0vh,
+      vmin: 0vmin,
+      vmax: 0vmax,
+      // relative length - viewport based
+      deg: 0deg,
+      turn: 0turn,
+      grad: 0grad,
+      rad: 0rad,
+      // angle
+      s: 0s,
+      ms: 0ms,
+      // time
+      hz: 0Hz,
+      khz: 0kHz,
+      // frequency
+      dpi: 0dpi,
+      dpcm: 0dpcm,
+      dppx: 0dppx,
+      // resolution
+      pct: 0%,
+      percent: 0%,
+      num: 0,
+      number: 0 // percent or number,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    ),
+    $unit
+  );
+
+  // Error handling – wrong $unit
+  // Incomparable units are caught in convertion
+  @if not $to-unit {
+    @error 'Could not convert to `#{$unit}` – must be a valid CSS unit';
+    @return null;
+  }
+
+  // Number/incomparable conversion
+  @if index(num number ex ch vw vh vmin vmax, $unit) {
+    $value: num($input);
+  }
+
+  // EM/REM convertion using px as base
+  @if index(em rem, unit($input)) {
+    $input: 0px + num($input) * $unit-base-font-size/1px;
+  }
+  @if index(em rem, $unit) and not unitless($input) {
+    $input: 0px + $input;
+    $input: math.div(num($input) * 1px, $unit-base-font-size);
+  }
+
+  // Bug fix – resolution units seems to be flipped
+  @if index(dpi dpcm dppx, $unit) {
+    $units: (
+      dppx: 0dppx,
+      dpcm: 0dpcm,
+      dpi: 0dpi,
+    );
+    $input-unit: map-get($units, unit($input));
+    $input: if(1dppx < 95dpi, num($input-unit + (num($input) + $to-unit)), $input);
+  }
+
+  // Convert
+  @return $to-unit + $input;
+}
+
+//  Convert number to ratio (fraction)
+//  ratio(1.7777778) =>   16/9
+@function ratio($x, $y: null) {
+  @if not $y {
+    $n: $x;
+    $y: 1;
+    @while $y < 10 {
+      $x: $n * 10 - ((10 - $y) * $n);
+      @if $x == round($x) {
+        @return #{$x}/#{$y};
+      } @else {
+        $y: $y + 1;
+      }
+    }
+    $x: round($n * 1000000);
+    $y: 1000000;
+    @while $x % 10 == 0 {
+      $x: $x/10;
+      $y: $y/10;
+    }
+    @while $x % 5 == 0 {
+      $x: $x/5;
+      $y: $y/5;
+    }
+    @while $x % 2 == 0 {
+      $x: $x/2;
+      $y: $y/2;
+    }
+    @return #{$x}/#{$y};
+  } @else if $x == round($x) and $y == round($y) {
+    @return #{$x}/#{$y};
+  }
+  @warn 'X and Y must be integers';
+  @return false;
+}

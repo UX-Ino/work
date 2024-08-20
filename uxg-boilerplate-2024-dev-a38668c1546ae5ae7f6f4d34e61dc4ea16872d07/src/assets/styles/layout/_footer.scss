@@ -1,0 +1,13 @@
+@use "../abstracts" as *;
+
+.footer {
+  @include rem(padding, 0 0 20px 0);
+  background-color: $bg-eeeeee;
+  border-top: 1px solid;
+
+  // info
+  .footer-info {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
